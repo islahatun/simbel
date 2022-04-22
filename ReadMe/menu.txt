@@ -1,0 +1,93 @@
+Dashboard
+Pendaftaran
+  Pasien [v]
+  Pembatalan Transaksi
+  IGD
+  Rawat Jalan [v]
+  Rawat Inap
+Master Data
+  Tenaga Kesehatan [v]
+  Poliklinik [v] - [done]
+  Parameter
+  Asuransi
+  Obat / Item [v]
+  Supplier [v]
+  Asal Rusukan
+  Ruang Inap [x]
+  Diagnosa [v]
+  Aturan Obat [v]
+  Jenis Tarif [v]
+  Jenis Obat [v] - [done]
+Jadwal Dr & Bidan [v]
+Farmasi
+  Antrian Farmasi [v]
+  Penjualan Langsung [v]
+Input Tindakan
+  IGD [x]
+  Rawat Jalan [v]
+  Rawat Inap [x]
+Billing [v]
+Keuangan
+  Master Tarif [v]
+  Pembayaran Hutang [v]
+  Kas & Bank
+  Neraca Saldo
+  Buku Besar
+  Laba Rugi
+  Tutup Kasir
+  Jurnal
+  COA
+  Tutup Buku
+  Pembayaran Biaya
+  Jurnal Umum
+  Bank
+  Neraca
+  Perubahan Modal
+  Harta Tetap
+  Penerimaan Hutan
+Laporan 
+  Pendapatan
+  Rekam Medis
+  Kunjungan
+  Jasa Tenaga Kesehatan
+  Pemakaian Obat
+  Laboratorium
+  Radiologi
+  Penjualan Akumulasi
+  Penjualan Peritem
+  Jasa Apoteker
+  Diagnosa
+  Pajak
+  Obat Terbanyak
+  Pelayanan Terbanyak
+  Return
+  Pendapatan / Pengeluaran Lain
+  Purchase Order
+  Hutang Pembelian
+  Hutang Jatuh Tempo
+  Hutang Terbayar
+  Analisa Umur Hutang
+  Laporan Waste
+  Laporan Penerima Barang
+  Laporan Stock Opname
+  Retur Pembelian
+Laboratorium
+Radiologi
+Cetak Surat
+  Surat Sehat
+  Surat Sakit
+  Surat Rujukan
+Users
+Cetak Slig Gaji
+Inventory
+  Purchase Order [v]
+  Barang Masuk
+  Waste
+  Retur
+  Stock Opname Gudang
+  Data Stock
+  Kartu Stock
+  Cetak Barcode
+Settings
+  Info Klinik
+  Email
