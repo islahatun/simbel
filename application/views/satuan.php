@@ -32,10 +32,10 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Satuan/add'); ?>" class="btn btn-sm btn-info mr-1">
+                                    <a href="<?= base_url('Kategori/add'); ?>" class="btn btn-sm btn-info mr-1">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
-                                    <a href="<?= base_url('Parameter') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a>
+                                    <a href="<?= base_url('Kategori') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -47,7 +47,7 @@
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Satuan Dosis</th>
+                                        <th>Satuan Dosi</th>
                                         <th class="col-md-1 text-center">Status</th>
                                         <th class="col-md-2 text-center">#</th>
                                     </tr>

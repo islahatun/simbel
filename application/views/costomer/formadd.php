@@ -32,9 +32,9 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Nama</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="nama">
+                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="nama_pelanggan">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -64,7 +64,7 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('AturanObat'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('Costomer'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="saveAO()">Save</button>
                             </div>
                         </form>
@@ -88,7 +88,7 @@
         //debugger
         PatchURL = _baseurl.concat('/Costomer/save');
 
-        var vnama = $("#nama").val();
+        var vnama_pelanggan = $("#nama_pelanggan").val();
         var valamat = $("#alamat").val();
         var vno_telp = $("#no_telp").val();
         var vemail = $("#email").val();
@@ -96,7 +96,7 @@
         var vjenis_kelamin = $("#jenis_kelamin").val();
 
         var value = {
-            nama: vnama,
+            nama_pelanggan: vnama_pelanggan,
             alamat: valamat,
             no_telp: vno_telp,
             email: vemail,
@@ -123,7 +123,7 @@
     }
 
     function clearText() {
-        $("#nama").val();
+        $("#nama_pelanggan").val();
         $("#alamat").val();
         $("#no_telp").val();
         $("#email").val();

@@ -46,7 +46,7 @@
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Nama Pelanggan</th>
+                                        <th>Nama Admin</th>
                                         <th class="col-md-1 text-center">Jenis Kelamin</th>
                                         <th class="col-md-1 text-center">Nomor Hp</th>
                                         <th class="col-md-2 text-center">Alamat</th>

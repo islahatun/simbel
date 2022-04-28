@@ -39,33 +39,33 @@
                             <div class="card-body">
                                 <div class="form-group row">
                                     <input type="text" hidden class="form-control" id="id_pelanggan" value="<?= $ao->id_pelanggan; ?>">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Nama</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="nama">
+                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="Nama pelanggan" value="<?= $ao->nama_pelanggan; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Jenis Kelamin</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin">
+                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin" value="<?= $ao->jenis_kelamin; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">No Hp</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="no_telp" placeholder="No Hp">
+                                        <input type="text" class="form-control form-control-sm" id="no_telp" placeholder="No Hp" value="<?= $ao->no_telp; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Alamat</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat">
+                                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat" value="<?= $ao->alamat; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email">
+                                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email" value="<?= $ao->email; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
         debugger
         PatchURL = _baseurl.concat('/Costomer/updateSave');
         var vid_pelanggan = $("#id_pelanggan").val();
-        var vnama = $("#nama").val();
+        var vnama_pelanggan = $("#nama_pelanggan").val();
         var valamat = $("#alamat").val();
         var vno_telp = $("#no_telp").val();
         var vemail = $("#email").val();
@@ -104,7 +104,7 @@
 
         var value = {
             id_pelanggan: vid_pelanggan,
-            nama: vnama,
+            nama_pelanggan: vnama_pelanggan,
             alamat: valamat,
             no_telp: vno_telp,
             email: vemail,
@@ -129,7 +129,7 @@
     }
 
     function clearText() {
-        $("#nama").val();
+        $("#nama_pelanggan").val();
         $("#alamat").val();
         $("#no_telp").val();
         $("#email").val();
