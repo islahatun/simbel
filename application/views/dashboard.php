@@ -22,7 +22,7 @@
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Pasien Hari Ini</span>
+                <span class="info-box-text">Jumlah Costomer</span>
                 <span class="info-box-number">0</span>
               </div>
               <!-- /.info-box-content -->
@@ -35,7 +35,7 @@
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Menunggu Pembayaran</span>
+                <span class="info-box-text">Jumlah Pesanan</span>
                 <span class="info-box-number">0</span>
               </div>
               <!-- /.info-box-content -->
@@ -62,7 +62,8 @@
           <!-- /.col -->
         </div>
         <!-- /.row -->
-      </div><!--/. container-fluid -->
+      </div>
+      <!--/. container-fluid -->
     </section>
     <!-- /.content -->
   </div>
