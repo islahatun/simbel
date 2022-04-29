@@ -38,40 +38,69 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <input type="text" hidden class="form-control" id="id_pelanggan" value="<?= $ao->id_pelanggan; ?>">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
+                                    <input type="hidden" class="form-control form-control-sm" id="id_po" value="<?= $MasterBarang->id_po ?>">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Barang</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="Nama pelanggan" value="<?= $ao->nama_pelanggan; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="nama_barang" placeholder="Nama Barang" value="<?= $MasterBarang->nama_barang ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Jenis Kelamin</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Kategori</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin" value="<?= $ao->jenis_kelamin; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="id_kategori" placeholder="Kategori" value="<?= $MasterBarang->id_kategori ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">No Hp</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Satuan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="no_telp" placeholder="No Hp" value="<?= $ao->no_telp; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="satuan" placeholder="Satuan" value="<?= $MasterBarang->satuan ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Alamat</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Stok</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat" value="<?= $ao->alamat; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="stok" placeholder="Stok" value="<?= $MasterBarang->stok ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Email</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Deskripsi</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email" value="<?= $ao->email; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="deskripsi" placeholder="Deskripsi" value="<?= $MasterBarang->deskripsi ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Harga Beli</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form-control-sm" id="harga_beli" placeholder="Harga Beli" value="<?= $MasterBarang->harga_beli ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Harga Jual</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form-control-sm" id="harga_jual" placeholder="Harga Jual" value="<?= $MasterBarang->harga_jual ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Tanggal Datang</label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control form-control-sm" id="tanggal_datang" placeholder="Tanggal Datang" value="<?= $MasterBarang->tanggal_datang ?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <img src="<?= base_url('assets/img/profil/') ?>" alt="" class="img-thumbnail">
+                                    </div>
+                                    <div class="col">
+                                        <div class="custom-file ">
+                                            <input type="file" class="custom-file-input custom-file-input-sm" name="foto" id="foto">
+                                            <label class="custom-file-label custom-file-label-sm" for="foto">Pilih Foto</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Costomer'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('MasterBarang'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
@@ -92,24 +121,32 @@
 <!-- Page specific script -->
 <script>
     function updateSaveAO() {
-        debugger
-        PatchURL = _baseurl.concat('/Costomer/updateSave');
-        var vid_pelanggan = $("#id_pelanggan").val();
-        var vnama_pelanggan = $("#nama_pelanggan").val();
-        var valamat = $("#alamat").val();
-        var vno_telp = $("#no_telp").val();
-        var vemail = $("#email").val();
+        // debugger
+        PatchURL = _baseurl.concat('/MasterBarang/updateSave');
+        var vid_po = $("#id_po").val();
+        var vnama_barang = $("#nama_barang").val();
+        var vdeskripsi = $("#deskripsi").val();
+        var vstok = $("#stok").val();
+        var vsatuan = $("#satuan").val();
+        var vharga_beli = $("#harga_beli").val();
+        var vharga_jual = $("#harga_jual").val();
+        var vtanggal_datang = $("#tanggal_datang").val();
+        var vid_kategori = $("#id_kategori").val();
         var vfoto = $("#foto").val();
-        var vjenis_kelamin = $("#jenis_kelamin").val();
+        // var vjenis_kelamin = $("#jenis_kelamin").val();
 
         var value = {
-            id_pelanggan: vid_pelanggan,
-            nama_pelanggan: vnama_pelanggan,
-            alamat: valamat,
-            no_telp: vno_telp,
-            email: vemail,
+            id_po: vid_po,
+            nama_barang: vnama_barang,
+            id_kategori: vid_kategori,
+            deskripsi: vdeskripsi,
+            stok: vstok,
+            satuan: vsatuan,
+            harga_beli: vharga_beli,
+            harga_jual: vharga_jual,
+            tanggal_datang: vtanggal_datang,
             foto: vfoto,
-            jenis_kelamin: vjenis_kelamin
+            // jenis_kelamin: vjenis_kelamin
         };
 
         $.ajax({

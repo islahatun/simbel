@@ -32,39 +32,68 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Barang</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="nama_pelanggan">
+                                        <input type="text" class="form-control form-control-sm" id="nama_barang" placeholder="Nama Barang">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Jenis Kelamin</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Kategori</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin">
+                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Kategori">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">No Hp</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Satuan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="no_telp" placeholder="No Hp">
+                                        <input type="text" class="form-control form-control-sm" id="satuan" placeholder="Satuan">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Alamat</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Stok</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat">
+                                        <input type="text" class="form-control form-control-sm" id="stok" placeholder="Stok">
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Email</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Deskripsi</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email">
+                                        <input type="text" class="form-control form-control-sm" id="deskripsi" placeholder="Deskripsi">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Harga Beli</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form-control-sm" id="harga_beli" placeholder="Harga Beli">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Harga Jual</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control form-control-sm" id="harga_jual" placeholder="Harga Jual">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Tanggal Datang</label>
+                                    <div class="col-sm-10">
+                                        <input type="date" class="form-control form-control-sm" id="tanggal_datang" placeholder="Tanggal Datang">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <img src="<?= base_url('assets/img/profil/') ?>" alt="" class="img-thumbnail">
+                                    </div>
+                                    <div class="col">
+                                        <div class="custom-file ">
+                                            <input type="file" class="custom-file-input custom-file-input-sm" name="foto" id="foto">
+                                            <label class="custom-file-label custom-file-label-sm" for="foto">Pilih Foto</label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Costomer'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('MasterBarang'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="saveAO()">Save</button>
                             </div>
                         </form>
@@ -86,22 +115,29 @@
 <script>
     function saveAO() {
         //debugger
-        PatchURL = _baseurl.concat('/Costomer/save');
+        PatchURL = _baseurl.concat('/MasterBarang/save');
 
-        var vnama_pelanggan = $("#nama_pelanggan").val();
-        var valamat = $("#alamat").val();
-        var vno_telp = $("#no_telp").val();
-        var vemail = $("#email").val();
+        var vnama_barang = $("#nama_barang").val();
+        var vdeskripsi = $("#deskripsi").val();
+        var vstok = $("#stok").val();
+        var vsatuan = $("#satuan").val();
+        var vharga_beli = $("#harga_beli").val();
+        var vharga_jual = $("#harga_jual").val();
+        var vtanggal_datang = $("#tanggal_datang").val();
+        var vid_kategori = $("#id_kategori").val();
         var vfoto = $("#foto").val();
-        var vjenis_kelamin = $("#jenis_kelamin").val();
+        // var vjenis_kelamin = $("#jenis_kelamin").val();
 
         var value = {
-            nama_pelanggan: vnama_pelanggan,
-            alamat: valamat,
-            no_telp: vno_telp,
-            email: vemail,
+            nama_barang: vnama_barang,
+            deskripsi: vdeskripsi,
+            stok: vstok,
+            satuan: vsatuan,
+            harga_beli: vharga_beli,
+            harga_jual: vharga_jual,
+            tanggal_datang: vtanggal_datang,
             foto: vfoto,
-            jenis_kelamin: vjenis_kelamin
+            // jenis_kelamin: vjenis_kelamin
         };
 
         $.ajax({
@@ -123,12 +159,14 @@
     }
 
     function clearText() {
-        $("#nama_pelanggan").val();
-        $("#alamat").val();
-        $("#no_telp").val();
-        $("#email").val();
+        $("#nama_barang").val();
+        $("#deskripsi").val();
+        $("#stok").val();
+        $("#harga_beli").val();
+        $("#harga_jual").val();
+        $("#tanggal_datang").val();
         $("#foto").val();
-        $("#jenis_kelamin").val();
+        // $("#jenis_kelamin").val();
     }
 </script>
 <!-- SweetAlert2 -->

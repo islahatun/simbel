@@ -35,7 +35,7 @@
                                     <a href="<?= base_url('MasterBarang/add'); ?>" class="btn btn-sm btn-info mr-1">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
-                                    <a href="<?= base_url('MasterBarang') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a>
+                                    <!-- <a href="<?= base_url('MasterBarang') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a> -->
                                 </div>
                             </div>
                         </div>
@@ -49,6 +49,7 @@
                                         <th class="col-md-1">No</th>
                                         <th>Nama Barang</th>
                                         <th class="col-md-1 text-center">Kategori</th>
+                                        <th class="col-md-1 text-center">Satuan</th>
                                         <th class="col-md-1 text-center">Stok</th>
                                         <th class="col-md-1 text-center">Deskripsi</th>
                                         <th class="col-md-1 text-center">Harga Beli</th>
@@ -101,7 +102,11 @@
                     className: "align-middle small"
                 },
                 {
-                    "data": "kategori",
+                    "data": "id_kategori",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "satuan",
                     className: "align-middle text-center small"
                 },
                 {

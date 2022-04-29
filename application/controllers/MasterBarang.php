@@ -32,8 +32,9 @@ class masterBarang extends CI_Controller
                 'nomor'                 => $i,
                 'id_po'         => $po->id_po,
                 'nama_barang'       => $po->nama_barang,
-                'kategori'                 => $po->kategori,
+                'id_kategori'                 => $po->id_kategori,
                 'satuan'      => $po->satuan,
+                'stok'      => $po->stok,
                 'deskripsi'                 => $po->deskripsi,
                 'harga_beli'                 => $po->harga_beli,
                 'harga_jual'                 => $po->harga_jual,
@@ -75,13 +76,14 @@ class masterBarang extends CI_Controller
     {
         $data = array(
             'nama_barang' => $this->input->post('nama_barang'),
-            'kategori' => $this->input->post('kategori'),
+            'id_kategori' => $this->input->post('id_kategori'),
             'satuan' => $this->input->post('satuan'),
+            'stok' => $this->input->post('stok'),
             'deskripsi' => $this->input->post('deskripsi'),
             'harga_beli' => $this->input->post('harga_beli'),
             'harga_jual' => $this->input->post('harga_jual'),
             'tanggal_datang' => $this->input->post('tanggal_datang'),
-            'gambar' => $this->input->post('gambar')
+            'gambar' => $this->input->post('foto')
         );
 
         $this->db->insert("dm_po", $data);
@@ -92,13 +94,14 @@ class masterBarang extends CI_Controller
     {
         $data = array(
             'nama_barang' => $this->input->post('nama_barang'),
-            'kategori' => $this->input->post('kategori'),
+            'id_kategori' => $this->input->post('id_kategori'),
             'satuan' => $this->input->post('satuan'),
+            'stok' => $this->input->post('stok'),
             'deskripsi' => $this->input->post('deskripsi'),
             'harga_beli' => $this->input->post('harga_beli'),
             'harga_jual' => $this->input->post('harga_jual'),
             'tanggal_datang' => $this->input->post('tanggal_datang'),
-            'gambar' => $this->input->post('gambar')
+            'gambar' => $this->input->post('foto')
         );
 
         $this->db->where('id_po', $this->input->post('id_po'));
@@ -109,6 +112,6 @@ class masterBarang extends CI_Controller
     {
 
         $this->db->where('id_po', $this->input->post('id_po'));
-        $this->db->update("dm_po");
+        $this->db->delete("dm_po");
     }
 }

@@ -87,10 +87,10 @@
       success: function(data, textStatus, jqXHR) {
         debugger
         //var data = jQuery.parseJSON(data);
-        toastr.success('Data berhasil disimpan.');
+        toastr.success('Data berhasil diubah.');
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        toastr.error('Data gagal disimpan.');
+        toastr.error('Data gagal diubah.');
       }
     });
   }
