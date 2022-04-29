@@ -40,8 +40,8 @@
                 <div class="form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Nama Kategori</label>
                   <div class="col-sm-10">
-                    <input type="hidden" class="form-control" id="id_kategori" value="<?= $Kategori->id_kategori; ?>">
-                    <input type="text" class="form-control form-control-sm" id="nama_kategori" placeholder="Status Pemesanan" value="<?= $Kategori->nama_kategori; ?>">
+                    <input type="hidden" class="form-control" id="id_kategori" value="<?= $kategori->id_kategori; ?>">
+                    <input type="text" class="form-control form-control-sm" id="nama_kategori" placeholder="Nama Kategori" value="<?= $kategori->nama_kategori; ?>">
                   </div>
                 </div>
               </div>
