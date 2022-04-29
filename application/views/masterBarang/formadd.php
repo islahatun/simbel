@@ -12,14 +12,8 @@
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                     <h1><?= $title; ?></h1>
-                </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">DataTables</li>
-                    </ol>
                 </div>
             </div>
         </div><!-- /.container-fluid -->
@@ -34,45 +28,44 @@
                         <div class="card-header">
                             <h3 class="card-title"><?= $subtitle; ?></h3>
                         </div>
-                        <form id="costomer" class="form-horizontal">
+                        <form id="form_poliklinik" class="form-horizontal">
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <input type="text" hidden class="form-control" id="id" value="<?= $ao->id; ?>">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="Nama pelanggan" value="<?= $ao->nama; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="nama_pelanggan">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Jenis Kelamin</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin" value="<?= $ao->jenis_kelamin; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">No Hp</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="no_telp" placeholder="No Hp" value="<?= $ao->no_telp; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="no_telp" placeholder="No Hp">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Alamat</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat" value="<?= $ao->alamat; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email" value="<?= $ao->email; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email">
                                     </div>
                                 </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
                                 <a href="<?= base_url('Costomer'); ?>" type="button" class="btn btn-secondary">Kembali</a>
-                                <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
+                                <button type="button" class="btn btn-primary" onclick="saveAO()">Save</button>
                             </div>
                         </form>
                     </div>
@@ -91,11 +84,11 @@
 
 <!-- Page specific script -->
 <script>
-    function updateSaveAO() {
-        debugger
-        PatchURL = _baseurl.concat('/Costomer/updateSave');
-        var vid = $("#id").val();
-        var vnama = $("#nama").val();
+    function saveAO() {
+        //debugger
+        PatchURL = _baseurl.concat('/Costomer/save');
+
+        var vnama_pelanggan = $("#nama_pelanggan").val();
         var valamat = $("#alamat").val();
         var vno_telp = $("#no_telp").val();
         var vemail = $("#email").val();
@@ -103,8 +96,7 @@
         var vjenis_kelamin = $("#jenis_kelamin").val();
 
         var value = {
-            id: vid,
-            nama: vnama,
+            nama_pelanggan: vnama_pelanggan,
             alamat: valamat,
             no_telp: vno_telp,
             email: vemail,
@@ -120,16 +112,18 @@
             success: function(data, textStatus, jqXHR) {
                 debugger
                 //var data = jQuery.parseJSON(data);
-                toastr.success('Data berhasil diubah.');
+                toastr.success('Data berhasil disimpan.');
+
+                clearText();
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                toastr.error('Data gagal diubah.');
+                toastr.error('Data gagal disimpan.');
             }
         });
     }
 
     function clearText() {
-        $("#nama").val();
+        $("#nama_pelanggan").val();
         $("#alamat").val();
         $("#no_telp").val();
         $("#email").val();

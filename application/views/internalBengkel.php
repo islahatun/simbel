@@ -32,7 +32,7 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Costomer/add'); ?>" class="btn btn-sm btn-info">
+                                    <a href="<?= base_url('InternalBengkel/add'); ?>" class="btn btn-sm btn-info">
                                         <i class="fas fa-plus"></i> Tambah
                                     </a>
                                 </div>
@@ -94,7 +94,7 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "nama_pelanggan",
+                    "data": "nama",
                     className: "align-middle text-center small"
                 },
                 {
@@ -127,17 +127,17 @@
 
 
 
-    $(document).on("click", "#btn_aturan_obat_del", function() {
+    $(document).on("click", "#btn_pelanggan_del", function() {
         //debugger
-        var vaturan_obat = $(this).attr("vaturan_obat");
+        var vid = $(this).attr("vid");
 
-        if (!vaturan_obat) {
+        if (!vid) {
             toastr.error('Data gagal disimpan.');
             return
         }
 
         var value = {
-            aturan_obat: vaturan_obat
+            id: vid
         };
 
         Swal.fire({
@@ -158,10 +158,10 @@
                         debugger
                         var table = $('#ao').DataTable();
                         table.ajax.reload();
-                        toastr.success('Data berhasil disimpan.');
+                        toastr.success('Data berhasil dihapus.');
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
-                        toastr.error('Data gagal disimpan.');
+                        toastr.error('Data gagal dihapus.');
                     }
                 });
             }

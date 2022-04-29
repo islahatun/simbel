@@ -1,27 +1,27 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Costomer extends CI_Controller
+class Pengguna extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         $this->load->model('MFunction');
-        $this->load->model('MCostomer');
+        $this->load->model('MPengguna');
     }
 
     public function index()
     {
-        $data['title'] = 'Daftar Pelanggan';
-        $data['subtitle'] = 'Data Pelanggan';
+        $data['title'] = 'Daftar Pengguna';
+        $data['subtitle'] = 'Data Pengguna';
 
-        $data['content_overview'] = $this->load->view('costomer', $data, true);
+        $data['content_overview'] = $this->load->view('pengguna', $data, true);
         $this->load->view('overview', $data);
     }
 
     public function datalist()
     {
-        $list = $this->MCostomer->datalist();
+        $list = $this->MPengguna->datalist();
         $rtn = array();
         $i = 1;
 
@@ -36,7 +36,7 @@ class Costomer extends CI_Controller
                 'email'    => $ao->email,
                 'foto'    => $ao->foto,
                 // 'status'              => "<span class='badge badge-warning'> " . $this->MFunction->php_status($ao->status) . " </span>",
-                'btn_action'         => "<a href='" . base_url('Costomer/update/' . $ao->id) . "' class='btn btn-sm btn-outline-success'> 
+                'btn_action'         => "<a href='" . base_url('Pengguna/update/' . $ao->id) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
 											<button type='button' id='btn_del' vid=" . $ao->id . " class='btn btn-sm btn-outline-danger'> 
@@ -51,20 +51,20 @@ class Costomer extends CI_Controller
 
     public function add()
     {
-        $data['title'] = 'Daftar Pelanggan';
-        $data['subtitle'] = 'Data Pelanggan';
+        $data['title'] = 'Daftar Pengguna';
+        $data['subtitle'] = 'Data Pengguna';
 
-        $data['content_overview'] = $this->load->view('Costomer/formadd', $data, true);
+        $data['content_overview'] = $this->load->view('Pengguna/formadd', $data, true);
         $this->load->view('overview', $data);
     }
 
     public function update($id)
     {
-        $data['title'] = 'Daftar Pelanggan';
-        $data['subtitle'] = 'Data Pelanggan';
-        $data["ao"] = $this->MCostomer->getById($id);
+        $data['title'] = 'Daftar Pengguna';
+        $data['subtitle'] = 'Data Pengguna';
+        $data["ao"] = $this->MPengguna->getById($id);
 
-        $data['content_overview'] = $this->load->view('Costomer/formupdate', $data, true);
+        $data['content_overview'] = $this->load->view('Pengguna/formupdate', $data, true);
         $this->load->view('overview', $data);
     }
 
@@ -77,7 +77,7 @@ class Costomer extends CI_Controller
             'alamat' => $this->input->post('alamat'),
             'email' => $this->input->post('email'),
             'foto' => $this->input->post('foto'),
-            'status' => 1,
+            'status' => $this->input->post('status'),
         );
 
         $this->db->insert("dm_pengguna", $data);
@@ -92,6 +92,7 @@ class Costomer extends CI_Controller
             'alamat' => $this->input->post('alamat'),
             'email' => $this->input->post('email'),
             'foto' => $this->input->post('foto'),
+            'status' => $this->input->post('status'),
         );
 
         $this->db->where('id', $this->input->post('id'));
@@ -102,6 +103,6 @@ class Costomer extends CI_Controller
     {
 
         $this->db->where('id', $this->input->post('id'));
-        $this->db->delete("dm_pengguna");
+        $this->db->update("dm_pengguna");
     }
 }

@@ -12,9 +12,9 @@ class MInternalBengkel extends CI_Model
         date_default_timezone_set('Asia/Jakarta');
 
         $this->db->select('*');
-        $this->db->from("dm_admin");
-        // $this->db->where("status", 1);
-        $this->db->order_by("id_admin", 'ASC');
+        $this->db->from("dm_pengguna");
+        $this->db->where("status", 2);
+        $this->db->order_by("id", 'ASC');
 
         $finalResponse =  $this->db->get()->result();
         return $finalResponse;
@@ -22,6 +22,6 @@ class MInternalBengkel extends CI_Model
 
     public function getById($id)
     {
-        return $this->db->get_where("dm_admin", ["id_admin" => $id])->row();
+        return $this->db->get_where("dm_pengguna", ["id" => $id])->row();
     }
 }

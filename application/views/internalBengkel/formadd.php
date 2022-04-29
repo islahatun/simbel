@@ -32,9 +32,9 @@
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Admin</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="nama_pelanggan">
+                                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="Nama Admin">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -61,10 +61,21 @@
                                         <input type="text" class="form-control form-control-sm" id="email" placeholder="Email">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <img src="<?= base_url('assets/img/profil/') ?>" alt="" class="img-thumbnail">
+                                    </div>
+                                    <div class="col">
+                                        <div class="custom-file ">
+                                            <input type="file" class="custom-file-input custom-file-input-sm" name="foto" id="foto">
+                                            <label class="custom-file-label custom-file-label-sm" for="foto">Pilih Foto</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Costomer'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('InternalBengkel'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="saveAO()">Save</button>
                             </div>
                         </form>
@@ -86,9 +97,9 @@
 <script>
     function saveAO() {
         //debugger
-        PatchURL = _baseurl.concat('/Costomer/save');
+        PatchURL = _baseurl.concat('/InternalBengkel/save');
 
-        var vnama_pelanggan = $("#nama_pelanggan").val();
+        var vnama = $("#nama").val();
         var valamat = $("#alamat").val();
         var vno_telp = $("#no_telp").val();
         var vemail = $("#email").val();
@@ -96,7 +107,7 @@
         var vjenis_kelamin = $("#jenis_kelamin").val();
 
         var value = {
-            nama_pelanggan: vnama_pelanggan,
+            nama: vnama,
             alamat: valamat,
             no_telp: vno_telp,
             email: vemail,
@@ -123,7 +134,7 @@
     }
 
     function clearText() {
-        $("#nama_pelanggan").val();
+        $("#nama").val();
         $("#alamat").val();
         $("#no_telp").val();
         $("#email").val();

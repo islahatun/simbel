@@ -55,7 +55,7 @@
                                         <th class="col-md-1 text-center">Harga Jual</th>
                                         <th class="col-md-1 text-center">Tanggal Datang</th>
                                         <th class="col-md-1 text-center">Gambar</th>
-                                        <th class="col-md-2 text-center">Aksi/th>
+                                        <th class="col-md-2 text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>

@@ -21,7 +21,7 @@ class masterBarang extends CI_Controller
 
     public function datalist()
     {
-        $list = $this->MMasterBrang->datalist();
+        $list = $this->MMasterBarang->datalist();
 
         $rtn = array();
         $i = 1;

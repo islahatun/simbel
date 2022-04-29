@@ -94,7 +94,7 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "nama_pelanggan",
+                    "data": "nama",
                     className: "align-middle text-center small"
                 },
                 {
@@ -127,17 +127,17 @@
 
 
 
-    $(document).on("click", "#btn_aturan_obat_del", function() {
+    $(document).on("click", "#btn_del", function() {
         //debugger
-        var vaturan_obat = $(this).attr("vaturan_obat");
+        var vid = $(this).attr("vid");
 
-        if (!vaturan_obat) {
+        if (!vid) {
             toastr.error('Data gagal disimpan.');
             return
         }
 
         var value = {
-            aturan_obat: vaturan_obat
+            id: vid
         };
 
         Swal.fire({

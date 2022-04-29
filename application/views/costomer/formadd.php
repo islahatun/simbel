@@ -34,7 +34,7 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="nama_pelanggan">
+                                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="Nama Pelanggan">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -88,7 +88,7 @@
         //debugger
         PatchURL = _baseurl.concat('/Costomer/save');
 
-        var vnama_pelanggan = $("#nama_pelanggan").val();
+        var vnama = $("#nama").val();
         var valamat = $("#alamat").val();
         var vno_telp = $("#no_telp").val();
         var vemail = $("#email").val();
@@ -96,7 +96,7 @@
         var vjenis_kelamin = $("#jenis_kelamin").val();
 
         var value = {
-            nama_pelanggan: vnama_pelanggan,
+            nama: vnama,
             alamat: valamat,
             no_telp: vno_telp,
             email: vemail,
@@ -123,7 +123,7 @@
     }
 
     function clearText() {
-        $("#nama_pelanggan").val();
+        $("#nama").val();
         $("#alamat").val();
         $("#no_telp").val();
         $("#email").val();

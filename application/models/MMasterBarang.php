@@ -13,10 +13,10 @@ class MMasterBarang extends CI_Model
 
         $this->db->select('*');
         $this->db->from("dm_po");
-        $this->db->where("status", '1');
-        $this->db->order_by("nama_po", 'ASC');
+        // $this->db->where("status", '1');
+        $this->db->order_by("nama_barang", 'ASC');
 
-        $finalResponse =  $this->db->get_where()->result();
+        $finalResponse =  $this->db->get()->result();
         return $finalResponse;
     }
 

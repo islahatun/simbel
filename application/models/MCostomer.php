@@ -12,9 +12,9 @@ class MCostomer extends CI_Model
         date_default_timezone_set('Asia/Jakarta');
 
         $this->db->select('*');
-        $this->db->from("dm_pelanggan");
-        // $this->db->where("status", 1);
-        $this->db->order_by("id_pelanggan", 'ASC');
+        $this->db->from("dm_pengguna");
+        $this->db->where("status", 1);
+        $this->db->order_by("id", 'ASC');
 
         $finalResponse =  $this->db->get()->result();
         return $finalResponse;
@@ -22,6 +22,6 @@ class MCostomer extends CI_Model
 
     public function getById($id)
     {
-        return $this->db->get_where("dm_pelanggan", ["id_pelanggan" => $id])->row();
+        return $this->db->get_where("dm_pengguna", ["id" => $id])->row();
     }
 }

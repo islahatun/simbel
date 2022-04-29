@@ -34,14 +34,14 @@
                         <div class="card-header">
                             <h3 class="card-title"><?= $subtitle; ?></h3>
                         </div>
-                        <form id="costomer" class="form-horizontal">
+                        <form id="costomer" class="form-horizontal" enctype="multipart/form-data">
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
-                                    <input type="text" hidden class="form-control" id="id_pelanggan" value="<?= $ao->id_pelanggan; ?>">
-                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
+                                    <input type="text" hidden class="form-control" id="id" value="<?= $ao->id; ?>">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Nama Admin</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="Nama pelanggan" value="<?= $ao->nama_pelanggan; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="Nama Admin" value="<?= $ao->nama; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -68,10 +68,21 @@
                                         <input type="text" class="form-control form-control-sm" id="email" placeholder="Email" value="<?= $ao->email; ?>">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col">
+                                        <img src="<?= base_url('assets/img/profil/') . $ao->foto; ?>" alt="" class="img-thumbnail">
+                                    </div>
+                                    <div class="col">
+                                        <div class="custom-file ">
+                                            <input type="file" class="custom-file-input" name="foto" id="foto">
+                                            <label class="custom-file-label" for="foto">Pilih Foto</label>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('Costomer'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('InternalBengkel'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
@@ -93,9 +104,9 @@
 <script>
     function updateSaveAO() {
         debugger
-        PatchURL = _baseurl.concat('/Costomer/updateSave');
-        var vid_pelanggan = $("#id_pelanggan").val();
-        var vnama_pelanggan = $("#nama_pelanggan").val();
+        PatchURL = _baseurl.concat('/InternalBengkel/updateSave');
+        var vid = $("#id").val();
+        var vnama = $("#nama").val();
         var valamat = $("#alamat").val();
         var vno_telp = $("#no_telp").val();
         var vemail = $("#email").val();
@@ -103,8 +114,8 @@
         var vjenis_kelamin = $("#jenis_kelamin").val();
 
         var value = {
-            id_pelanggan: vid_pelanggan,
-            nama_pelanggan: vnama_pelanggan,
+            id: vid,
+            nama: vnama,
             alamat: valamat,
             no_telp: vno_telp,
             email: vemail,
@@ -129,7 +140,7 @@
     }
 
     function clearText() {
-        $("#nama_pelanggan").val();
+        $("#nama").val();
         $("#alamat").val();
         $("#no_telp").val();
         $("#email").val();
