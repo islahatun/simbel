@@ -91,4 +91,4 @@ defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest auto
 |
 */
 
-define('SITE_NAME', 'Bengkel Pak Mamad');
+define('SITE_NAME', 'Bengkel Mang Mamad');
