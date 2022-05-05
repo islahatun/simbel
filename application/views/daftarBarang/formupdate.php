@@ -92,40 +92,7 @@
 <!-- Page specific script -->
 <script>
     function updateSaveAO() {
-        debugger
-        PatchURL = _baseurl.concat('/Costomer/updateSave');
-        var vid = $("#id").val();
-        var vnama = $("#nama").val();
-        var valamat = $("#alamat").val();
-        var vno_telp = $("#no_telp").val();
-        var vemail = $("#email").val();
-        var vfoto = $("#foto").val();
-        var vjenis_kelamin = $("#jenis_kelamin").val();
 
-        var value = {
-            id: vid,
-            nama: vnama,
-            alamat: valamat,
-            no_telp: vno_telp,
-            email: vemail,
-            foto: vfoto,
-            jenis_kelamin: vjenis_kelamin
-        };
-
-        $.ajax({
-            type: "POST",
-            url: PatchURL,
-            data: value,
-            cache: false,
-            success: function(data, textStatus, jqXHR) {
-                debugger
-                //var data = jQuery.parseJSON(data);
-                toastr.success('Data berhasil diubah.');
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
-                toastr.error('Data gagal diubah.');
-            }
-        });
     }
 
     function clearText() {

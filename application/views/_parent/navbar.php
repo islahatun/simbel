@@ -14,7 +14,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="<?= base_url('login/logout'); ?>"  class="nav-link" role="button">
+        <a href="<?= base_url('login/logout'); ?>" class="nav-link" role="button">
           <i class="fas fa-sign-out-alt"></i>
         </a>
       </li>

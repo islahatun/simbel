@@ -41,7 +41,7 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <span class="d-flex pl-3">
-          <a href="" class="btn btn-outline-success" type="submit">Search</a>
+          <a href="<?= base_url('Overview') ?>" class="btn btn-outline-success" type="submit">Login</a>
         </span>
       </div>
     </div>

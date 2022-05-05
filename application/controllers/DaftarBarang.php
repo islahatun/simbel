@@ -24,4 +24,16 @@ class DaftarBarang extends CI_Controller
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
 		$this->load->view('daftarBarang/detailBarang', $data);
 	}
+	public function order()
+	{
+		$data = array(
+			'id_po' => $this->input->post('id_po'),
+			'jumlah' => $this->input->post('count'),
+			'total_pembelian' => $this->input->post('subtotal'),
+			'harga_barang' => $this->input->post('harga_jual'),
+		);
+
+		$this->db->insert("trans_pemesanan", $data);
+		return ('DaftarBarang/order');
+	}
 }

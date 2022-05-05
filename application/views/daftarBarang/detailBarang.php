@@ -8,6 +8,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- jQuery -->
+    <script src="<?= base_url('assets/plugins/jquery/jquery.min.js'); ?>"></script>
 
     <title>Bengkel Mang Mamad</title>
 </head>
@@ -41,7 +43,7 @@
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <span class="d-flex pl-3">
-                    <a href="" class="btn btn-outline-success" type="submit">Search</a>
+                    <a href="<?= base_url('Overview') ?>" class="btn btn-outline-success" type="submit">Login</a>
                 </span>
             </div>
         </div>
@@ -67,15 +69,22 @@
                                 <hr>
                                 <form action="">
                                     <div class="row">
-                                        <div class="col-6">
-                                            <div class="input-group mb-3">
-                                                <button class="btn btn-outline-secondary" type="button" id="minus">-</button>
-                                                <input type="text" class="form-control" placeholder="" aria-label="Example text with two button addons">
-                                                <button class="btn btn-outline-secondary" type="button" id="plus">+</button>
+                                        <div class="col-12">
+                                            <div class="form-group row">
+                                                <label for="" class="col-sm-4 col-form-label-sm">Jumlah Beli</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="1">
+                                                </div>
+                                                <input type="hidden" value="<?= $detail['id_po'] ?>" id="id_po">
+                                                <input type="hidden" value="<?= $detail['harga_jual'] ?>" id="id_po">
                                             </div>
                                             <div>
-
-                                                <span class="label label-warning"> Sub Total: </span>
+                                                <div class="form-group row mt-3 mb-3">
+                                                    <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $detail['harga_jual'] ?>">
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -84,7 +93,7 @@
                                             <button class="btn btn-outline-secondary" type="button" id="Keranjang">Keranjang</button>
                                         </div>
                                         <div class="col-6">
-                                            <button class="btn btn-outline-secondary" type="button" id="Beli">Beli</button>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="beli()">Beli</button>
                                         </div>
                                     </div>
 
@@ -98,6 +107,42 @@
     </div>
 
 
+    <script>
+        $('#count').on('keyup', function() {
+            var input = $(this).val();
+            subtotal = input * $("#subtotal").val();
+            $("#subtotal").val(subtotal);
+        });
+
+        function beli() {
+            debugger
+            PatchURL = _baseurl.concat('/DaftarBarang/order');
+            var vid_po = $("#id_po").val();
+            var vcount = $("#count").val();
+            var vsub_total = $("#sub_total").val();
+
+            var value = {
+                id_po: vid_id,
+                count: vcount,
+                sub_total: vsub_total,
+            };
+
+            $.ajax({
+                type: "POST",
+                url: PatchURL,
+                data: value,
+                cache: false,
+                success: function(data, textStatus, jqXHR) {
+                    debugger
+                    //var data = jQuery.parseJSON(data);
+                    toastr.success('Barang berhasil dibeli.');
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    toastr.error('Barang gagal dibeli.');
+                }
+            });
+        }
+    </script>
 
 
 
