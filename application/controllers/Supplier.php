@@ -37,7 +37,6 @@ class Supplier extends CI_Controller
 				'bank_id'			 => $s->bank_id,
 				'no_rekening'		 => $s->no_rekening,
 				'rek_name'			 => $s->rek_name,
-				'status'         	 => "<span class='badge badge-warning'> " . $this->MFunction->php_status($s->status) . " </span>",
 				'btn_action'         => "<a href='" . base_url('supplier/update/' . $s->supplier_id) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
@@ -79,15 +78,11 @@ class Supplier extends CI_Controller
 		$data = array(
 			'supplier_name' 	=> $this->input->post('supplier_name'),
 			'alamat' 			=> $this->input->post('alamat'),
-			'prov_id'			=> $this->input->post('prov_id'),
-			'kab_id'			=> $this->input->post('kab_id'),
-			'kec_id'			=> $this->input->post('kec_id'),
 			'telp' 				=> $this->input->post('telp'),
 			'email'	 			=> $this->input->post('email'),
 			'bank_id' 			=> $this->input->post('bank_id'),
 			'no_rekening' 		=> $this->input->post('no_rekening'),
 			'rek_name' 			=> $this->input->post('rek_name'),
-			'status' 			=> '1'
 		);
 
 		$this->db->insert("dm_supplier", $data);
@@ -98,9 +93,6 @@ class Supplier extends CI_Controller
 		$data = array(
 			'supplier_name' 	=> $this->input->post('supplier_name'),
 			'alamat' 			=> $this->input->post('alamat'),
-			'prov_id'			=> $this->input->post('prov_id'),
-			'kab_id'			=> $this->input->post('kab_id'),
-			'kec_id'			=> $this->input->post('kec_id'),
 			'telp' 				=> $this->input->post('telp'),
 			'email' 			=> $this->input->post('email'),
 			'bank_id' 			=> $this->input->post('bank_id'),
@@ -114,11 +106,8 @@ class Supplier extends CI_Controller
 
 	public function delete()
 	{
-		$data = array(
-			'status' => '0',
-		);
 
 		$this->db->where('supplier_id', $this->input->post('supplier_id'));
-		$this->db->update("dm_supplier", $data);
+		$this->db->delete("dm_supplier");
 	}
 }

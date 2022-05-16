@@ -11,23 +11,19 @@ class MSupplier extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
 
-        $this->db->select('dm_supplier.*, dm_kec.kec_id, dm_kec.kec_name, dm_kab.kab_id, dm_kab.kab_name, dm_prov.prov_id, dm_prov.prov_name');
+        $this->db->select('*');
         $this->db->from("dm_supplier");
-        $this->db->where("dm_supplier.status", 1);
-        $this->db->join('dm_kec', 'dm_supplier.kec_id = dm_kec.kec_id');
-        $this->db->join('dm_kab', 'dm_supplier.kab_id = dm_kab.kab_id');
-        $this->db->join('dm_prov', 'dm_supplier.prov_id = dm_prov.prov_id');
         $this->db->order_by("supplier_name", 'ASC');
 
-        $finalResponse =  $this->db->get_where()->result();
+        $finalResponse =  $this->db->get()->result();
         return $finalResponse;
     }
 
-    public function alamatKec($id)
-    {
-        $join = "SELECT *,dm_kec.kec_name FROM dm_kec JOIN dm_supplier ON dm_kec.kec_id = dm_supplier.supplier_id WHERE dm_supplier.kec_id";
-        return $this->db->query($join)->row_array();
-    }
+    // public function alamatKec($id)
+    // {
+    //     $join = "SELECT *,dm_kec.kec_name FROM dm_kec JOIN dm_supplier ON dm_kec.kec_id = dm_supplier.supplier_id WHERE dm_supplier.kec_id";
+    //     return $this->db->query($join)->row_array();
+    // }
 
     public function getById($id)
     {

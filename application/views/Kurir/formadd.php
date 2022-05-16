@@ -91,16 +91,18 @@
         //debugger
         PatchURL = _baseurl.concat('/Kurir/save');
 
+        var vid_kurir = $("#id_kurir").val();
         var vnama_kurir = $("#nama_kurir").val();
+        var vjenis_kelamin = $("#jenis_kelamin").val();
         var vwilayah_pengiriman = $("#wilayah_pengiriman").val();
         var vfoto = $("#foto").val();
-        var vjenis_kelamin = $("#jenis_kelamin").val();
 
         var value = {
+            id_kurir: vid_kurir,
             nama_kurir: vnama_kurir,
+            jenis_kelamin: vjenis_kelamin,
             wilayah_pengiriman: vwilayah_pengiriman,
             foto: vfoto,
-            jenis_kelamin: vjenis_kelamin
         };
 
         $.ajax({

@@ -12,14 +12,15 @@
 	},
 	"require": {
 		"php": ">=5.3.7",
-		"ckeditor/ckeditor": "^4.17"
+		"ckeditor/ckeditor": "^4.17",
+		"phpoffice/phpspreadsheet": "^1.8"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
 	},
 	"require-dev": {
 	
-		"mikey179/vfsStream": "1.1.*",
+		"mikey179/vfsstream": "1.1.*",
 		"phpunit/phpunit": "4.* || 5.*"
 	}
 }

@@ -84,43 +84,6 @@
                         <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat">
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">
-                        Provinsi
-                      </label>
-                      <div class="col-sm-9">
-                        <select id="prov_id" class="form-control form-control-sm select2" style="width: 100%;">
-                          <option value="" selected="selected">---None---</option>
-                          <?php
-                          foreach ($prov as $pr) {
-                          ?>
-                            <option value="<?= $pr->prov_id; ?>"><?= $pr->prov_name; ?></option>
-                          <?php
-                          }
-                          ?>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">
-                        Kabupaten
-                      </label>
-                      <div class="col-sm-9">
-                        <select id="kab_id" class="form-control form-control-sm select2" style="width: 100%;">
-                          <option value="" selected="selected">---None---</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">
-                        Kecamatan
-                      </label>
-                      <div class="col-sm-9">
-                        <select id="kec_id" class="form-control form-control-sm select2" style="width: 100%;">
-                          <option value="" selected="selected">---None---</option>
-                        </select>
-                      </div>
-                    </div>
                   </div>
                   <!-- /.card-body -->
                 </div>
@@ -143,21 +106,12 @@
 
 <!-- Page specific script -->
 <script>
-  $(function() {
-    $('.select2').select2({
-      theme: 'bootstrap4'
-    });
-  });
-
   function saveSupplier() {
     //debugger
     PatchURL = _baseurl.concat('/supplier/save');
 
     var vsupplier_name = $("#supplier_name").val();
     var valamat = $("#alamat").val();
-    var vprov_id = $("#prov_id").val();
-    var vkab_id = $("#kab_id").val();
-    var vkec_id = $("#kec_id").val();
     var vtelp = $("#telp").val();
     var vemail = $("#email").val();
     var vbank_id = $("#bank_id").val();
@@ -167,9 +121,6 @@
     var value = {
       supplier_name: vsupplier_name,
       alamat: valamat,
-      prov_id: vprov_id,
-      kab_id: vkab_id,
-      kec_id: vkec_id,
       telp: vtelp,
       email: vemail,
       bank_id: vbank_id,
@@ -203,9 +154,6 @@
     $("#bank_id").val("");
     $("#no_rekening").val("");
     $("#rek_name").val("");
-    $("#prov_id").val('').trigger('change');
-    $("#kab_id").val('').trigger('change');
-    $("#kec_id").val('').trigger('change');
   }
 </script>
 <!-- SweetAlert2 -->

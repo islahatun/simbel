@@ -52,8 +52,7 @@
                     <th>Email</th>
                     <th>No. Rekening</th>
                     <th>Rekening An.</th>
-                    <th>Status</th>
-                    <th>#</th>
+                    <th>Aksi</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -116,10 +115,6 @@
         },
         {
           "data": "rek_name",
-          className: "align-middle small"
-        },
-        {
-          "data": "status",
           className: "align-middle small"
         },
         {

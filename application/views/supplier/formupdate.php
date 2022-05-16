@@ -85,72 +85,6 @@
                         <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat" value="<?= $s->alamat; ?>">
                       </div>
                     </div>
-                    <div class="form-group row">
-                      <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">
-                        Provinsi
-                      </label>
-                      <div class="col-sm-9">
-                        <select id="prov_id" class="form-control form-control-sm select2" style="width: 100%;">
-                          <option value="">---None---</option>
-                          <?php
-                          foreach ($prov as $p) {
-                            if ($s->prov_id == $p->prov_id) { ?>
-                              <option value="<?= $p->prov_id; ?>" selected="selected"><?= $p->prov_name; ?></option>
-                            <?php
-                            } else {
-                            ?>
-                              <option value="<?= $p->prov_id; ?>"><?= $p->prov_name; ?></option>
-                          <?php
-                            }
-                          }
-                          ?>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">
-                        Kabupaten
-                      </label>
-                      <div class="col-sm-9">
-                        <select id="kab_id" class="form-control form-control-sm select2" style="width: 100%;">
-                          <option value="">---None---</option>
-                          <?php
-                          foreach ($kab as $k) {
-                            if ($tk->kab_id == $k->kab_id) { ?>
-                              <option value="<?= $k->kab_id; ?>" selected="selected"><?= $k->kab_name; ?></option>
-                            <?php
-                            } else {
-                            ?>
-                              <option value="<?= $k->kab_id; ?>"><?= $k->kab_name; ?></option>
-                          <?php
-                            }
-                          }
-                          ?>
-                        </select>
-                      </div>
-                    </div>
-                    <div class="form-group row">
-                      <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">
-                        Kecamatan
-                      </label>
-                      <div class="col-sm-9">
-                        <select id="kec_id" class="form-control form-control-sm select2" style="width: 100%;">
-                          <option value="" selected="selected">---None---</option>
-                          <?php
-                          foreach ($kec as $kc) {
-                            if ($tk->kec_id == $kc->kec_id) { ?>
-                              <option value="<?= $kc->kec_id; ?>" selected="selected"><?= $kc->kec_name; ?></option>
-                            <?php
-                            } else {
-                            ?>
-                              <option value="<?= $kc->kec_id; ?>"><?= $kc->kec_name; ?></option>
-                          <?php
-                            }
-                          }
-                          ?>
-                        </select>
-                      </div>
-                    </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
@@ -189,9 +123,7 @@
     var vsupplier_id = $("#supplier_id").val();
     var vsupplier_name = $("#supplier_name").val();
     var valamat = $("#alamat").val();
-    var vprov_id = $("#prov_id").val();
-    var vkab_id = $("#kab_id").val();
-    var vkec_id = $("#kec_id").val();
+
     var vtelp = $("#telp").val();
     var vemail = $("#email").val();
     var vbank_id = $("#bank_id").val();
@@ -202,9 +134,6 @@
       supplier_id: vsupplier_id,
       supplier_name: vsupplier_name,
       alamat: valamat,
-      prov_id: vprov_id,
-      kab_id: vkab_id,
-      kec_id: vkec_id,
       telp: vtelp,
       email: vemail,
       bank_id: vbank_id,

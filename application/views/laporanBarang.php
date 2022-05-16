@@ -31,28 +31,32 @@
                                 <div class="col-md-6">
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
-                                <!-- <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('Costomer/add'); ?>" class="btn btn-sm btn-info">
-                                        <i class="fas fa-plus"></i> Tambah
+                                <div class="col-md-6 text-right">
+                                    <a href="<?= base_url('LaporanBarang/export'); ?>" target="blank" class="btn btn-sm btn-info mr-1">
+                                        <i class="fas fa-file-export"></i> Export Exel
                                     </a>
-                                </div> -->
+                                    <!-- <a href="<?= base_url('MasterBarang') ?>" class="btn btn-secondary btn-sm"><i class="fas fa-reply"></i></a> -->
+                                </div>
                             </div>
                         </div>
 
 
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="ao" class="table w-100 table-bordered table-striped">
+                            <table id="po" class="table w-100 table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Nama Pelanggan</th>
-                                        <th class="col-md-1 text-center">Jenis Kelamin</th>
-                                        <th class="col-md-1 text-center">Nomor Hp</th>
-                                        <th class="col-md-2 text-center">Alamat</th>
-                                        <th class="col-md-2 text-center">Email</th>
-                                        <th class="col-md-2 text-center">Foto</th>
-                                        <th class="col-md-2 text-center">Aksi</th>
+                                        <th>Nama Barang</th>
+                                        <th class="col-md-1 text-center">Kategori</th>
+                                        <th class="col-md-1 text-center">Satuan</th>
+                                        <th class="col-md-1 text-center">Stok</th>
+                                        <th class="col-md-1 text-center">Deskripsi</th>
+                                        <th class="col-md-1 text-center">Harga Beli</th>
+                                        <th class="col-md-1 text-center">Harga Jual</th>
+                                        <th class="col-md-1 text-center">Tanggal Datang</th>
+                                        <th class="col-md-1 text-center">Gambar</th>
+                                        <!-- <th class="col-md-2 text-center">Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -80,7 +84,7 @@
     $(document).ready(function() {
         //debugger
         PatchURL = _url.concat('/datalist');
-        $('#ao').DataTable({
+        $('#po').DataTable({
             //"order": [2, "asc", 1, "asc"], //Initial no order.
             "destroy": true,
 
@@ -94,78 +98,47 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "nama",
-                    className: "align-middle text-center small"
-                },
-                {
-                    "data": "jenis_kelamin",
+                    "data": "nama_barang",
                     className: "align-middle small"
                 },
                 {
-                    "data": "no_telp",
-                    className: "align-middle small"
-                },
-                {
-                    "data": "alamat",
+                    "data": "id_kategori",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "email",
+                    "data": "satuan",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "foto",
+                    "data": "stok",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "btn_action",
+                    "data": "deskripsi",
                     className: "align-middle text-center small"
-                }
+                },
+                {
+                    "data": "harga_beli",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "harga_jual",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "tanggal_datang",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "gambar",
+                    className: "align-middle text-center small"
+                },
+                // {
+                //     "data": "btn_action",
+                //     className: "align-middle text-center small"
+                // }
             ]
         });
-    });
-
-
-
-    $(document).on("click", "#btn_del", function() {
-        //debugger
-        var vid = $(this).attr("vid");
-
-        if (!vid) {
-            toastr.error('Data gagal disimpan.');
-            return
-        }
-
-        var value = {
-            id: vid
-        };
-
-        Swal.fire({
-            title: 'Apakah anda yakin.?',
-            text: "Data yang dihapus tidak dapat dikembalikan!",
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type: "POST",
-                    url: _url.concat('/delete'),
-                    data: value,
-                    cache: false,
-                    success: function(data, textStatus, jqXHR) {
-                        debugger
-                        var table = $('#ao').DataTable();
-                        table.ajax.reload();
-                        toastr.success('Data berhasil disimpan.');
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        toastr.error('Data gagal disimpan.');
-                    }
-                });
-            }
-        })
     });
 </script>
 <!-- SweetAlert2 -->

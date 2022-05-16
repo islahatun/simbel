@@ -31,11 +31,11 @@
                 <div class="col-md-6">
                   <h3 class="card-title"><?= $subtitle; ?></h3>
                 </div>
-                <div class="col-md-6 text-right">
+                <!-- <div class="col-md-6 text-right">
                   <a href="<?= base_url('StatusPemesanan/add'); ?>" class="btn btn-sm btn-info">
                     <i class="fas fa-plus"></i> Tambah
                   </a>
-                </div>
+                </div> -->
               </div>
             </div>
 
