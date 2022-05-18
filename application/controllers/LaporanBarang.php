@@ -12,6 +12,7 @@ class LaporanBarang extends CI_Controller
         parent::__construct();
         $this->load->model('MFunction');
         $this->load->model('MMasterBarang');
+        $this->load->library('Pdf');
     }
 
     public function index()
@@ -168,5 +169,24 @@ class LaporanBarang extends CI_Controller
         header('Cache-Control: max-age=0');
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
+    }
+    public function pdf()
+    {
+
+        // title dari pdf
+        $sata['title_pdf'] = 'Laporan Data Barang';
+        // get data
+        $data['list'] = $this->MMasterBarang->datalist();
+        // filename dari pdf ketika didownload
+        $file_pdf = 'laporan_data_barang';
+        // setting paper
+        $paper = 'A4';
+        //orientasi paper potrait / landscape
+        $orientation = "landscape";
+
+        $html = $this->load->view('laporan/laporanBarang', $data, true);
+
+        // run dompdf
+        $this->pdf->generate($html, $file_pdf, $paper, $orientation);
     }
 }
