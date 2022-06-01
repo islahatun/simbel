@@ -35,7 +35,7 @@
                                     <a href="<?= base_url('LaporanBarang/export'); ?>" target="blank" class="btn btn-sm btn-info mr-1">
                                         <i class="fas fa-file-export"></i> Export Exel
                                     </a>
-                                    <a href="<?= base_url('LaporanBarang/pdf') ?>" target="blank" class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></a>
+                                    <a href="<?= base_url('LaporanBarang/printPDF') ?>" target="blank" class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></a>
                                 </div>
                             </div>
                         </div>
