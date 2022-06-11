@@ -14,7 +14,7 @@
 		"php": ">=5.3.7",
 		"ckeditor/ckeditor": "^4.17",
 		"phpoffice/phpspreadsheet": "^1.8",
-		"dompdf/dompdf": "^0.8.3",
+		"dompdf/dompdf": "^1.2",
 		"tecnickcom/tcpdf": "^6.4"
 	},
 	"suggest": {

@@ -170,70 +170,71 @@ class LaporanBarang extends CI_Controller
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
     }
-    public function pdf()
-    {
+    // public function pdf()
+    // {
 
-        // title dari pdf
-        $sata['title_pdf'] = 'Laporan Data Barang';
-        // get data
+    //     // title dari pdf
+    //     $sata['title_pdf'] = 'Laporan Data Barang';
+    //     // get data
+    //     $data['list'] = $this->MMasterBarang->datalist();
+    //     // filename dari pdf ketika didownload
+    //     $file_pdf = 'laporan_data_barang';
+    //     // setting paper
+    //     $paper = 'A4';
+    //     //orientasi paper potrait / landscape
+    //     $orientation = "landscape";
+
+    //     $html = $this->load->view('laporan/laporanBarang', $data, true);
+
+    //     // run dompdf
+    //     $this->pdf->generate($html, $file_pdf, $paper, $orientation);
+    // }
+
+    // function printPDF()
+    // {
+    //     $pdf = new \TCPDF();
+    //     $pdf->AddPage('L', 'mm', 'A4');
+    //     $pdf->SetFont('', 'B', 14);
+    //     $pdf->Cell(277, 10, "DAFTAR BARANG", 0, 1, 'C');
+    //     $pdf->SetAutoPageBreak(true, 0);
+    //     // Add Header
+    //     $pdf->Ln(10);
+    //     $pdf->SetFont('', 'B', 12);
+    //     $pdf->Cell(20, 8, "No", 1, 0, 'C');
+    //     $pdf->Cell(30, 8, "Id Barang", 1, 0, 'C');
+    //     $pdf->Cell(40, 8, "Nama Barang", 1, 0, 'C');
+    //     $pdf->Cell(30, 8, "Id Kategori", 1, 0, 'C');
+    //     $pdf->Cell(30, 8, "Satuan", 1, 0, 'C');
+    //     $pdf->Cell(20, 8, "stok", 1, 0, 'C');
+    //     $pdf->Cell(30, 8, "Harga Beli", 1, 0, 'C');
+    //     $pdf->Cell(30, 8, "Harga Jual", 1, 0, 'C');
+    //     $pdf->Cell(40, 8, "Deskripsi", 1, 0, 'C');
+    //     $pdf->Cell(30, 8, "Gambar", 1, 0, 'C');
+    //     $pdf->SetFont('', '', 12);
+    //     $list = $this->MMasterBarang->datalist();
+    //     $no = 0;
+    //     foreach ($list as $data) {
+    //         $no++;
+    //         $pdf->Cell(20, 8, $no, 1, 0, 'C');
+    //         $pdf->Cell(30, 8, $data->id_po, 1, 0);
+    //         $pdf->Cell(40, 8, $data->nama_barang, 1, 0);
+    //         $pdf->Cell(30, 8, $data->id_kategori, 1, 0);
+    //         $pdf->Cell(30, 8, $data->satuan, 1, 0);
+    //         $pdf->Cell(20, 8, $data->stok, 1, 0);
+    //         $pdf->Cell(30, 8, $data->harga_beli, 1, 0);
+    //         $pdf->Cell(30, 8, $data->harga_jual, 1, 0);
+    //         $pdf->Cell(40, 8, $data->deskripsi, 1, 0);
+    //         $pdf->Cell(30, 8, $data->gambar, 1, 1);
+    //     }
+    //     $pdf->SetFont('', 'B', 10);
+    //     $pdf->Cell(277, 10, "Laporan Daftar Barang", 0, 1, 'L');
+    //     $pdf->Output('Laporan-Daftar-Barang.pdf');
+    // }
+    public function pdf_dompdf(){
+
         $data['list'] = $this->MMasterBarang->datalist();
-        // filename dari pdf ketika didownload
-        $file_pdf = 'laporan_data_barang';
-        // setting paper
-        $paper = 'A4';
-        //orientasi paper potrait / landscape
-        $orientation = "landscape";
-
-        $html = $this->load->view('laporan/laporanBarang', $data, true);
-
-        // run dompdf
-        $this->pdf->generate($html, $file_pdf, $paper, $orientation);
-    }
-
-    function printPDF()
-    {
-        $pdf = new \TCPDF();
-        $pdf->AddPage('L', 'mm', 'A4');
-        $pdf->SetFont('', 'B', 14);
-        $pdf->Cell(277, 10, "DAFTAR BARANG", 0, 1, 'C');
-        $pdf->SetAutoPageBreak(true, 0);
-        // Add Header
-        $pdf->Ln(10);
-        $pdf->SetFont('', 'B', 12);
-        $pdf->Cell(20, 8, "No", 1, 0, 'C');
-        $pdf->Cell(30, 8, "Id Barang", 1, 0, 'C');
-        $pdf->Cell(40, 8, "Nama Barang", 1, 0, 'C');
-        $pdf->Cell(30, 8, "Id Kategori", 1, 0, 'C');
-        $pdf->Cell(30, 8, "Satuan", 1, 0, 'C');
-        $pdf->Cell(20, 8, "stok", 1, 0, 'C');
-        $pdf->Cell(30, 8, "Harga Beli", 1, 0, 'C');
-        $pdf->Cell(30, 8, "Harga Jual", 1, 0, 'C');
-        $pdf->Cell(40, 8, "Deskripsi", 1, 0, 'C');
-        $pdf->Cell(30, 8, "Gambar", 1, 0, 'C');
-        $pdf->SetFont('', '', 12);
-        $list = $this->MMasterBarang->datalist();
-        $no = 0;
-        foreach ($list as $data) {
-            $no++;
-            $pdf->Cell(20, 8, $no, 1, 0, 'C');
-            $pdf->Cell(30, 8, $data->id_po, 1, 0);
-            $pdf->Cell(40, 8, $data->nama_barang, 1, 0);
-            $pdf->Cell(30, 8, $data->id_kategori, 1, 0);
-            $pdf->Cell(30, 8, $data->satuan, 1, 0);
-            $pdf->Cell(20, 8, $data->stok, 1, 0);
-            $pdf->Cell(30, 8, $data->harga_beli, 1, 0);
-            $pdf->Cell(30, 8, $data->harga_jual, 1, 0);
-            $pdf->Cell(40, 8, $data->deskripsi, 1, 0);
-            $pdf->Cell(30, 8, $data->gambar, 1, 1);
-        }
-        $pdf->SetFont('', 'B', 10);
-        $pdf->Cell(277, 10, "Laporan Daftar Barang", 0, 1, 'L');
-        $pdf->Output('Laporan-Daftar-Barang.pdf');
-    }
-    public function print_pdf()
-    {
-
-        $data['list'] = $this->MMasterBarang->datalist();
-        $this->load->view('laporan/laporanBarang', $data, true);
+        $this->pdf->setPaper('A4', 'landscape');
+    $this->pdf->filename = "Laporan-pDaftar-Barang.pdf";
+    $this->pdf->load_view('laporan/laporanBarang', $data);
     }
 }

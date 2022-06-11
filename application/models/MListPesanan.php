@@ -11,8 +11,9 @@ class MListPesanan extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
 
-        $this->db->select('*');
+        $this->db->select('*,dm_pengguna.nama');
         $this->db->from("trans_pemesanan");
+        $this->db->join("dm_pengguna","dm_pengguna.id = trans_pemesanan.id_pelanggan ");
         $this->db->order_by("id_pemesanan", 'ASC');
 
         $finalResponse =  $this->db->get()->result();
