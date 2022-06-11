@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    hai
     <h3 style="text-align: center;"></h3>
     <table border="1" CELLSPACING="0" paddingspacing="10">
         <tr>
@@ -43,6 +44,10 @@
             $i++;
         endforeach ?>
     </table>
+
 </body>
+<!-- <script>
+    window.print();
+</script> -->
 
 </html>

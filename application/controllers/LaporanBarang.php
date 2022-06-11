@@ -230,4 +230,10 @@ class LaporanBarang extends CI_Controller
         $pdf->Cell(277, 10, "Laporan Daftar Barang", 0, 1, 'L');
         $pdf->Output('Laporan-Daftar-Barang.pdf');
     }
+    public function print_pdf()
+    {
+
+        $data['list'] = $this->MMasterBarang->datalist();
+        $this->load->view('laporan/laporanBarang', $data, true);
+    }
 }

@@ -18,6 +18,16 @@ class Login extends CI_Controller
 		$data['template_page'] = $this->load->view('login', $data, true);
 		$this->load->view('overview', $data);
 	}
+	public function Regis()
+	{
+		$data['title'] = 'Registrasi';
+		$data['template_page'] = $this->load->view('Regis', $data, true);
+		$this->load->view('overview', $data);
+	}
+
+	public function registrasi()
+	{
+	}
 
 	function login()
 	{
@@ -29,7 +39,7 @@ class Login extends CI_Controller
 			'password' => md5($password)
 		);
 
-		$cek = $this->MLogin->clogin("sys_users", $where)->num_rows();
+		$cek = $this->MLogin->clogin("sys_admin", $where)->num_rows();
 
 		if ($cek > 0) {
 			$data_session = array(

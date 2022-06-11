@@ -14,12 +14,12 @@
       <p>
         <img src="<?= base_url('assets/theme/img/logoIDI.png'); ?>" alt="IDI" class="brand-image img-circle elevation-3 w-25">
       </p>
-      <a href="<?= base_url(); ?>"><b>Praktek dr. Ricky</b></a>
+      <a href="<?= base_url(); ?>"><b>Bengkel Mang Mamat</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
       <div class="card-body login-card-body">
-        <p class="login-box-msg">Login Form</p>
+        <p class="login-box-msg">Login Admin</p>
 
         <form method="post" action="<?= base_url('login/login'); ?>">
           <div class="input-group mb-3">
@@ -41,6 +41,9 @@
           <div class="row">
             <div class="col-12">
               <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            </div>
+            <div>
+              <a href="<?= base_url('Login/Regis') ?>">Silahkan Daftar Jika Belum memiliki Akun</a>
             </div>
             <!-- /.col -->
           </div>

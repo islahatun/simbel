@@ -14,17 +14,17 @@ class Overview extends CI_Controller
 	public function index()
 	{
 		$data['barang'] = $this->MDaftarBarang->datalist();
-		$this->load->view('overview', $data);
+		if ($this->session->userdata('status') != "login") {
+			$data['title'] = 'Login';
+			$this->load->view('login', $data);
+			$this->load->view('Regis', $data);
+		} else {
+			$data['title'] = 'Dasboard';
+			$data['content_overview'] = $this->load->view('dashboard', $data, true);
+			$this->load->view('overview', $data);
+		}
 	}
 	public function login()
 	{
-		// if ($this->session->userdata('status') != "login") {
-		$data['title'] = 'Login';
-		$this->load->view('login', $data);
-		// } else {
-		// 	$data['title'] = 'Dasboard';
-		// 	$data['content_overview'] = $this->load->view('dashboard', $data, true);
-		// 	$this->load->view('overview', $data);
-		// }
 	}
 }
