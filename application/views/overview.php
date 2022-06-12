@@ -10,7 +10,7 @@
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="<?= base_url('assets/theme/img/logoIDI.png'); ?>" alt="" height="60" width="60">
+    <img class="animation__shake" src="<?= base_url('assets/theme/img/logong'); ?>" alt="" height="60" width="60">
   </div>
 
   <?php

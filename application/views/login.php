@@ -12,7 +12,7 @@
   <div class="login-box">
     <div class="login-logo">
       <p>
-        <img src="<?= base_url('assets/theme/img/logoIDI.png'); ?>" alt="IDI" class="brand-image img-circle elevation-3 w-25">
+        <img src="<?= base_url('assets/images/logo.jpeg'); ?>" alt="IDI" class="brand-image img-circle elevation-3 w-25">
       </p>
       <a href="<?= base_url(); ?>"><b>Bengkel Mang Mamat</b></a>
     </div>
