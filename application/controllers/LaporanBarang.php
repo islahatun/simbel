@@ -12,7 +12,7 @@ class LaporanBarang extends CI_Controller
         parent::__construct();
         $this->load->model('MFunction');
         $this->load->model('MMasterBarang');
-        $this->load->library('Pdf');
+        // $this->load->library('Pdf');
     }
 
     public function index()
