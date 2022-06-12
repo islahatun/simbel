@@ -233,8 +233,8 @@ class LaporanBarang extends CI_Controller
     public function pdf_dompdf(){
 
         $data['list'] = $this->MMasterBarang->datalist();
-        $this->pdf->setPaper('A4', 'landscape');
-    $this->pdf->filename = "Laporan-pDaftar-Barang.pdf";
-    $this->pdf->load_view('laporan/laporanBarang', $data);
+        // $this->pdf->setPaper('A4', 'landscape');
+    // $this->pdf->filename = "Laporan-pDaftar-Barang.pdf";
+    $this->load->view('laporan/laporanBarang', $data);
     }
 }

@@ -172,8 +172,8 @@ class LaporanCostomer extends CI_Controller
     public function pdf(){
 
         $data['list'] = $this->MCostomer->datalist();
-        $this->pdf->setPaper('A4', 'landscape');
-    $this->pdf->filename = "Laporan-Daftar-Pelanggan.pdf";
-    $this->pdf->load_view('laporan/laporanCostomer', $data);
+        // $this->pdf->setPaper('A4', 'landscape');
+    // $this->pdf->filename = "Laporan-Daftar-Pelanggan.pdf";
+    $this->load->view('laporan/laporanCostomer', $data);
     }
 }

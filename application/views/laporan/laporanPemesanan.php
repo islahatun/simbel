@@ -40,8 +40,8 @@
     </table>
 
 </body>
-<!-- <script>
+<script>
     window.print();
-</script> -->
+</script>
 
 </html>

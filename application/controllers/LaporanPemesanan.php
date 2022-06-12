@@ -173,8 +173,8 @@ class LaporanPemesanan extends CI_Controller
     public function pdf(){
 
         $data['list'] = $this->MListPesanan->datalist();
-        $this->pdf->setPaper('A4', 'landscape');
-    $this->pdf->filename = "Laporan-Daftar-Pemesanan.pdf";
-    $this->pdf->load_view('laporan/LaporanPemesanan', $data);
+        // $this->pdf->setPaper('A4', 'landscape');
+    // $this->pdf->filename = "Laporan-Daftar-Pemesanan.pdf";
+    $this->load->view('laporan/LaporanPemesanan', $data);
     }
 }
