@@ -50,6 +50,7 @@ class ListPesanan extends CI_Controller
 		echo json_encode($rtn);
 	}
 
+
 	public function update($id)
 	{
 		$data['title'] = 'Daftar Pesanan';

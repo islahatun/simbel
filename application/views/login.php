@@ -109,7 +109,7 @@
         <form method="post" action="<?= base_url('login/login'); ?>">
           <div class="modal-body">
             <div class="input-group mb-3">
-              <input type="text" name="username" class="form-control" placeholder="Username">
+              <input type="text" name="nama" class="form-control" placeholder="Username">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-envelope"></span>
@@ -117,7 +117,7 @@
               </div>
             </div>
             <div class="input-group mb-3">
-              <input type="password" name="pwd" class="form-control" placeholder="Password">
+              <input type="password" name="sandi" class="form-control" placeholder="Password">
               <div class="input-group-append">
                 <div class="input-group-text">
                   <span class="fas fa-lock"></span>

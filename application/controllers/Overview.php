@@ -18,9 +18,15 @@ class Overview extends CI_Controller
 			$data['title'] = 'Login';
 			$this->load->view('login', $data);
 		} else {
-			$data['title'] = 'Dasboard';
-			$data['content_overview'] = $this->load->view('dashboard', $data, true);
-			$this->load->view('overview', $data);
+			if ($this->session->userdata('status_login') == 2) {
+				$data['title'] = 'Dasboard';
+				$data['content_overview'] = $this->load->view('dashboard', $data, true);
+				$this->load->view('overview', $data);
+			} else {
+				$data['title'] = 'Dasboard2';
+				$data['content_overview'] = $this->load->view('dashboard2', $data, true);
+				$this->load->view('overview', $data);
+			}
 		}
 	}
 	public function login()

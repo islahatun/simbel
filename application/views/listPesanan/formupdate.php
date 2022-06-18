@@ -44,7 +44,7 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="" class="col-sm-2 col-form-label-sm">Example select</label>
+                  <label for="" class="col-sm-2 col-form-label-sm">Status Pemesanan</label>
                   <div class="col-sm-10">
                     <select class="form-control form-control-sm" id="status_pemesanan">
                       <?php foreach ($status_pemesanan as $sp) : ?>
