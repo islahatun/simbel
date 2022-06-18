@@ -35,24 +35,29 @@ class Login extends CI_Controller
 
 	function login()
 	{
-		$username = $this->input->post('username');
-		$password = $this->input->post('pwd');
+		$username = $this->input->post('nama');
+		$password = $this->input->post('sandi');
 
 		$where = array(
-			'username' => $username,
-			'password' => md5($password)
+			'nama' => $username,
+			'sandi' => md5($password),
 		);
 
-		$cek = $this->MLogin->clogin("sys_admin", $where)->num_rows();
+		$cek = $this->MLogin->clogin("dm_pengguna", $where)->num_rows();
 
 		if ($cek > 0) {
 			$data_session = array(
 				'nama' => $username,
-				'status' => "login"
+				'status' => "login",
+				// 'status_login' => '1'
 			);
 
 			$this->session->set_userdata($data_session);
-			redirect(base_url());
+			if ($this->session->userdata('status_login') == 2) {
+				redirect(base_url());
+			} else {
+				redirect(base_url('DaftarBarang'));
+			}
 		} else {
 			$this->session->set_flashdata('error_login', 'Maaf, Username/Password anda salah. Silahkan Username dan Password dengan benar.');
 			//
