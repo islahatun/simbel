@@ -54,7 +54,7 @@
             <div class="card-body">
                 <div class="row mt-2 ml-2 mr-2">
                     <div class="col-3">
-                        goof
+                        <img src="<?= base_url('assets/img/barang/' . $detail['gambar']) ?>" class="card-img-top" alt="...">
                     </div>
                     <div class="col-6">
                         <h4><?= $detail['nama_barang'] ?></h4>

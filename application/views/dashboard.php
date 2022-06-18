@@ -25,7 +25,7 @@
                 <span class="info-box-number">
                   <?php
 
-                  $hitung = "SELECT * FROM dm_pengguna WHERE status=1";
+                  $hitung = "SELECT * FROM dm_pengguna WHERE status_login=1";
                   $h = $this->db->query($hitung)->num_rows();
                   echo $h;
                   ?>

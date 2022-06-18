@@ -78,7 +78,7 @@
       <div class="col-4 mr-3">
         <?php foreach ($barang as $brg) : ?>
           <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="<?= base_url('assets/img/barang/' . $brg['gambar']) ?>" class="card-img-top" alt="...">
             <div class="card-body text-center">
               <h5 class="card-title"><?= $brg['nama_barang'] ?></h5>
               <p class="card-text"><?= $brg['harga_jual'] ?></p>
