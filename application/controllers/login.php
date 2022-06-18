@@ -10,20 +10,24 @@ class Login extends CI_Controller
 		parent::__construct();
 		$this->load->model('MFunction');
 		$this->load->model('MLogin');
+		$this->load->model('MDaftarBarang');
 	}
 
 	public function index()
 	{
+
+		$data['barang'] = $this->MDaftarBarang->datalist();
+
 		$data['title'] = 'Login';
 		$data['template_page'] = $this->load->view('login', $data, true);
 		$this->load->view('overview', $data);
 	}
-	public function Regis()
-	{
-		$data['title'] = 'Registrasi';
-		$data['template_page'] = $this->load->view('Regis', $data, true);
-		$this->load->view('overview', $data);
-	}
+	// public function Regis()
+	// {
+	// 	$data['title'] = 'Registrasi';
+	// 	$data['template_page'] = $this->load->view('Regis', $data, true);
+	// 	$this->load->view('overview', $data);
+	// }
 
 	public function registrasi()
 	{
