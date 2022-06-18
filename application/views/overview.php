@@ -10,10 +10,12 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
   <div class="wrapper">
 
+
     <!-- Preloader -->
     <div class="preloader flex-column justify-content-center align-items-center">
       <img class="animation__shake" src="<?= base_url('assets/images/logo.jpeg'); ?>" alt="" height="60" width="60">
     </div>
+
 
     <?php
     $this->view('_parent/navbar.php');

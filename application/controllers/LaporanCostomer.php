@@ -12,7 +12,7 @@ class LaporanCostomer extends CI_Controller
         parent::__construct();
         $this->load->model('MFunction');
         $this->load->model('MCostomer');
-        $this->load->library('Pdf');
+        // $this->load->library('Pdf');
     }
 
     public function index()
@@ -150,23 +150,30 @@ class LaporanCostomer extends CI_Controller
         $writer = new Xlsx($spreadsheet);
         $writer->save('php://output');
     }
-    public function pdf()
-    {
+    // public function pdf()
+    // {
 
-        // title dari pdf
-        $sata['title_pdf'] = 'Laporan Data Pelanggan';
-        // get data
+    //     // title dari pdf
+    //     $sata['title_pdf'] = 'Laporan Data Pelanggan';
+    //     // get data
+    //     $data['list'] = $this->MCostomer->datalist();
+    //     // filename dari pdf ketika didownload
+    //     $file_pdf = 'laporan_data_pelanggan';
+    //     // setting paper
+    //     $paper = 'A4';
+    //     //orientasi paper potrait / landscape
+    //     $orientation = "landscape";
+
+    //     $html = $this->load->view('laporan/LaporanCostomer', $data, true);
+
+    //     // run dompdf
+    //     $this->pdf->generate($html, $file_pdf, $paper, $orientation);
+    // }
+    public function pdf(){
+
         $data['list'] = $this->MCostomer->datalist();
-        // filename dari pdf ketika didownload
-        $file_pdf = 'laporan_data_pelanggan';
-        // setting paper
-        $paper = 'A4';
-        //orientasi paper potrait / landscape
-        $orientation = "landscape";
-
-        $html = $this->load->view('laporan/LaporanCostomer', $data, true);
-
-        // run dompdf
-        $this->pdf->generate($html, $file_pdf, $paper, $orientation);
+        // $this->pdf->setPaper('A4', 'landscape');
+    // $this->pdf->filename = "Laporan-Daftar-Pelanggan.pdf";
+    $this->load->view('laporan/laporanCostomer', $data);
     }
 }

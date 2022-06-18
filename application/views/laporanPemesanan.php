@@ -32,10 +32,10 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('LaporanBarang/export'); ?>" target="blank" class="btn btn-sm btn-info mr-1">
+                                    <a href="<?= base_url('LaporanPemesanan/export'); ?>" target="blank" class="btn btn-sm btn-info mr-1">
                                         <i class="fas fa-file-export"></i> Export Exel
                                     </a>
-                                    <a href="<?= base_url('LaporanBarang/pdf_dompdf') ?>" target="blank" class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></a>
+                                    <a href="<?= base_url('LaporanPemesanan/pdf') ?>" target="blank" class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -47,15 +47,12 @@
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Nama Barang</th>
-                                        <th class="col-md-1 text-center">Kategori</th>
-                                        <th class="col-md-1 text-center">Satuan</th>
-                                        <th class="col-md-1 text-center">Stok</th>
-                                        <th class="col-md-1 text-center">Deskripsi</th>
-                                        <th class="col-md-1 text-center">Harga Beli</th>
-                                        <th class="col-md-1 text-center">Harga Jual</th>
-                                        <th class="col-md-1 text-center">Tanggal Datang</th>
-                                        <th class="col-md-1 text-center">Gambar</th>
+                                        <th class="col-md-1 text-center">Tanggal Pemesanan</th>
+                                        <th>Nama Pelanggan</th>
+                                        <th class="col-md-1 text-center">Nama Barang</th>
+                                        <th class="col-md-1 text-center">Harga Barang</th>
+                                        <th class="col-md-1 text-center">Jumlah Pembelian</th>
+                                        <th class="col-md-1 text-center">Harga Total Pembelian</th>
                                         <!-- <th class="col-md-2 text-center">Aksi</th> -->
                                     </tr>
                                 </thead>
@@ -98,41 +95,31 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "nama_barang",
+                    "data": "tanggal_pemesanan",
+                    className: "align-middle text-center small"
+                },
+                {
+                    "data": "nama",
                     className: "align-middle small"
                 },
                 {
-                    "data": "id_kategori",
+                    "data": "nama_barang",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "satuan",
+                    "data": "harga_barang",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "stok",
+                    "data": "jumlah_beli",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "deskripsi",
+                    "data": "total_pembelian",
                     className: "align-middle text-center small"
                 },
-                {
-                    "data": "harga_beli",
-                    className: "align-middle text-center small"
-                },
-                {
-                    "data": "harga_jual",
-                    className: "align-middle text-center small"
-                },
-                {
-                    "data": "tanggal_datang",
-                    className: "align-middle text-center small"
-                },
-                {
-                    "data": "gambar",
-                    className: "align-middle text-center small"
-                },
+                
+                
                 // {
                 //     "data": "btn_action",
                 //     className: "align-middle text-center small"

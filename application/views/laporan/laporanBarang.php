@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    hai
-    <h3 style="text-align: center;"></h3>
+    
+    <h3 style="text-align: center;">DAFTAR BARANG</h3>
     <table border="1" CELLSPACING="0" paddingspacing="10">
         <tr>
             <td>NO</td>
@@ -46,8 +46,8 @@
     </table>
 
 </body>
-<!-- <script>
+<script>
     window.print();
-</script> -->
+</script>
 
 </html>

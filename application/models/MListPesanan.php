@@ -15,6 +15,7 @@ class MListPesanan extends CI_Model
         $this->db->from("trans_pemesanan");
         $this->db->join("dm_pengguna", "dm_pengguna.id = trans_pemesanan.id_pelanggan");
         $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan.status_pemesanan");
+
         $this->db->order_by("id_pemesanan", 'ASC');
 
         $finalResponse =  $this->db->get()->result();
