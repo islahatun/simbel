@@ -62,6 +62,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Kata Sandi</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control form-control-sm" id="sandi" placeholder="Kata Sandi">
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group row">
                                     <div class="col">
                                         <img src="<?= base_url('assets/img/profil/') ?>" alt="" class="img-thumbnail">
                                     </div>
@@ -71,11 +77,11 @@
                                             <label class="custom-file-label custom-file-label-sm" for="foto">Pilih Foto</label>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('MasterBarang'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <a href="<?= base_url('InternalBengkel'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                                 <button type="button" class="btn btn-primary" onclick="saveAO()">Save</button>
                             </div>
                         </form>
@@ -103,15 +109,17 @@
         var valamat = $("#alamat").val();
         var vno_telp = $("#no_telp").val();
         var vemail = $("#email").val();
-        var vfoto = $("#foto").val();
+        // var vfoto = $("#foto").val();
         var vjenis_kelamin = $("#jenis_kelamin").val();
+        var vsandi = $("#sandi").val();
 
         var value = {
             nama: vnama,
             alamat: valamat,
             no_telp: vno_telp,
             email: vemail,
-            foto: vfoto,
+            // foto: vfoto,
+            sandi: vsandi,
             jenis_kelamin: vjenis_kelamin
         };
 

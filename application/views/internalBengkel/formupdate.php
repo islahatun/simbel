@@ -68,17 +68,7 @@
                                         <input type="text" class="form-control form-control-sm" id="email" placeholder="Email" value="<?= $ao->email; ?>">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <div class="col">
-                                        <img src="<?= base_url('assets/img/profil/') . $ao->foto; ?>" alt="" class="img-thumbnail">
-                                    </div>
-                                    <div class="col">
-                                        <div class="custom-file ">
-                                            <input type="file" class="custom-file-input" name="foto" id="foto">
-                                            <label class="custom-file-label" for="foto">Pilih Foto</label>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
@@ -88,14 +78,34 @@
                         </form>
                     </div>
                     <!-- /.card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Ubah Sandi</h3>
+                        </div>
+                        <form id="costomer" class="form-horizontal" enctype="multipart/form-data">
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="form-group row">
+                                    <input type="text" hidden class="form-control" id="id" value="<?= $ao->id; ?>">
+                                    <label for="" class="col-sm-2 col-form-label-sm">Sandi</label>
+                                    <div class="col-sm-10">
+                                        <input type="password" class="form-control form-control-sm" id="sandi" placeholder="sandi">
+                                    </div>
+                                </div>
 
-
+                            </div>
+                            <!-- /.card-body -->
+                            <div class="card-footer text-right">
+                                <a href="<?= base_url('InternalBengkel'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <button type="button" class="btn btn-primary" onclick="updateSandi()">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.col -->
                 </div>
-                <!-- /.col -->
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
+            <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
 </div>
@@ -110,7 +120,7 @@
         var valamat = $("#alamat").val();
         var vno_telp = $("#no_telp").val();
         var vemail = $("#email").val();
-        var vfoto = $("#foto").val();
+        // var vfoto = $("#foto").val();
         var vjenis_kelamin = $("#jenis_kelamin").val();
 
         var value = {
@@ -119,8 +129,37 @@
             alamat: valamat,
             no_telp: vno_telp,
             email: vemail,
-            foto: vfoto,
+            // foto: vfoto,
             jenis_kelamin: vjenis_kelamin
+        };
+
+        $.ajax({
+            type: "POST",
+            url: PatchURL,
+            data: value,
+            cache: false,
+            success: function(data, textStatus, jqXHR) {
+                debugger
+                //var data = jQuery.parseJSON(data);
+                toastr.success('Data berhasil diubah.');
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                toastr.error('Data gagal diubah.');
+            }
+        });
+    }
+
+    function updateSandi() {
+        debugger
+        PatchURL = _baseurl.concat('/InternalBengkel/updateSandi');
+        var vid = $("#id").val();
+        var vsandi = $("#sandi").val();
+
+
+        var value = {
+            id: vid,
+            sandi: vsandi,
+
         };
 
         $.ajax({
