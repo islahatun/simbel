@@ -48,9 +48,10 @@
                     <th class="col-md-1">No</th>
                     <th class="col-md-3">Id Pemesanan</th>
                     <th class="col-md-2 text-center">Id Pelanggan</th>
-                    <th class="col-md-2 text-center">Nama Pesanan</th>
+                    <th class="col-md-2 text-center">Nama Barang</th>
+                    <th class="col-md-2 text-center">Harga Barang</th>
                     <th class="col-md-2 text-center">Jumlah Pesanan</th>
-                    <th class="col-md-2 text-center">Harga Pesanan</th>
+                    <th class="col-md-2 text-center">Total Pesanan</th>
                     <th class="col-md-2 text-center">Tanggal Pemesanan</th>
                     <th class="col-md-2 text-center">Status Pesanan</th>
                     <th class="col-md-2 text-center">Aksi</th>
@@ -103,11 +104,11 @@
           className: "align-middle small"
         },
         {
-          "data": "nama_pelanggan",
+          "data": "nama_barang",
           className: "align-middle small"
         },
         {
-          "data": "nama_barang",
+          "data": "harga_barang",
           className: "align-middle small"
         },
         {
@@ -119,7 +120,7 @@
           className: "align-middle small"
         },
         {
-          "data": "status_pemesanan",
+          "data": "tanggal_pemesanan",
           className: "align-middle small"
         },
         {

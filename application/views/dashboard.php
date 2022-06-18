@@ -21,8 +21,15 @@
             <div class="info-box">
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Costomer</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-text">Jumlah Pelanggan</span>
+                <span class="info-box-number">
+                  <?php
+
+                  $hitung = "SELECT * FROM dm_pengguna WHERE status=1";
+                  $h = $this->db->query($hitung)->num_rows();
+                  echo $h;
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -35,7 +42,14 @@
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Pesanan</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-number">
+                  <?php
+
+                  $hitung = "SELECT * FROM trans_pemesanan WHERE status_pemesanan=1";
+                  $h = $this->db->query($hitung)->num_rows();
+                  echo $h;
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -46,18 +60,18 @@
           <!-- fix for small devices only -->
           <div class="clearfix hidden-md-up"></div>
 
-          <div class="col-12 col-sm-6 col-md-4">
+          <!-- <div class="col-12 col-sm-6 col-md-4">
             <div class="info-box mb-3">
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-capsules"></i></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Antrian Farmasi</span>
                 <span class="info-box-number">0</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
+              </div> -->
+          <!-- /.info-box-content -->
+          <!-- </div> -->
+          <!-- /.info-box -->
+          <!-- </div> -->
           <!-- /.col -->
         </div>
         <!-- /.row -->

@@ -8,6 +8,7 @@ class ListPesanan extends CI_Controller
 		parent::__construct();
 		$this->load->model('MFunction');
 		$this->load->model('MListPesanan');
+		$this->load->model('MStatusPemesanan');
 	}
 
 	public function index()
@@ -31,13 +32,17 @@ class ListPesanan extends CI_Controller
 			$rtn[] = array(
 				'nomor'         		=> $i,
 				'id_pemesanan'         => $listPesanan->id_pemesanan,
-				'status_pemesanan'       => $listPesanan->status_pemesanan,
-				'btn_action'            => "<a href='" . base_url('listPesanan/update/' . $listPesanan->id_pemesanan) . "' class='btn btn-sm btn-outline-success'> 
+				'id_pelanggan'         => $listPesanan->id_pelanggan,
+				'nama_barang'         => $listPesanan->nama_barang,
+				'harga_barang'         => $this->MFunction->idr($listPesanan->harga_barang),
+				'jumlah_beli'         => $listPesanan->jumlah_beli,
+				'total_pembelian'         => $this->MFunction->idr($listPesanan->total_pembelian),
+				'tanggal_pemesanan'         => $listPesanan->tanggal_pemesanan,
+				'status_pemesanan'       => "<span class='badge badge-warning'> " . $listPesanan->status_pemesanan . " </span>",
+				'btn_action'            => "<a href='" . base_url('ListPesanan/update/' . $listPesanan->id_pemesanan) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
-											<button type='button' id='btn_listPesanan_del' vid_pemesanan='" . $listPesanan->id_pemesanan . " ' class='btn btn-sm btn-outline-danger'> 
-												<i class='fas fa-trash-alt'></i>
-											</button>"
+											"
 			);
 			$i++;
 		}
@@ -49,7 +54,8 @@ class ListPesanan extends CI_Controller
 	{
 		$data['title'] = 'Daftar Pesanan';
 		$data['subtitle'] = 'Ubah Daftar Pesanan';
-		$data["listPesanan"] = $this->MListPesanan->getById($id);
+		$data["ao"] = $this->MListPesanan->getById($id);
+		$data['status_pemesanan'] = $this->MStatusPemesanan->datalist();
 
 		$data['content_overview'] = $this->load->view('listPesanan/formupdate', $data, true);
 		$this->load->view('overview', $data);

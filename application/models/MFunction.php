@@ -97,11 +97,13 @@ class MFunction extends CI_Model
     function php_status($id)
     {
         if ($id == 1) {
-            $rtn = "Aktif";
-        } else if ($id == 0) {
-            $rtn = "Non Active";
-        } else {
-            $rtn = "";
+            $rtn = "Pesanan Masuk";
+        } else if ($id == 2) {
+            $rtn = "Sedang diproses owner";
+        } else if ($id == 3) {
+            $rtn = "Preses Antar";
+        } else if ($id == 4) {
+            $rtn = "Pesanan Sampai";
         }
 
         return $rtn;

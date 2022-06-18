@@ -22,7 +22,9 @@
               <img src="<?= base_url('assets/img') ?>" alt="">
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Costomer</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-number">
+
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
