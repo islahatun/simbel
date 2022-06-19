@@ -37,26 +37,41 @@
             <form id="form_pesanan" class="form-horizontal">
               <!-- /.card-header -->
               <div class="card-body">
+                <input type="hidden" id="id_pemesanan" value="<?= $ao->id_pemesanan ?>">
                 <div class="form-group row">
-                  <label for="" class="col-sm-2 col-form-label-sm">Id Pelanggan</label>
+                  <label for="" class="col-sm-2 col-form-label-sm">Nama Barang</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control form-control-sm" id="id_pemesanan" placeholder="Status Pemesanan" value="<?= $ao->id_pemesanan; ?>">
+                    <select class="form-control form-control-sm" id="id_po">
+                      <option value="<?= $ao->id_po ?>"><?= $ao->nama_barang ?> </option>
+                      <?php
+                      foreach ($barang as $sp) : ?>
+                        <option value="<?= $sp->id_po ?>"><?= $sp->nama_barang ?> </option>
+                      <?php endforeach; ?>
+                    </select>
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label for="" class="col-sm-2 col-form-label-sm">Status Pemesanan</label>
+                  <label for="" class="col-sm-2 col-form-label-sm">Harga Barang</label>
                   <div class="col-sm-10">
-                    <select class="form-control form-control-sm" id="status_pemesanan">
-                      <?php foreach ($status_pemesanan as $sp) : ?>
-                        <option value="<?= $sp->id_status ?>"><?= $sp->status_pemesanan ?> </option>
-                      <?php endforeach; ?>
-                    </select>
+                    <input type="text" class="form-control form-control-sm" id="harga_barang" placeholder="Harga Barang" value="<?= $ao->harga_barang ?>">
+                  </div>
+                </div>
+                <div class=" form-group row">
+                  <label for="" class="col-sm-2 col-form-label-sm">Jumlah Beli</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="jumlah_beli" placeholder="jumlah_beli" value="<?= $ao->jumlah_beli ?>">
+                  </div>
+                </div>
+                <div class=" form-group row">
+                  <label for="" class="col-sm-2 col-form-label-sm">Total Pembelian</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" id="total_pembelian" placeholder="total_pembelian" value="<?= $ao->total_pembelian ?>">
                   </div>
                 </div>
               </div>
               <!-- /.card-body -->
               <div class="card-footer text-right">
-                <a href="<?= base_url('ListPesanan'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                <a href="<?= base_url('ListPesananOffline'); ?>" type="button" class="btn btn-secondary">Kembali</a>
                 <button type="button" class="btn btn-primary" onclick="updateSave()">Save</button>
               </div>
             </form>
@@ -76,16 +91,40 @@
 
 <!-- Page specific script -->
 <script>
+  $('#harga_barang').on('keyup', function() {
+    var input = $(this).val();
+
+    $("#total_pembelian").val(input);
+  });
+
+  $('#jumlah_beli').on('keyup', function() {
+    var input = $(this).val();
+    subtotal = input * $("#harga_barang").val();
+    $("#total_pembelian").val(subtotal);
+  });
+
+
   function updateSave() {
     //debugger
-    PatchURL = _baseurl.concat('/ListPesanan/updateSave');
+    PatchURL = _baseurl.concat('/ListPesananOffline/updateSave');
 
     var vid_pemesanan = $("#id_pemesanan").val();
-    var vstatus_pemesanan = $("#status_pemesanan").val();
+    var vnama_pelanggan = $("#nama_pelanggan").val();
+    var vid_po = $("#id_po").val();
+    var vharga_barang = $("#harga_barang").val();
+    var vjumlah_beli = $("#jumlah_beli").val();
+    var vtotal_pembelian = $("#total_pembelian").val();
+    // var vfoto = $("#foto").val();
 
     var value = {
       id_pemesanan: vid_pemesanan,
-      status_pemesanan: vstatus_pemesanan,
+      nama_pelanggan: vnama_pelanggan,
+      id_po: vid_po,
+      harga_barang: vharga_barang,
+      jumlah_beli: vjumlah_beli,
+      total_pembelian: vtotal_pembelian,
+      // foto: vfoto,
+
     };
 
     $.ajax({
@@ -97,6 +136,8 @@
         debugger
         //var data = jQuery.parseJSON(data);
         toastr.success('Data berhasil disimpan.');
+
+
       },
       error: function(jqXHR, textStatus, errorThrown) {
         toastr.error('Data gagal disimpan.');

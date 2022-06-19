@@ -25,7 +25,14 @@ class MListPesananOffline extends CI_Model
 
     public function getById($id)
     {
-        return $this->db->get_where("trans_pemesanan_offline", ["id_pemesanan" => $id])->row();
+
+        $this->db->select('*,dm_status_pemesanan.status_pemesanan,dm_po.nama_barang');
+        $this->db->from("trans_pemesanan_offline");
+        $this->db->where('id_pemesanan', $id);
+        $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan_offline.status_pemesanan");
+        $this->db->join("dm_po", "dm_po.id_po = trans_pemesanan_offline.id_po");
+        $this->db->order_by("id_pemesanan", 'ASC');
+        return $this->db->get_where()->row();
     }
     public function datalistDetail($id)
     {

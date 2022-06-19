@@ -40,11 +40,11 @@ class ListPesananOffline extends CI_Controller
 				'total_pembelian'         => $this->MFunction->idr($ListPesananOffline->total_pembelian),
 				'tanggal_pemesanan'         => $ListPesananOffline->tanggal_pemesanan,
 				'status_pemesanan'       => "<span class='badge badge-warning'> " . $ListPesananOffline->status_pemesanan . " </span>",
-				'btn_action'            => "<a href='" . base_url('ListPesananOffline/update/' . $ListPesananOffline->id_pelanggan) . "' class='btn btn-sm btn-outline-success'> 
+				'btn_action'            => "<a href='" . base_url('ListPesananOffline/update/' . $ListPesananOffline->id_pemesanan) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
 											",
-				'print'            => "<a href='" . base_url('ListPesananOffline/update/' . $ListPesananOffline->id_pelanggan) . "' class='btn btn-sm btn-outline-info'> 
+				'print'            => "<a href='" . base_url('ListPesananOffline/update/' . $ListPesananOffline->id_pemesanan) . "' class='btn btn-sm btn-outline-info'> 
 				<i class='fas fa-print'></i>
 											</a>
 											"
@@ -104,7 +104,7 @@ class ListPesananOffline extends CI_Controller
 			'total_pembelian' => $this->input->post('total_pembelian'),
 		);
 
-		$this->db->where('id_pelanggan', $this->input->post('id_pelanggan'));
+		$this->db->where('id_pemesanan', $this->input->post('id_pemesanan'));
 		$this->db->update("trans_pemesanan_offline", $data);
 	}
 

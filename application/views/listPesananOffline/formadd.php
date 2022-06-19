@@ -192,7 +192,8 @@
                 debugger
                 //var data = jQuery.parseJSON(data);
                 toastr.success('Data berhasil disimpan.');
-
+                var table = $('##tstatus').DataTable();
+                table.ajax.reload();
                 clearText();
             },
             error: function(jqXHR, textStatus, errorThrown) {
