@@ -82,7 +82,7 @@ class ListPesananOffline extends CI_Controller
 	{
 		$data = array(
 			'id_pelanggan' => $this->input->post('id_pelanggan'),
-			'nama_pelanggan' => $this->input->post('nama_pelanggan'),
+			// 'nama_pelanggan' => $this->input->post('nama_pelanggan'),
 			'id_po' => $this->input->post('id_po'),
 			'harga_barang' => $this->input->post('harga_barang'),
 			'jumlah_beli' => $this->input->post('jumlah_beli'),

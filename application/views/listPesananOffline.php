@@ -173,7 +173,7 @@
 
   $('#jumlah_beli').on('keyup', function() {
     var input = $(this).val();
-    subtotal = input * $("#total_pembelian").val();
+    subtotal = input * $("#harga_barang").val();
     $("#total_pembelian").val(subtotal);
   });
 
