@@ -80,7 +80,7 @@ class InternalBengkel extends CI_Controller
             'no_telp' => $this->input->post('no_telp'),
             'alamat' => $this->input->post('alamat'),
             'email' => $this->input->post('email'),
-            'sandi' => MD5($this->input->post('sandi')),
+            'sandi' => password_hash($this->input->post('sandi'), PASSWORD_DEFAULT),
 
             'status' => 2,
         );
@@ -108,7 +108,7 @@ class InternalBengkel extends CI_Controller
     {
 
         $data = array(
-            'sandi' =>  MD5($this->input->post('sandi'))
+            'sandi' => password_hash($this->input->post('sandi'), PASSWORD_DEFAULT),
         );
 
         $this->db->where('id', $this->input->post('id'));

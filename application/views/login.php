@@ -106,7 +106,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <form method="post" action="<?= base_url('login/login'); ?>">
+        <form method="post" action="<?= base_url('Overview/login'); ?>">
           <div class="modal-body">
             <div class="input-group mb-3">
               <input type="text" name="nama" class="form-control" placeholder="Username">

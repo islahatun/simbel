@@ -19,12 +19,66 @@ class Overview extends CI_Controller
 			$this->load->view('login', $data);
 		} else {
 
-			$data['title'] = 'Dasboard';
-			$data['content_overview'] = $this->load->view('dashboard', $data, true);
-			$this->load->view('overview', $data);
+			// if ($this->session->userdata('status_login') == '2') {
+			// 	$data['title'] = 'Dasboard';
+			// 	$data['content_overview'] = $this->load->view('dashboard', $data, true);
+			// 	$this->load->view('overview', $data);
+			// } else {
+			// 	$data['title'] = 'Dasboard';
+			// 	$data['content_overview'] = $this->load->view('daftarBarang', $data, true);
+			// 	$this->load->view('overview', $data);
+			// }
 		}
 	}
-	public function login()
+	function login()
 	{
+		$username = $this->input->post('nama');
+		$password = $this->input->post('sandi');
+
+		$where = array(
+			'nama' => $username,
+			'sandi' => md5($password),
+		);
+		$user = $this->db->get_where('dm_pengguna', ['nama' => $username])->row_array();
+		// $cek = $this->MLogin->clogin("dm_pengguna", $where)->num_rows();
+
+		if ($user) {
+			if (password_verify($password, $user['sandi'])) {
+				$data = [
+					'id' => $user['id'],
+					'nama' => $user['nama'],
+					'status_login' => $user['status_login']
+				];
+				$this->session->set_userdata($data);
+				switch ($user['status_login']) {
+					case 1;
+						redirect(base_url('DaftarBarang'));
+						break;
+					case 2;
+						redirect(base_url('Dashboard'));
+						break;
+					default:
+						redirect('laporan');
+						break;
+				}
+			} else {
+				$this->session->set_flashdata('message', '<div class="alert alert-dangerterdaftar alert-dismissible fade show" role="alert">
+			<strong>Kata sandi salah</strong> 
+			</div>');
+				redirect('auth');
+			}
+		} else {
+			$this->session->set_flashdata('error_login', 'Maaf, Username/Password anda salah. Silahkan Username dan Password dengan benar.');
+			//
+		}
+
+		redirect(base_url('login'));
+	}
+
+	function logout()
+	{
+		$this->session->sess_destroy();
+
+		redirect(base_url());
 	}
 }

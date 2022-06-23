@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller
 	public function index()
 	{
 		$data['title'] = 'Dasboard';
-		$data['content_wrapper'] = $this->load->view('daftarProduk', $data, true);
-		$this->load->view('main', $data);
+		$data['content_overview'] = $this->load->view('Dashboard', $data, true);
+		$this->load->view('Overview', $data);
 	}
 }

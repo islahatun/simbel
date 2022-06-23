@@ -13,7 +13,7 @@ class MInternalBengkel extends CI_Model
 
         $this->db->select('*');
         $this->db->from("dm_pengguna");
-        $this->db->where("status", 2);
+        $this->db->where("status_login", 2);
         $this->db->order_by("id", 'ASC');
 
         $finalResponse =  $this->db->get()->result();
