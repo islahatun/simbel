@@ -41,7 +41,8 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
         <span class="d-flex pl-3">
-          <a href="<?= base_url('Overview') ?>" class="btn btn-outline-success" type="submit">Login</a>
+          hai <?php $data = $this->session->userdata('nama');
+              echo $data ?>
         </span>
       </div>
     </div>

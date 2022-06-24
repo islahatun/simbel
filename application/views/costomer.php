@@ -51,7 +51,7 @@
                                         <th class="col-md-1 text-center">Nomor Hp</th>
                                         <th class="col-md-2 text-center">Alamat</th>
                                         <th class="col-md-2 text-center">Email</th>
-                                        <th class="col-md-2 text-center">Foto</th>
+                                        <!-- <th class="col-md-1 text-center">Foto</th> -->
                                         <th class="col-md-2 text-center">Aksi</th>
                                     </tr>
                                 </thead>
@@ -113,10 +113,10 @@
                     "data": "email",
                     className: "align-middle text-center small"
                 },
-                {
-                    "data": "foto",
-                    className: "align-middle text-center small"
-                },
+                // {
+                //     "data": "foto",
+                //     className: "align-middle text-center small"
+                // },
                 {
                     "data": "btn_action",
                     className: "align-middle text-center small"

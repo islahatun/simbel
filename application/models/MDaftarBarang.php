@@ -21,4 +21,15 @@ class MDaftarBarang extends CI_Model
 	{
 		return $this->db->get_where("dm_po", ["id_po" => $id])->row_array();
 	}
+	public function konfirmasi()
+	{
+		$id = $this->session->userdata['id'];
+		$this->db->select('*');
+		$this->db->from("trans_pemesanan");
+		$this->db->where("id_pelanggan", $id);
+
+
+		$finalResponse =  $this->db->get_where()->row_array();
+		return $finalResponse;
+	}
 }

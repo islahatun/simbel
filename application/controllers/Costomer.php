@@ -77,7 +77,7 @@ class Costomer extends CI_Controller
             'alamat' => $this->input->post('alamat'),
             'email' => $this->input->post('email'),
             'foto' => $this->input->post('foto'),
-            'status' => 1,
+            'status_login' => 1,
         );
 
         $this->db->insert("dm_pengguna", $data);
@@ -92,6 +92,7 @@ class Costomer extends CI_Controller
             'alamat' => $this->input->post('alamat'),
             'email' => $this->input->post('email'),
             'foto' => $this->input->post('foto'),
+            'status_login' => 1,
         );
 
         $this->db->where('id', $this->input->post('id'));

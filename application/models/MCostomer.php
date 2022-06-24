@@ -13,7 +13,7 @@ class MCostomer extends CI_Model
 
         $this->db->select('*');
         $this->db->from("dm_pengguna");
-        $this->db->where("status", 1);
+        $this->db->where("status_login", 1);
         $this->db->order_by("id", 'ASC');
 
         $finalResponse =  $this->db->get()->result();
