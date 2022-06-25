@@ -9,13 +9,13 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-  <title>Bengkel Mang Mamad</title>
+  <title>Bengkel Mang Mamat</title>
 </head>
 
 <body style="background-color: #dbdbdb;">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Bengkel Mang Mamad</a>
+      <a class="navbar-brand" href="#">Bengkel Mang Mamat</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,12 +37,14 @@
 
         </ul>
         <form class="d-flex mr-3">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <a href="<?= base_url('DaftarBarang/Tracking') ?>" class="btn btn-outline-success" type="submit">Pesanan</a>
+        </form>
+        <form class="d-flex mr-3">
+          <a href="<?= base_url('DaftarBarang/Pesanan') ?>" class="btn btn-outline-success" type="submit">Keranjang</a>
         </form>
         <span class="d-flex pl-3">
-          hai <?php $data = $this->session->userdata('nama');
-              echo $data ?>
+          hai <?= $this->session->userdata('nama');
+              ?>
         </span>
       </div>
     </div>

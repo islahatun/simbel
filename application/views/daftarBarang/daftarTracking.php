@@ -56,53 +56,54 @@
         <div class="card mt-3">
             <div class="card-body">
                 <div class="row mt-2 ml-2 mr-2">
-                    <div class="col-3">
-                        <img src="<?= base_url('assets/img/barang/' . $detail['gambar']) ?>" class="card-img-top" alt="...">
-                    </div>
-                    <div class="col-4">
-                        <h4><?= $detail['nama_barang'] ?></h4>
-                        <p>Rp.<?= $detail['harga_jual'] ?></p>
-                        <h5>Detail</h5>
-                        <p><?= $detail['deskripsi'] ?></p>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4>Atur Jumlah</h4>
-                                <hr>
-                                <form action="<?= base_url('DaftarBarang/order') ?>" method="post">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group row">
-                                                <label for="" class="col-sm-4 col-form-label-sm">Jumlah Beli</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="1" name="jumlah_beli">
-                                                </div>
-                                                <input type="hidden" value="<?= $detail['id_po'] ?>" id="id_po" name="id_po">
-                                                <input type="hidden" value="<?= $detail['harga_jual'] ?>" id="id_po" name="harga_barang">
-                                            </div>
-                                            <div>
-                                                <div class="form-group row mt-3 mb-3">
-                                                    <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
+                    <?php foreach ($barang as $brg) : ?>
+                        <div class="col-3">
+                            <img src="<?= base_url('assets/img/barang/' . $brg['gambar']) ?>" class="card-img-top" alt="...">
+                        </div>
+                        <div class="col-4">
+                            <h4><?= $brg['nama_barang'] ?></h4>
+                            <p>Rp.<?= $brg['harga_jual'] ?></p>
+                            <h5>Detail</h5>
+                            <p><?= $brg['deskripsi'] ?></p>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Status Pemesanan</h4>
+                                    <hr>
+                                    <form action="<?= base_url('DaftarBarang/order') ?>" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <label for="" class="col-sm-6 col-form-label-sm">Status Pemesanan</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $detail['harga_jual'] ?>" name="total_pembelian">
+                                                        <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="<?= $brg['status_pemesanan'] ?>" name="jumlah_beli" readonly>
                                                     </div>
+                                                    <input type="hidden" value="<?= $brg['id_po'] ?>" id="id_po" name="id_po">
+                                                    <input type="hidden" value="<?= $brg['harga_jual'] ?>" id="id_po" name="harga_barang">
                                                 </div>
+                                                <!-- <div>
+                                                    <div class="form-group row mt-3 mb-3">
+                                                        <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $brg['harga_jual'] ?>" name="total_pembelian">
+                                                        </div>
+                                                    </div>
+                                                </div> -->
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button class="btn btn-outline-secondary" type="button" id="Keranjang">Keranjang</button>
+                                        <div class="row">
+                                            <!-- <div class="col-6">
+                                                <button class="btn btn-outline-secondary" type="button" id="Keranjang">Keranjang</button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button class="btn btn-outline-secondary" type="submit">Beli</button>
+                                            </div> -->
                                         </div>
-                                        <div class="col-6">
-                                            <button class="btn btn-outline-secondary" type="submit">Beli</button>
-                                        </div>
-                                    </div>
 
-                                </form>
-                                <hr>
-                                <!-- <br>
+                                    </form>
+                                    <hr>
+                                    <!-- <br>
                                 <label for="">Detail Pemesanan:</label>
                                 <?php if ($barang['status_pemesanan'] == 5) { ?>
                                     <form action="<?= base_url('DaftarBarang/order') ?>" method="post">
@@ -111,7 +112,7 @@
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-6 col-form-label-sm">Nama Barang</label>
                                                     <div class="col-sm-4">
-                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $detail['nama_barang'] ?>" name="nama_barang">
+                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $brg['nama_barang'] ?>" name="nama_barang">
                                                     </div>
 
                                                 </div>
@@ -190,9 +191,10 @@
 
                                     </form>
                                 <?php } ?> -->
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>
