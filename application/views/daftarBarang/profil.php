@@ -66,7 +66,7 @@
                 <div class="row mt-2 ml-2 mr-2">
                     <?php foreach ($barang as $brg) : ?>
                         <div class="col-3">
-                            <img src="<?= base_url('assets/img/barang/' . $brg['gambar']) ?>" class="card-img-top" alt="...">
+                            <!-- <img src="<?= base_url('assets/img/barang/' . $brg['gambar']) ?>" class="card-img-top" alt="..."> -->
                         </div>
                         <div class="col-4">
                             <?= $this->session->flashdata('message') ?>

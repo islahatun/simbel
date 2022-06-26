@@ -26,7 +26,7 @@ class LaporanPemesanan extends CI_Controller
 
     public function datalist()
     {
-        $list = $this->MListPesanan->datalist();
+        $list = $this->MListPesanan->datalistPemesanan();
 
         $rtn = array();
         $i = 1;
@@ -170,11 +170,12 @@ class LaporanPemesanan extends CI_Controller
     //     // run dompdf
     //     $this->pdf->generate($html, $file_pdf, $paper, $orientation);
     // }
-    public function pdf(){
+    public function pdf()
+    {
 
         $data['list'] = $this->MListPesanan->datalist();
         // $this->pdf->setPaper('A4', 'landscape');
-    // $this->pdf->filename = "Laporan-Daftar-Pemesanan.pdf";
-    $this->load->view('laporan/LaporanPemesanan', $data);
+        // $this->pdf->filename = "Laporan-Daftar-Pemesanan.pdf";
+        $this->load->view('laporan/LaporanPemesanan', $data);
     }
 }

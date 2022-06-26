@@ -13,6 +13,7 @@ class MStatusPemesanan extends CI_Model
 
         $this->db->select('*');
         $this->db->from("dm_status_pemesanan");
+
         $this->db->order_by("id_status", 'ASC');
 
         $finalResponse =  $this->db->get()->result();

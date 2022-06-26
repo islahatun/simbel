@@ -74,6 +74,11 @@ class masterBarang extends CI_Controller
 
     public function save()
     {
+    }
+
+    function updateSave()
+    {
+
 
         $foto = $_FILES['foto']['name'];
         if ($foto) {
@@ -97,10 +102,11 @@ class masterBarang extends CI_Controller
                     'harga_beli' => $this->input->post('harga_beli'),
                     'harga_jual' => $this->input->post('harga_jual'),
                     'tanggal_datang' => $this->input->post('tanggal_datang'),
-                    'gambar' =>  $new_foto
+                    'gambar' => $new_foto
                 );
 
-                $this->db->insert("dm_po", $data);
+                $this->db->where('id_po', $this->input->post('id_po'));
+                $this->db->update("dm_po", $data);
 
                 $this->session->set_flashdata('message', '
             <div class="alert alert-primary alert-dismissible fade show" role="alert">
@@ -112,24 +118,6 @@ class masterBarang extends CI_Controller
                 redirect('MasterBarang/add');
             }
         }
-    }
-
-    function updateSave()
-    {
-        $data = array(
-            'nama_barang' => $this->input->post('nama_barang'),
-            'id_kategori' => $this->input->post('id_kategori'),
-            'satuan' => $this->input->post('satuan'),
-            'stok' => $this->input->post('stok'),
-            'deskripsi' => $this->input->post('deskripsi'),
-            'harga_beli' => $this->input->post('harga_beli'),
-            'harga_jual' => $this->input->post('harga_jual'),
-            'tanggal_datang' => $this->input->post('tanggal_datang'),
-            'gambar' => $this->input->post('foto')
-        );
-
-        $this->db->where('id_po', $this->input->post('id_po'));
-        $this->db->update("dm_po", $data);
     }
 
     public function delete()
