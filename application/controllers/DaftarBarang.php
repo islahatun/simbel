@@ -106,4 +106,30 @@ class DaftarBarang extends CI_Controller
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
 		$this->load->view('DaftarBarang/daftarTracking', $data);
 	}
+	public function Profil()
+	{
+		$data['pengguna'] = $this->MLogin->session();
+		$data['barang'] = $this->MDaftarBarang->Tracking();
+		// $data['detail'] = $this->MDaftarBarang->getById($id);
+		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
+		$this->load->view('DaftarBarang/Profil', $data);
+	}
+	public function keranjang()
+	{
+		$data = $this->session->userdata['id'];
+		$nama = $this->session->userdata['nama'];
+		$data = array(
+			'id_pelanggan' => $data,
+			'nama_pelanggan' => $nama,
+			'id_po' => $this->input->post('id_po'),
+			'jumlah_beli' => $this->input->post('jumlah_beli'),
+			'total_pembelian' => $this->input->post('total_pembelian'),
+			'harga_barang' => $this->input->post('harga_barang'),
+			'status_pemesanan' => 7,
+			'tanggal_pemesanan' => date('Y-m-d'),
+		);
+
+		$this->db->insert("trans_pemesanan", $data);
+		redirect('DaftarBarang/Pesanan');
+	}
 }

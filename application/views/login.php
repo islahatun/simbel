@@ -50,6 +50,7 @@
     </div>
   </nav>
   <?= $this->session->flashdata('message') ?>
+  <?= $this->session->flashdata('error_login') ?>
 
   <!-- carousel -->
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">

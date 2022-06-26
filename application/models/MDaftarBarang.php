@@ -39,6 +39,7 @@ class MDaftarBarang extends CI_Model
 		$this->db->from("trans_pemesanan");
 		$this->db->join('dm_po', 'dm_po.id_po = trans_pemesanan.id_po');
 		$this->db->where("id_pelanggan", $id);
+		$this->db->where("status_pemesanan", 7);
 
 
 		$finalResponse =  $this->db->get_where()->result_array();

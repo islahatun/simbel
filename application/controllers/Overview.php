@@ -97,6 +97,41 @@ class Overview extends CI_Controller
 	{
 		$this->session->sess_destroy();
 
-		redirect(base_url());
+		redirect(base_url('Overview'));
+	}
+	public function profil()
+	{
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+			'no_telp' => $this->input->post('no_telp'),
+			'alamat' => $this->input->post('alamat'),
+			'email' => $this->input->post('email'),
+			// 'sandi' => password_hash($this->input->post('sandi'), PASSWORD_DEFAULT),
+
+			// 'status_login' => 1,
+		);
+		$this->db->where("id", $this->input->post('id'));
+		$this->db->update("dm_pengguna", $data);
+
+		$this->session->set_flashdata('message', '<div class="alert alert-dangerterdaftar alert-dismissible fade show" role="alert">
+		<strong>Data Berhasil Diubah</strong> 
+		</div>');
+
+		redirect('DaftarBarang/Profil');
+	}
+	public function ubahSandi()
+	{
+		$data = array(
+			'sandi' => password_hash($this->input->post('sandi'), PASSWORD_DEFAULT),
+		);
+		$this->db->where("id", $this->input->post('id'));
+		$this->db->update("dm_pengguna", $data);
+
+		$this->session->set_flashdata('messageSandi', '<div class="alert alert-dangerterdaftar alert-dismissible fade show" role="alert">
+			<strong>Kata Sandi Berhasil Diubah</strong> 
+			</div>');
+
+		redirect('DaftarBarang/Profil');
 	}
 }

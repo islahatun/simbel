@@ -64,56 +64,103 @@
         <div class="card mt-3">
             <div class="card-body">
                 <div class="row mt-2 ml-2 mr-2">
-                    <div class="col-3">
-                        <img src="<?= base_url('assets/img/barang/' . $detail['gambar']) ?>" class="card-img-top" alt="...">
-                    </div>
-                    <div class="col-4">
-                        <h4><?= $detail['nama_barang'] ?></h4>
-                        <p>Rp.<?= $detail['harga_jual'] ?></p>
-                        <h5>Detail</h5>
-                        <p><?= $detail['deskripsi'] ?></p>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4>Atur Jumlah</h4>
-                                <hr>
-                                <form action="<?= base_url('DaftarBarang/order') ?>" method="post">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group row">
-                                                <label for="" class="col-sm-4 col-form-label-sm">Jumlah Beli</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="1" name="jumlah_beli">
-                                                </div>
-                                                <input type="hidden" value="<?= $detail['id_po'] ?>" id="id_po" name="id_po">
-                                                <input type="hidden" value="<?= $detail['harga_jual'] ?>" id="id_po" name="harga_barang">
+                    <?php foreach ($barang as $brg) : ?>
+                        <div class="col-3">
+                            <img src="<?= base_url('assets/img/barang/' . $brg['gambar']) ?>" class="card-img-top" alt="...">
+                        </div>
+                        <div class="col-4">
+                            <?= $this->session->flashdata('message') ?>
+                            <form action="<?= base_url('Overview/profil') ?>" method="post">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Nama Pengguna</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="<?= $pengguna->nama ?>" name="nama">
                                             </div>
-                                            <div>
-                                                <div class="form-group row mt-3 mb-3">
-                                                    <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
+
+                                        </div>
+                                        <div>
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="" class="col-sm-4 col-form-label-sm">No Hp</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control form-control-sm" id="subtotal" name="no_telp" value="<?= $pengguna->no_telp ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="" class="col-sm-4 col-form-label-sm">Jenis Kelamin</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control form-control-sm" id="subtotal" name="jenis_kelamin" value="<?= $pengguna->jenis_kelamin ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="" class="col-sm-4 col-form-label-sm">Alamat</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control form-control-sm" id="subtotal" name="alamat" value="<?= $pengguna->alamat ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="" class="col-sm-4 col-form-label-sm">E-Mail</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control form-control-sm" id="subtotal" name="email" value="<?= $pengguna->email ?>">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" value="<?= $pengguna->id ?>" name="id">
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-secondary" type="submit" id="Keranjang">Ubah Profil</button>
+                                    </div>
+
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Ubah Sandi</h4>
+                                    <hr>
+                                    <?= $this->session->flashdata('messageSandi') ?>
+                                    <form action="<?= base_url('Overview/ubahSandi') ?>" method="post">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="form-group row">
+                                                    <label for="" class="col-sm-4 col-form-label-sm">Sandi Lama</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $detail['harga_jual'] ?>" name="total_pembelian">
+                                                        <input type="password" class="form-control form-control-sm" id="count" placeholder="Sandi Lama" name=" sandi_lama">
+                                                        <input type="hidden" value="<?= $pengguna->id ?>" name="id">
+                                                    </div>
+
+                                                </div>
+                                                <div>
+                                                    <div class="form-group row mt-3 mb-3">
+                                                        <label for="" class="col-sm-4 col-form-label-sm">Sandi Baru</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="password" class="form-control form-control-sm" id="subtotal" name="sandi">
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <button class="btn btn-outline-secondary" type="submit" id="">Beli</button>
-                                        </div>
-                                </form>
-                                <form action="<?= base_url('DaftarBarang/keranjang') ?>" method="post">
-                                    <div class="col-6">
-                                        <input type="hidden" value="<?= $detail['id_po'] ?>" id="id_po" name="id_po">
-                                        <button class="btn btn-outline-secondary" type="submit">keranjang</button>
-                                    </div>
-                            </div>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <button class="btn btn-outline-secondary" type="submit" id="Keranjang">Ubah Sandi</button>
+                                            </div>
 
-                            </form>
-                            <hr>
-                            <!-- <br>
+                                        </div>
+
+                                    </form>
+                                    <hr>
+                                    <!-- <br>
                                 <label for="">Detail Pemesanan:</label>
                                 <?php if ($barang['status_pemesanan'] == 5) { ?>
                                     <form action="<?= base_url('DaftarBarang/order') ?>" method="post">
@@ -122,7 +169,7 @@
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-6 col-form-label-sm">Nama Barang</label>
                                                     <div class="col-sm-4">
-                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $detail['nama_barang'] ?>" name="nama_barang">
+                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $brg['nama_barang'] ?>" name="nama_barang">
                                                     </div>
 
                                                 </div>
@@ -201,12 +248,13 @@
 
                                     </form>
                                 <?php } ?> -->
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    <?php endforeach ?>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 
@@ -217,17 +265,17 @@
             $("#subtotal").val(subtotal);
         });
 
-        function keranjang() {
+        function beli() {
             debugger
-            PatchURL = url.concat('/DaftarBarang/keranjang');
+            PatchURL = url.concat('/DaftarBarang/order');
             var vid_po = $("#id_po").val();
-            var vstatus_pesanan = $("#status_pesanan").val(7);
-
+            var vcount = $("#count").val();
+            var vsub_total = $("#sub_total").val();
 
             var value = {
                 id_po: vid_id,
-                status_pesanan: vstatus_pesanan,
-
+                count: vcount,
+                sub_total: vsub_total,
             };
 
             $.ajax({
@@ -238,7 +286,7 @@
                 success: function(data, textStatus, jqXHR) {
                     debugger
                     //var data = jQuery.parseJSON(data);
-                    toastr.success('Barang berhasil Disimpan.');
+                    toastr.success('Barang berhasil dibeli.');
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     toastr.error('Barang gagal dibeli.');
