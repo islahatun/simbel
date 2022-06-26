@@ -70,7 +70,7 @@ class Login extends CI_Controller
 				$this->session->set_flashdata('message', '<div class="alert alert-dangerterdaftar alert-dismissible fade show" role="alert">
 			<strong>Kata sandi salah</strong> 
 			</div>');
-				redirect('auth');
+				redirect('Overview');
 			}
 		} else {
 			$this->session->set_flashdata('error_login', 'Maaf, Username/Password anda salah. Silahkan Username dan Password dengan benar.');

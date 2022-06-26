@@ -49,7 +49,7 @@
       </div>
     </div>
   </nav>
-
+  <?= $this->session->flashdata('message') ?>
 
   <!-- carousel -->
   <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -101,7 +101,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="loginLabel">DAFTAR</h5>
+          <h5 class="modal-title" id="loginLabel">Masuk</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -126,7 +126,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button type="submit" class="btn btn-primary btn-block">Log In</button>
+            <button type="submit" class="btn btn-primary btn-block">Masuk</button>
           </div>
         </form>
       </div>
@@ -138,19 +138,64 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="regisLabel">Modal title</h5>
+          <h5 class="modal-title" id="regisLabel">Daftar</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <form method="post" action="<?= base_url('Overview/regis'); ?>">
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <input type="text" name="nama" class="form-control" placeholder="Username">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" name="alamat" class="form-control" placeholder="Alamat">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="text" name="no_telp" class="form-control" placeholder="No Hp">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-envelope"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="input-group mb-3">
+                <input type="password" name="sandi" class="form-control" placeholder="Password">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-lock"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="submit" class="btn btn-primary">Daftar</button>
         </div>
       </div>
+      </form>
     </div>
   </div>
 

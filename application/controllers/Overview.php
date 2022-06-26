@@ -33,7 +33,7 @@ class Overview extends CI_Controller
 	function login()
 	{
 		$username = $this->input->post('nama');
-		$password = $this->input->post('sandi');
+		$password = $this->input->post('sandi');;
 
 		$where = array(
 			'nama' => $username,
@@ -42,20 +42,22 @@ class Overview extends CI_Controller
 		$user = $this->db->get_where('dm_pengguna', ['nama' => $username])->row_array();
 		// $cek = $this->MLogin->clogin("dm_pengguna", $where)->num_rows();
 
+
 		if ($user) {
 			if (password_verify($password, $user['sandi'])) {
 				$data = [
 					'id' => $user['id'],
 					'nama' => $user['nama'],
-					'status_login' => $user['status_login']
+					'status_login' => $user['status_login'],
+					'status' => 'login'
 				];
 				$this->session->set_userdata($data);
 				switch ($user['status_login']) {
 					case 1;
-						redirect(base_url('DaftarBarang'));
+						redirect('DaftarBarang');
 						break;
 					case 2;
-						redirect(base_url('Dashboard'));
+						redirect('Dashboard');
 						break;
 					default:
 						redirect('laporan');
@@ -65,14 +67,30 @@ class Overview extends CI_Controller
 				$this->session->set_flashdata('message', '<div class="alert alert-dangerterdaftar alert-dismissible fade show" role="alert">
 			<strong>Kata sandi salah</strong> 
 			</div>');
-				redirect('auth');
+				redirect('overview');
 			}
 		} else {
 			$this->session->set_flashdata('error_login', 'Maaf, Username/Password anda salah. Silahkan Username dan Password dengan benar.');
 			//
 		}
 
-		redirect(base_url('login'));
+		// redirect(base_url('login'));
+	}
+	public function regis()
+	{
+		$data = array(
+			'nama' => $this->input->post('nama'),
+			'jenis_kelamin' => $this->input->post('jenis_kelamin'),
+			'no_telp' => $this->input->post('no_telp'),
+			'alamat' => $this->input->post('alamat'),
+			// 'email' => $this->input->post('email'),
+			'sandi' => password_hash($this->input->post('sandi'), PASSWORD_DEFAULT),
+
+			'status_login' => 1,
+		);
+
+		$this->db->insert("dm_pengguna", $data);
+		redirect('Overview');
 	}
 
 	function logout()
