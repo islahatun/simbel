@@ -28,10 +28,11 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <?php
-          $main_menu = $this->db->order_by('sort', 'ASC')->get_where('sys_navbar', array('parent_id' => 0, 'active' => 1));
+          $user = $this->session->userdata('status_login');
+          $main_menu = $this->db->order_by('sort', 'ASC')->get_where('sys_navbar', array('parent_id' => 0, 'active' => 1, 'session_id' => $user));
           foreach ($main_menu->result() as $main) {
             //Query untuk mencari data sub menu
-            $sub_menu = $this->db->order_by('sort', 'ASC')->get_where('sys_navbar', array('parent_id' => $main->navbar_id, 'active' => 1));
+            $sub_menu = $this->db->order_by('sort', 'ASC')->get_where('sys_navbar', array('parent_id' => $main->navbar_id, 'active' => 1, 'session_id' => $user));
             //periksa apakah ada sub menu
             if ($sub_menu->num_rows() > 0) {
           ?>

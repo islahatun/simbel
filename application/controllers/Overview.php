@@ -13,22 +13,26 @@ class Overview extends CI_Controller
 
 	public function index()
 	{
-		$data['barang'] = $this->MDaftarBarang->datalist();
-		if ($this->session->userdata('status') != "login") {
-			$data['title'] = 'Login';
-			$this->load->view('login', $data);
-		} else {
 
-			// if ($this->session->userdata('status_login') == '2') {
-			// 	$data['title'] = 'Dasboard';
-			// 	$data['content_overview'] = $this->load->view('dashboard', $data, true);
-			// 	$this->load->view('overview', $data);
-			// } else {
-			// 	$data['title'] = 'Dasboard';
-			// 	$data['content_overview'] = $this->load->view('daftarBarang', $data, true);
-			// 	$this->load->view('overview', $data);
-			// }
-		}
+		$data['barang'] = $this->MDaftarBarang->datalist();
+		$data['title'] = 'Login';
+		$this->load->view('login', $data);
+		// if ($this->session->userdata('status') != "login") {
+		// 	$data['title'] = 'Login';
+		// 	// $this->load->view('login', $data);
+		// 	echo "login";
+		// } else {
+
+		// if ($this->session->userdata('status_login') == '2') {
+		// 	$data['title'] = 'Dasboard';
+		// 	$data['content_overview'] = $this->load->view('dashboard', $data, true);
+		// 	$this->load->view('overview', $data);
+		// } else {
+		// 	$data['title'] = 'Dasboard';
+		// 	$data['content_overview'] = $this->load->view('daftarBarang', $data, true);
+		// 	$this->load->view('overview', $data);
+		// }
+		// }
 	}
 	function login()
 	{
