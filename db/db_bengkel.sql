@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 19, 2022 at 11:41 AM
+-- Generation Time: Jun 26, 2022 at 03:44 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -131,7 +131,11 @@ INSERT INTO `dm_pengguna` (`id`, `no_telp`, `nama`, `alamat`, `jenis_kelamin`, `
 (3, '085893324274', 'Siapa aja ', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'islahatunnufusi07@gmail.com', NULL, NULL, '1'),
 (6, '085893324274', 'Humanika', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', 'iis@gmail.com', 'ac9b4e0b6a21758534db2a6324d34a54', 'C:\\fakepath\\f52afef93d06b5503b60a507e3377b80.jpg', '1'),
 (9, 'asas', 'sasa', 'asas', 'a', 'adminasaasa', '939a8398eca47b994c3206d3d9499b3b', NULL, '2'),
-(10, '085893324274', 'admin', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', 'adminadmin', 'c7c9b5abc39fc757817e8a49a1e269ae', NULL, '2');
+(10, '085893324274', 'admin', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', 'adminadmin', 'c7c9b5abc39fc757817e8a49a1e269ae', NULL, '2'),
+(11, '085893324274', 'saaa', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'saaa@gmail.com', '$2y$10$XQ5/k44y0Nf1uLFuEfXJKuCsClq5FVLk.Lvg1N/t9YSiCv2x6woey', NULL, '1'),
+(12, '085893324274', 'iis', 'Serang', 'P', NULL, '$2y$10$tQOYnU3KujXZVEru9mp65.cLe7oxcI7bDLwAAdR2AQmUE6izT8vBa', NULL, '2'),
+(13, '085893324274', 'iis', 'Serang', 'P', NULL, '$2y$10$7PjMs6XJR/LruoZoBcK9G.VlwvsKk/wT8T4MEk53k49g2f8QNEMbi', NULL, '1'),
+(14, '085893324274', 'siska', 'Serang', 'P', NULL, '$2y$10$e9a9tj/e/kJt7NcSTJscqeZ/24D1C27DEYDmo.UH1wI0bXg/qtz5m', NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -191,7 +195,11 @@ CREATE TABLE `dm_status_pemesanan` (
 INSERT INTO `dm_status_pemesanan` (`id_status`, `status_pemesanan`) VALUES
 (1, 'Pemesanan'),
 (2, 'Sedang diproses owner'),
-(3, 'Pemesanan Offline');
+(3, 'Pemesanan Offline'),
+(4, 'Sudah dibayar Ditempt'),
+(5, 'Pengajuan Pembelian'),
+(6, 'Sudah Diabayar'),
+(7, 'Barang Masuk Keranjang');
 
 -- --------------------------------------------------------
 
@@ -349,6 +357,7 @@ CREATE TABLE `sys_rulesmodules` (
 CREATE TABLE `trans_pemesanan` (
   `id_pemesanan` int(11) NOT NULL,
   `id_pelanggan` int(11) DEFAULT NULL,
+  `no_rekening` varchar(30) DEFAULT NULL,
   `nama_pelanggan` varchar(30) DEFAULT NULL,
   `id_po` int(11) DEFAULT NULL,
   `nama_barang` varchar(50) DEFAULT NULL,
@@ -356,15 +365,19 @@ CREATE TABLE `trans_pemesanan` (
   `jumlah_beli` int(11) DEFAULT NULL,
   `status_pemesanan` varchar(50) DEFAULT NULL,
   `tanggal_pemesanan` date DEFAULT NULL,
-  `total_pembelian` decimal(12,2) DEFAULT NULL
+  `total_pembelian` decimal(12,2) DEFAULT NULL,
+  `bukti_pembayaran` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `trans_pemesanan`
 --
 
-INSERT INTO `trans_pemesanan` (`id_pemesanan`, `id_pelanggan`, `nama_pelanggan`, `id_po`, `nama_barang`, `harga_barang`, `jumlah_beli`, `status_pemesanan`, `tanggal_pemesanan`, `total_pembelian`) VALUES
-(1, 2, NULL, 1, 'apaa jaa', '60000.00', 2, '1', '2022-06-15', '500000.00');
+INSERT INTO `trans_pemesanan` (`id_pemesanan`, `id_pelanggan`, `no_rekening`, `nama_pelanggan`, `id_po`, `nama_barang`, `harga_barang`, `jumlah_beli`, `status_pemesanan`, `tanggal_pemesanan`, `total_pembelian`, `bukti_pembayaran`) VALUES
+(1, 2, NULL, NULL, 1, 'apaa jaa', '60000.00', 2, '1', '2022-06-15', '500000.00', NULL),
+(2, 11, 'sasaasa', 'saaa', 5, NULL, '29999.00', 1, '6', '2022-06-25', '29999.00', 'f52afef93d06b5503b60a507e3377b801.jpg'),
+(15, 11, NULL, 'saaa', 6, NULL, NULL, NULL, '5', '2022-06-26', NULL, NULL),
+(16, 11, NULL, 'saaa', 6, NULL, NULL, NULL, '7', '2022-06-26', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -534,7 +547,7 @@ ALTER TABLE `dm_kurir`
 -- AUTO_INCREMENT for table `dm_pengguna`
 --
 ALTER TABLE `dm_pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `dm_po`
@@ -546,7 +559,7 @@ ALTER TABLE `dm_po`
 -- AUTO_INCREMENT for table `dm_status_pemesanan`
 --
 ALTER TABLE `dm_status_pemesanan`
-  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `dm_supplier`
@@ -582,7 +595,7 @@ ALTER TABLE `sys_rules`
 -- AUTO_INCREMENT for table `trans_pemesanan`
 --
 ALTER TABLE `trans_pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `trans_pemesanan_offline`
