@@ -87,7 +87,7 @@
             <div class="card-body text-center">
               <h5 class="card-title"><?= $brg['nama_barang'] ?></h5>
               <p class="card-text"><?= $this->MFunction->idr($brg['harga_jual']) ?></p>
-              <a href="<?= base_url('DaftarBarang/detail/' . $brg['id_po']) ?>" class="btn btn-primary">Go somewhere</a>
+              <a href="<?= base_url('DaftarBarang/detailNotLogin/' . $brg['id_po']) ?>" class="btn btn-primary">Go somewhere</a>
             </div>
           </div>
         </div>

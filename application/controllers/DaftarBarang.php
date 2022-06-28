@@ -27,6 +27,14 @@ class DaftarBarang extends CI_Controller
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
 		$this->load->view('daftarBarang/detailBarang', $data);
 	}
+	public function detailNotLogin($id)
+	{
+		$data['pengguna'] = $this->MLogin->session();
+		// $data['barang'] = $this->MDaftarBarang->konfirmasi();
+		$data['detail'] = $this->MDaftarBarang->getById($id);
+		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
+		$this->load->view('daftarBarang/detailBarang', $data);
+	}
 	public function order()
 	{
 
