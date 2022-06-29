@@ -172,7 +172,7 @@
                                     <div class="form-group row">
                                         <label for="" class="col-sm-4 col-form-label-sm">Nomor Rekening Penjual</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="08787878787/ a.n bambang" name="nama_barang">
+                                            <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $toko['norekening'] . ' / a.n ' . $toko['pemilik_rekening'] ?>" name="nama_barang">
                                         </div>
 
                                     </div>
