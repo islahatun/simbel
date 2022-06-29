@@ -32,6 +32,17 @@ class MDaftarBarang extends CI_Model
 		$finalResponse =  $this->db->get_where()->row_array();
 		return $finalResponse;
 	}
+	public function Toko()
+	{
+		// $id = $this->session->userdata['id'];
+		$this->db->select('*');
+		$this->db->from("dm_toko");
+		// $this->db->where("id_pelanggan", $id);
+
+
+		$finalResponse =  $this->db->get()->row_array();
+		return $finalResponse;
+	}
 	public function pesanan()
 	{
 		$id = $this->session->userdata['id'];

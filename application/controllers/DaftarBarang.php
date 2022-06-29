@@ -57,6 +57,7 @@ class DaftarBarang extends CI_Controller
 	}
 	public function detailOrder($id)
 	{
+		$data['toko'] = $this->MDaftarBarang->Toko();
 		$data['pengguna'] = $this->MLogin->session();
 		$data['barang'] = $this->MDaftarBarang->konfirmasi();
 		$data['detail'] = $this->MDaftarBarang->getById($id);
