@@ -86,6 +86,8 @@ class InternalBengkel extends CI_Controller
         );
 
         $this->db->insert("dm_pengguna", $data);
+
+        redirect('InternalBengkel');
     }
 
     function updateSave()

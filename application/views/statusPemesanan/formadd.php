@@ -40,7 +40,7 @@
                 <div class="form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Status Pemesanan</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control form-control-sm" id="status_pemesanan" placeholder="Status Pemesanan">
+                    <input type="text" class="form-control form-control-sm" required id="status_pemesanan" placeholder="Status Pemesanan">
                   </div>
                 </div>
               </div>

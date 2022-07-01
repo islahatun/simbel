@@ -35,49 +35,49 @@
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Nama Barang</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control form-control-sm" id="nama_barang" placeholder="Nama Barang" name="nama_barang">
+                                    <input type="text" class="form-control form-control-sm" required id="nama_barang" placeholder="Nama Barang" name="nama_barang">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Kategori</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Kategori" name="kategori">
+                                    <input type="text" class="form-control form-control-sm" required id="jenis_kelamin" placeholder="Kategori" name="kategori">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Satuan</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control form-control-sm" id="satuan" placeholder="Satuan" name="satuan">
+                                    <input type="text" class="form-control form-control-sm" required id="satuan" placeholder="Satuan" name="satuan">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Stok</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control form-control-sm" id="stok" placeholder="Stok" name="stok">
+                                    <input type="number" class="form-control form-control-sm" required id="stok" placeholder="Stok" name="stok">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Deskripsi</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control form-control-sm" id="deskripsi" placeholder="Deskripsi" name="deskripsi">
+                                    <input type="text" class="form-control form-control-sm" required id="deskripsi" placeholder="Deskripsi" name="deskripsi">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Harga Beli</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control form-control-sm" id="harga_beli" placeholder="Harga Beli" name="harga_beli">
+                                    <input type="number" class="form-control form-control-sm" required id="harga_beli" placeholder="Harga Beli" name="harga_beli">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Harga Jual</label>
                                 <div class="col-sm-10">
-                                    <input type="number" class="form-control form-control-sm" id="harga_jual" placeholder="Harga Jual" name="harga_jual">
+                                    <input type="number" class="form-control form-control-sm" required id="harga_jual" placeholder="Harga Jual" name="harga_jual">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Tanggal Datang</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control form-control-sm" id="tanggal_datang" placeholder="Tanggal Datang" name="tanggal_datang">
+                                    <input type="date" class="form-control form-control-sm" required id="tanggal_datang" placeholder="Tanggal Datang" name="tanggal_datang">
                                 </div>
                             </div>
                             <div class="form-group row">

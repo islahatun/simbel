@@ -68,7 +68,7 @@
     </tr>
 
     <tr>
-      <td colspan="2">Mang Mamad</td>
+      <td colspan="2">Mang Mamat</td>
 
     </tr>
   </table>

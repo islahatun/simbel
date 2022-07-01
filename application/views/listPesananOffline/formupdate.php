@@ -41,7 +41,7 @@
                 <div class="form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Nama Barang</label>
                   <div class="col-sm-10">
-                    <select class="form-control form-control-sm" id="id_po">
+                    <select class="form-control form-control-sm" required id="id_po">
                       <option value="<?= $ao->id_po ?>"><?= $ao->nama_barang ?> </option>
                       <?php
                       foreach ($barang as $sp) : ?>
@@ -53,19 +53,19 @@
                 <div class="form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Harga Barang</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control form-control-sm" id="harga_barang" placeholder="Harga Barang" value="<?= $ao->harga_barang ?>">
+                    <input type="text" class="form-control form-control-sm" required id="harga_barang" placeholder="Harga Barang" value="<?= $ao->harga_barang ?>">
                   </div>
                 </div>
                 <div class=" form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Jumlah Beli</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control form-control-sm" id="jumlah_beli" placeholder="jumlah_beli" value="<?= $ao->jumlah_beli ?>">
+                    <input type="text" class="form-control form-control-sm" required id="jumlah_beli" placeholder="jumlah_beli" value="<?= $ao->jumlah_beli ?>">
                   </div>
                 </div>
                 <div class=" form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Total Pembelian</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control form-control-sm" id="total_pembelian" placeholder="total_pembelian" value="<?= $ao->total_pembelian ?>">
+                    <input type="text" class="form-control form-control-sm" required id="total_pembelian" placeholder="total_pembelian" value="<?= $ao->total_pembelian ?>">
                   </div>
                 </div>
               </div>

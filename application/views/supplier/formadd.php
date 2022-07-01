@@ -42,31 +42,31 @@
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Supplier</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="supplier_name" placeholder="Supplier">
+                        <input type="text" class="form-control form-control-sm" required id="supplier_name" placeholder="Supplier">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Telephone</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control form-control-sm" id="telp" placeholder="Telephone">
+                        <input type="number" class="form-control form-control-sm" required id="telp" placeholder="Telephone">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Bank ID</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control form-control-sm" id="bank_id" placeholder="Bank ID">
+                        <input type="number" class="form-control form-control-sm" required id="bank_id" placeholder="Bank ID">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Nomor Rekening</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control form-control-sm" id="no_rekening" placeholder="Nomor Rekening">
+                        <input type="number" class="form-control form-control-sm" required id="no_rekening" placeholder="Nomor Rekening">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Rekening An.</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="rek_name" placeholder="Rekening An.">
+                        <input type="text" class="form-control form-control-sm" required id="rek_name" placeholder="Rekening An.">
                       </div>
                     </div>
                   </div>
@@ -75,13 +75,13 @@
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Email</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email">
+                        <input type="text" class="form-control form-control-sm" required id="email" placeholder="Email">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Alamat</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat">
+                        <input type="text" class="form-control form-control-sm" required id="alamat" placeholder="Alamat">
                       </div>
                     </div>
                   </div>

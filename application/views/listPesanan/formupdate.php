@@ -40,13 +40,13 @@
                 <div class="form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Id Pelanggan</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control form-control-sm" id="id_pemesanan" placeholder="Status Pemesanan" value="<?= $ao->id_pemesanan; ?>">
+                    <input type="text" class="form-control form-control-sm" required id="id_pemesanan" placeholder="Status Pemesanan" value="<?= $ao->id_pemesanan; ?>">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Status Pemesanan</label>
                   <div class="col-sm-10">
-                    <select class="form-control form-control-sm" id="status_pemesanan">
+                    <select class="form-control form-control-sm" required id="status_pemesanan">
                       <?php foreach ($status_pemesanan as $sp) : ?>
                         <option value="<?= $sp->id_status ?>"><?= $sp->status_pemesanan ?> </option>
                       <?php endforeach; ?>

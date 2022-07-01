@@ -42,32 +42,32 @@
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Supplier</label>
                       <div class="col-sm-9">
-                        <input type="hidden" class="form-control form-control-sm" id="supplier_id" value="<?= $s->supplier_id; ?>">
-                        <input type="text" class="form-control form-control-sm" id="supplier_name" placeholder="Supplier" value="<?= $s->supplier_name; ?>">
+                        <input type="hidden" class="form-control form-control-sm" required id="supplier_id" value="<?= $s->supplier_id; ?>">
+                        <input type="text" class="form-control form-control-sm" required id="supplier_name" placeholder="Supplier" value="<?= $s->supplier_name; ?>">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Telephone</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control form-control-sm" id="telp" placeholder="Telephone" value="<?= $s->telp; ?>">
+                        <input type="number" class="form-control form-control-sm" required id="telp" placeholder="Telephone" value="<?= $s->telp; ?>">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Bank ID</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control form-control-sm" id="bank_id" placeholder="Bank ID" value="<?= $s->bank_id; ?>">
+                        <input type="number" class="form-control form-control-sm" required id="bank_id" placeholder="Bank ID" value="<?= $s->bank_id; ?>">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Nomor Rekening</label>
                       <div class="col-sm-9">
-                        <input type="number" class="form-control form-control-sm" id="no_rekening" placeholder="Nomor Rekening" value="<?= $s->no_rekening; ?>">
+                        <input type="number" class="form-control form-control-sm" required id="no_rekening" placeholder="Nomor Rekening" value="<?= $s->no_rekening; ?>">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Rekening An.</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="rek_name" placeholder="Rekening An." value="<?= $s->rek_name; ?>">
+                        <input type="text" class="form-control form-control-sm" required id="rek_name" placeholder="Rekening An." value="<?= $s->rek_name; ?>">
                       </div>
                     </div>
                   </div>
@@ -76,13 +76,13 @@
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Email</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email" value="<?= $s->email; ?>">
+                        <input type="text" class="form-control form-control-sm" required id="email" placeholder="Email" value="<?= $s->email; ?>">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label for="" class="col-sm-3 col-form-label col-form-label-sm text-right">Alamat</label>
                       <div class="col-sm-9">
-                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat" value="<?= $s->alamat; ?>">
+                        <input type="text" class="form-control form-control-sm" required id="alamat" placeholder="Alamat" value="<?= $s->alamat; ?>">
                       </div>
                     </div>
                   </div>

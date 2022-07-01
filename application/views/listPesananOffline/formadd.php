@@ -40,19 +40,19 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Id Pelanggan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="id_pelanggan" placeholder="Nama Pelanggan">
+                                        <input type="text" class="form-control form-control-sm" required id="id_pelanggan" placeholder="Nama Pelanggan">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="Nama Pelanggan">
+                                        <input type="text" class="form-control form-control-sm" required id="nama_pelanggan" placeholder="Nama Pelanggan">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Barang</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control form-control-sm" id="id_po">
+                                        <select class="form-control form-control-sm" required id="id_po">
                                             <?php
                                             foreach ($barang as $sp) : ?>
                                                 <option value="<?= $sp->id_po ?>"><?= $sp->nama_barang ?> </option>
@@ -63,24 +63,24 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Harga Barang</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="harga_barang" placeholder="Harga Barang">
+                                        <input type="text" class="form-control form-control-sm" required id="harga_barang" placeholder="Harga Barang">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Jumlah Beli</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="jumlah_beli" placeholder="jumlah_beli">
+                                        <input type="text" class="form-control form-control-sm" required id="jumlah_beli" placeholder="jumlah_beli">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Total Pembelian</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="total_pembelian" placeholder="total_pembelian">
+                                        <input type="text" class="form-control form-control-sm" required id="total_pembelian" placeholder="total_pembelian">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-10">
-                                        <input type="hidden" class="form-control form-control-sm" id="status_pemesanan" value=3>
+                                        <input type="hidden" class="form-control form-control-sm" required id="status_pemesanan" value=3>
                                     </div>
                                 </div>
                             </div>

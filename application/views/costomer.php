@@ -46,13 +46,13 @@
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th>Nama Pelanggan</th>
+                                        <th class="col-md-1 text-center">Nama Pelanggan</th>
                                         <th class="col-md-1 text-center">Jenis Kelamin</th>
                                         <th class="col-md-1 text-center">Nomor Hp</th>
                                         <th class="col-md-2 text-center">Alamat</th>
                                         <th class="col-md-2 text-center">Email</th>
                                         <!-- <th class="col-md-1 text-center">Foto</th> -->
-                                        <th class="col-md-2 text-center">Aksi</th>
+                                        <!-- <th class="col-md-2 text-center">Aksi</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -117,10 +117,10 @@
                 //     "data": "foto",
                 //     className: "align-middle text-center small"
                 // },
-                {
-                    "data": "btn_action",
-                    className: "align-middle text-center small"
-                }
+                // {
+                //     "data": "btn_action",
+                //     className: "align-middle text-center small"
+                // }
             ]
         });
     });

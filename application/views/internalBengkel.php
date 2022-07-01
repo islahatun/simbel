@@ -126,6 +126,7 @@
     $(document).on("click", "#btn_pelanggan_del", function() {
         //debugger
         var vid = $(this).attr("vid");
+        console.log(vid);
 
         if (!vid) {
             toastr.error('Data gagal disimpan.');

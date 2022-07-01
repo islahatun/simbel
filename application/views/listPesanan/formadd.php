@@ -28,19 +28,19 @@
                         <div class="card-header">
                             <h3 class="card-title"><?= $subtitle; ?></h3>
                         </div>
-                        <form id="form_poliklinik" class="form-horizontal">
+                        <form id="form_poliklinik" class="form-horizontal" method="post" action="<?= base_url() ?>">
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama_pelanggan" placeholder="Nama Pemesan">
+                                        <input type="text" class="form-control form-control-sm" require id="nama_pelanggan" placeholder="Nama Pemesan">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Barang</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control form-control-sm" id="id_po">
+                                        <select class="form-control form-control-sm" require id="id_po">
                                             <?php
                                             $brg = "select nama_barang from dm_po";
                                             $barang = $this->db->get()->result_array();
@@ -53,24 +53,24 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Harga Barang</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="harga_barang" placeholder="Harga Barang">
+                                        <input type="text" class="form-control form-control-sm" require id="harga_barang" placeholder="Harga Barang">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Jumlah Beli</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="jumlah_beli" placeholder="jumlah_beli">
+                                        <input type="text" class="form-control form-control-sm" require id="jumlah_beli" placeholder="jumlah_beli">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Total Pembelian</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="total_pembelian" placeholder="total_pembelian">
+                                        <input type="text" class="form-control form-control-sm" require id="total_pembelian" placeholder="total_pembelian">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-10">
-                                        <input type="hidden" class="form-control form-control-sm" id="status_pemesanan" value=3>
+                                        <input type="hidden" class="form-control form-control-sm" require id="status_pemesanan" value=3>
                                     </div>
                                 </div>
                             </div>

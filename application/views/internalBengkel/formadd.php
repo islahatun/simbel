@@ -28,43 +28,43 @@
                         <div class="card-header">
                             <h3 class="card-title"><?= $subtitle; ?></h3>
                         </div>
-                        <form id="form_poliklinik" class="form-horizontal">
+                        <form id="internal_bengkel" class="form-horizontal" method="post" action="<?= base_url('InternalBengkel/Save') ?>">
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Admin</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="Nama Admin">
+                                        <input type="text" class="form-control form-control-sm" required name="nama_admin" id="nama" placeholder="Nama Admin">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Jenis Kelamin</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin">
+                                        <input type="text" class="form-control form-control-sm" required name="jenis_kelamin" id="jenis_kelamin" placeholder="Jenis Kelamin">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">No Hp</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="no_telp" placeholder="No Hp">
+                                        <input type="text" class="form-control form-control-sm" required name="no_telp" id="no_telp" placeholder="No Hp">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Alamat</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat">
+                                        <input type="text" class="form-control form-control-sm" required name="alamat" id="alamat" placeholder="Alamat">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email">
+                                        <input type="text" class="form-control form-control-sm" required name="email" id="email" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Kata Sandi</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control form-control-sm" id="sandi" placeholder="Kata Sandi">
+                                        <input type="password" class="form-control form-control-sm" required name="sandi" id="sandi" placeholder="Kata Sandi">
                                     </div>
                                 </div>
                                 <!-- <div class="form-group row">
@@ -82,7 +82,7 @@
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
                                 <a href="<?= base_url('InternalBengkel'); ?>" type="button" class="btn btn-secondary">Kembali</a>
-                                <button type="button" class="btn btn-primary" onclick="saveAO()">Save</button>
+                                <button type="submit" class="btn btn-primary" id="saveAO">Save</button>
                             </div>
                         </form>
                     </div>
@@ -101,8 +101,9 @@
 
 <!-- Page specific script -->
 <script>
-    function saveAO() {
+    $('#internal_bengkel').on('submit', function(e) {
         //debugger
+
         PatchURL = _baseurl.concat('/InternalBengkel/save');
 
         var vnama = $("#nama").val();
@@ -139,7 +140,7 @@
                 toastr.error('Data gagal disimpan.');
             }
         });
-    }
+    })
 
     function clearText() {
         $("#nama").val();

@@ -41,31 +41,31 @@
                                     <input type="text" hidden class="form-control" id="id" value="<?= $ao->id; ?>">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Admin</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="Nama Admin" value="<?= $ao->nama; ?>">
+                                        <input type="text" class="form-control form-control-sm" required id="nama" placeholder="Nama Admin" value="<?= $ao->nama; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Jenis Kelamin</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="jenis_kelamin" placeholder="Jenis Kelamin" value="<?= $ao->jenis_kelamin; ?>">
+                                        <input type="text" class="form-control form-control-sm" required id="jenis_kelamin" placeholder="Jenis Kelamin" value="<?= $ao->jenis_kelamin; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">No Hp</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="no_telp" placeholder="No Hp" value="<?= $ao->no_telp; ?>">
+                                        <input type="text" class="form-control form-control-sm" required id="no_telp" placeholder="No Hp" value="<?= $ao->no_telp; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Alamat</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="alamat" placeholder="Alamat" value="<?= $ao->alamat; ?>">
+                                        <input type="text" class="form-control form-control-sm" required id="alamat" placeholder="Alamat" value="<?= $ao->alamat; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Email</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="email" placeholder="Email" value="<?= $ao->email; ?>">
+                                        <input type="text" class="form-control form-control-sm" required id="email" placeholder="Email" value="<?= $ao->email; ?>">
                                     </div>
                                 </div>
 
@@ -89,7 +89,7 @@
                                     <input type="text" hidden class="form-control" id="id" value="<?= $ao->id; ?>">
                                     <label for="" class="col-sm-2 col-form-label-sm">Sandi</label>
                                     <div class="col-sm-10">
-                                        <input type="password" class="form-control form-control-sm" id="sandi" placeholder="sandi">
+                                        <input type="password" class="form-control form-control-sm" required id="sandi" placeholder="sandi">
                                     </div>
                                 </div>
 
