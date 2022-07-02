@@ -32,9 +32,9 @@
                                     <h3 class="card-title"><?= $subtitle; ?></h3>
                                 </div>
                                 <div class="col-md-6 text-right">
-                                    <a href="<?= base_url('LaporanCostomer/export'); ?>" target="blank" class="btn btn-sm btn-info mr-1">
+                                    <!-- <a href="<?= base_url('LaporanCostomer/export'); ?>" target="blank" class="btn btn-sm btn-info mr-1">
                                         <i class="fas fa-file-export"></i> Export Exel
-                                    </a>
+                                    </a> -->
                                     <a href="<?= base_url('LaporanCostomer/pdf') ?>" target="blank" class="btn btn-secondary btn-sm"><i class="fas fa-print"></i></a>
                                 </div>
                             </div>

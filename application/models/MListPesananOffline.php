@@ -22,6 +22,38 @@ class MListPesananOffline extends CI_Model
         $finalResponse =  $this->db->get()->result();
         return $finalResponse;
     }
+    public function datalistGroup()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+
+        $this->db->select('*,dm_status_pemesanan.status_pemesanan,dm_po.nama_barang');
+        $this->db->from("trans_pemesanan_offline");
+        $this->db->where('trans_pemesanan_offline.status_pemesanan', '4');
+        $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan_offline.status_pemesanan");
+        $this->db->join("dm_po", "dm_po.id_po = trans_pemesanan_offline.id_po");
+        $this->db->group_by("id_pelanggan");
+        $this->db->order_by("id_pemesanan", 'ASC');
+
+
+        $finalResponse =  $this->db->get()->result();
+        return $finalResponse;
+    }
+    public function datalistGroupDetail($id)
+    {
+        date_default_timezone_set('Asia/Jakarta');
+
+        $this->db->select('*,dm_status_pemesanan.status_pemesanan,dm_po.nama_barang');
+        $this->db->from("trans_pemesanan_offline");
+        $this->db->where('trans_pemesanan_offline.status_pemesanan', '4');
+        $this->db->where('id_pelanggan', $id);
+        $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan_offline.status_pemesanan");
+        $this->db->join("dm_po", "dm_po.id_po = trans_pemesanan_offline.id_po");
+        $this->db->order_by("id_pemesanan", 'ASC');
+
+
+        $finalResponse =  $this->db->get_where()->result();
+        return $finalResponse;
+    }
 
     public function getById($id)
     {
@@ -29,6 +61,17 @@ class MListPesananOffline extends CI_Model
         $this->db->select('*,dm_status_pemesanan.status_pemesanan,dm_po.nama_barang');
         $this->db->from("trans_pemesanan_offline");
         $this->db->where('id_pemesanan', $id);
+        $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan_offline.status_pemesanan");
+        $this->db->join("dm_po", "dm_po.id_po = trans_pemesanan_offline.id_po");
+        $this->db->order_by("id_pemesanan", 'ASC');
+        return $this->db->get_where()->row();
+    }
+    public function getByIdPelanggan($id)
+    {
+
+        $this->db->select('*,dm_status_pemesanan.status_pemesanan,dm_po.nama_barang');
+        $this->db->from("trans_pemesanan_offline");
+        $this->db->where('id_pelanggan', $id);
         $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan_offline.status_pemesanan");
         $this->db->join("dm_po", "dm_po.id_po = trans_pemesanan_offline.id_po");
         $this->db->order_by("id_pemesanan", 'ASC');
