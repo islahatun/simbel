@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2022 at 03:44 AM
+-- Generation Time: Jul 02, 2022 at 04:32 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -131,11 +131,10 @@ INSERT INTO `dm_pengguna` (`id`, `no_telp`, `nama`, `alamat`, `jenis_kelamin`, `
 (3, '085893324274', 'Siapa aja ', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'islahatunnufusi07@gmail.com', NULL, NULL, '1'),
 (6, '085893324274', 'Humanika', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', 'iis@gmail.com', 'ac9b4e0b6a21758534db2a6324d34a54', 'C:\\fakepath\\f52afef93d06b5503b60a507e3377b80.jpg', '1'),
 (9, 'asas', 'sasa', 'asas', 'a', 'adminasaasa', '939a8398eca47b994c3206d3d9499b3b', NULL, '2'),
-(10, '085893324274', 'admin', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', 'adminadmin', 'c7c9b5abc39fc757817e8a49a1e269ae', NULL, '2'),
+(10, '085893324274', 'admin2', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', '', 'c7c9b5abc39fc757817e8a49a1e269ae', NULL, '2'),
 (11, '085893324274', 'saaa', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'saaa@gmail.com', '$2y$10$XQ5/k44y0Nf1uLFuEfXJKuCsClq5FVLk.Lvg1N/t9YSiCv2x6woey', NULL, '1'),
-(12, '085893324274', 'iis', 'Serang', 'P', NULL, '$2y$10$tQOYnU3KujXZVEru9mp65.cLe7oxcI7bDLwAAdR2AQmUE6izT8vBa', NULL, '2'),
-(13, '085893324274', 'iis', 'Serang', 'P', NULL, '$2y$10$7PjMs6XJR/LruoZoBcK9G.VlwvsKk/wT8T4MEk53k49g2f8QNEMbi', NULL, '1'),
-(14, '085893324274', 'siska', 'Serang', 'P', NULL, '$2y$10$e9a9tj/e/kJt7NcSTJscqeZ/24D1C27DEYDmo.UH1wI0bXg/qtz5m', NULL, '1');
+(14, '085893324274', 'siska', 'Serang', 'P', NULL, '$2y$10$e9a9tj/e/kJt7NcSTJscqeZ/24D1C27DEYDmo.UH1wI0bXg/qtz5m', NULL, '1'),
+(15, '08676277622', 'udoh', 'serang', 'P', 'iahakhsaja', '$2y$10$bLkZ6TbhBprR7iP.h4HzAuTF1CDv3mZ2cOQZYX5B3/6VGU9OtFVwG', NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -163,7 +162,8 @@ CREATE TABLE `dm_po` (
 INSERT INTO `dm_po` (`id_po`, `id_kategori`, `nama_barang`, `satuan`, `stok`, `harga_beli`, `harga_jual`, `deskripsi`, `tanggal_datang`, `gambar`) VALUES
 (4, NULL, 'Oli', 'liter', 500, '50000.00', '60000.00', 'oli super', '2022-06-23', 'f52afef93d06b5503b60a507e3377b80.jpg'),
 (5, NULL, 'nama barang', 'asaas', 0, '26666.00', '29999.00', 'asasas', '2022-06-22', '8ac7a7f1235ac0876d2ef49a4d21a3c3.jpg'),
-(6, NULL, 'nama barang ahaa', 'asaas', 0, '26666.00', '29999.00', 'asasas', '2022-06-22', 'WhatsApp_Image_2022-04-25_at_15_14_22.jpeg');
+(6, NULL, 'nama barang ahaa', 'asaas', 0, '26666.00', '29999.00', 'asasas', '2022-06-22', 'WhatsApp_Image_2022-04-25_at_15_14_22.jpeg'),
+(7, NULL, 'sasasa', 'asasa', 1, '26666.00', '40000.00', 'asasas', '2022-04-11', 'WhatsApp_Image_2022-04-25_at_15_15_53.jpeg');
 
 -- --------------------------------------------------------
 
@@ -217,6 +217,28 @@ CREATE TABLE `dm_supplier` (
   `no_rekening` varchar(100) NOT NULL,
   `rek_name` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dm_toko`
+--
+
+CREATE TABLE `dm_toko` (
+  `id_toko` int(11) NOT NULL,
+  `nama_toko` varchar(255) DEFAULT NULL,
+  `alamat` varchar(255) DEFAULT NULL,
+  `norekening` varchar(20) DEFAULT NULL,
+  `pemilik_rekening` varchar(50) DEFAULT NULL,
+  `nama_bank` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `dm_toko`
+--
+
+INSERT INTO `dm_toko` (`id_toko`, `nama_toko`, `alamat`, `norekening`, `pemilik_rekening`, `nama_bank`) VALUES
+(2, NULL, 'namlask', 'naklasmlsa', 'amlksamlsa', 'BNI');
 
 -- --------------------------------------------------------
 
@@ -284,6 +306,7 @@ INSERT INTO `sys_modules` (`module_id`, `navbar_id`, `module_name`, `link`, `src
 CREATE TABLE `sys_navbar` (
   `navbar_id` int(11) NOT NULL,
   `parent_id` int(11) NOT NULL DEFAULT 0,
+  `session_id` varchar(1) DEFAULT NULL,
   `navbar_icon` varchar(100) DEFAULT NULL,
   `navbar_name` varchar(50) NOT NULL,
   `link` varchar(250) DEFAULT NULL,
@@ -295,22 +318,29 @@ CREATE TABLE `sys_navbar` (
 -- Dumping data for table `sys_navbar`
 --
 
-INSERT INTO `sys_navbar` (`navbar_id`, `parent_id`, `navbar_icon`, `navbar_name`, `link`, `sort`, `active`) VALUES
-(1, 0, '<i class=\"fas fa-tachometer-alt\"></i>', 'Dashboard', NULL, 1, 'Y'),
-(2, 0, '<i class=\"fas fa-user\"></i>', 'Pendaftaran', NULL, 2, 'Y'),
-(3, 2, NULL, 'Costomer', 'Costomer', 0, 'Y'),
-(4, 2, NULL, 'Internal Bengkel', 'InternalBengkel', 0, 'Y'),
-(5, 0, '<i class=\"fas fa-server\"></i>', 'Master Data', NULL, 3, 'Y'),
-(6, 5, NULL, 'Barang', 'MasterBarang', 0, 'Y'),
-(7, 5, NULL, 'Kategori', 'Kategori', 0, 'Y'),
-(8, 5, NULL, 'Status Pemesanan', 'StatusPemesanan', 0, 'Y'),
-(9, 0, '<i class=\"fas fa-shopping-cart\"></i>', 'Daftar Pemesanan', 'ListPesanan', 4, 'Y'),
-(10, 0, '<i class=\"fas fa-clipboard\"></i>', 'Laporan', NULL, 6, 'Y'),
-(11, 10, NULL, 'Laporan Costomer', 'LaporanCostomer', 0, 'Y'),
-(12, 10, NULL, 'Laporan Barang', 'LaporanBarang', 0, 'Y'),
-(13, 10, NULL, 'Laporan Pemesanan', 'LaporanPemesanan', 0, 'Y'),
-(14, 0, '<i class=\"fas fa-box-open\"></i>', 'Supplier', 'Supplier', 6, 'Y'),
-(15, 0, '<i class=\"fas fa-shopping-cart\"></i>', 'Daftar Pemesanan Ofline', 'ListPesananOffline', 5, 'Y');
+INSERT INTO `sys_navbar` (`navbar_id`, `parent_id`, `session_id`, `navbar_icon`, `navbar_name`, `link`, `sort`, `active`) VALUES
+(1, 0, '2', '<i class=\"fas fa-tachometer-alt\"></i>', 'Dashboard', NULL, 1, 'Y'),
+(2, 0, '2', '<i class=\"fas fa-user\"></i>', 'Pendaftaran', NULL, 2, 'Y'),
+(3, 2, '2', NULL, 'Costomer', 'Costomer', 0, 'Y'),
+(4, 2, '2', NULL, 'Internal Bengkel', 'InternalBengkel', 0, 'Y'),
+(5, 0, '2', '<i class=\"fas fa-server\"></i>', 'Master Data', NULL, 3, 'Y'),
+(6, 5, '2', NULL, 'Barang', 'MasterBarang', 0, 'Y'),
+(7, 5, '2', NULL, 'Kategori', 'Kategori', 0, 'Y'),
+(8, 5, '2', NULL, 'Status Pemesanan', 'StatusPemesanan', 0, 'Y'),
+(9, 0, '2', '<i class=\"fas fa-shopping-cart\"></i>', 'Daftar Pemesanan', 'ListPesanan', 4, 'Y'),
+(10, 0, '2', '<i class=\"fas fa-clipboard\"></i>', 'Laporan', NULL, 6, 'Y'),
+(11, 10, '2', NULL, 'Laporan Costomer', 'LaporanCostomer', 0, 'Y'),
+(12, 10, '2', NULL, 'Laporan Barang', 'LaporanBarang', 0, 'Y'),
+(13, 10, '2', NULL, 'Laporan Pemesanan', 'LaporanPemesanan', 0, 'Y'),
+(14, 0, '2', '<i class=\"fas fa-box-open\"></i>', 'Supplier', 'Supplier', 6, 'Y'),
+(15, 0, '2', '<i class=\"fas fa-shopping-cart\"></i>', 'Daftar Pemesanan Ofline', 'ListPesananOffline', 5, 'Y'),
+(16, 0, '3', '<i class=\"fas fa-clipboard\"></i>', 'Laporan', NULL, 7, 'Y'),
+(17, 16, '3', NULL, 'Laporan Costomer', 'LaporanCostomer', 0, 'Y'),
+(18, 16, '3', NULL, 'Laporan Barang', 'LaporanBarang', 0, 'Y'),
+(19, 16, '3', NULL, 'Laporan Pemesanan', 'LaporanPemesanan', 0, 'Y'),
+(20, 10, '2', NULL, 'Laporan Pemesanan Offline', 'LaporanPemesananOffline', 0, 'Y'),
+(21, 16, '3', NULL, 'Laporan Pemesanan Offline', 'LaporanPemesananOffline', 0, 'Y'),
+(76, 0, '2', '<i class=\"fas fa-store\"></i>', 'Info Toko', 'InfoToko', 8, 'Y');
 
 -- --------------------------------------------------------
 
@@ -377,7 +407,16 @@ INSERT INTO `trans_pemesanan` (`id_pemesanan`, `id_pelanggan`, `no_rekening`, `n
 (1, 2, NULL, NULL, 1, 'apaa jaa', '60000.00', 2, '1', '2022-06-15', '500000.00', NULL),
 (2, 11, 'sasaasa', 'saaa', 5, NULL, '29999.00', 1, '6', '2022-06-25', '29999.00', 'f52afef93d06b5503b60a507e3377b801.jpg'),
 (15, 11, NULL, 'saaa', 6, NULL, NULL, NULL, '5', '2022-06-26', NULL, NULL),
-(16, 11, NULL, 'saaa', 6, NULL, NULL, NULL, '7', '2022-06-26', NULL, NULL);
+(16, 11, NULL, 'saaa', 6, NULL, NULL, NULL, '7', '2022-06-26', NULL, NULL),
+(17, 11, NULL, 'saaa', 7, NULL, '40000.00', 1, '5', '2022-06-26', '40000.00', NULL),
+(18, 11, NULL, 'saaa', 7, NULL, '40000.00', 1, '5', '2022-06-26', '40000.00', NULL),
+(19, 11, NULL, 'saaa', 7, NULL, NULL, NULL, '7', '2022-06-26', NULL, NULL),
+(20, 11, NULL, 'saaa', 6, NULL, '29999.00', 1, '5', '2022-06-26', '29999.00', NULL),
+(21, 11, NULL, 'saaa', 5, NULL, '29999.00', 1, '5', '2022-06-26', '29999.00', NULL),
+(22, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
+(23, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
+(24, NULL, NULL, NULL, 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
+(25, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL);
 
 -- --------------------------------------------------------
 
@@ -404,7 +443,8 @@ INSERT INTO `trans_pemesanan_offline` (`id_pemesanan`, `id_pelanggan`, `id_po`, 
 (7, 1, NULL, NULL, NULL, '4', '2022-06-19', NULL),
 (8, 1, 4, '3000.00', 2, '4', '2022-06-19', '6000.00'),
 (9, 1, 4, '3000.00', 3, '4', '2022-06-19', '9000.00'),
-(10, 1, 6, '2222.00', 2, '4', '2022-06-19', '4444.00');
+(10, 1, 6, '2222.00', 2, '4', '2022-06-19', '4444.00'),
+(11, 0, 5, '0.00', 0, '3', '2022-07-02', '0.00');
 
 --
 -- Indexes for dumped tables
@@ -471,6 +511,12 @@ ALTER TABLE `dm_status_pemesanan`
 --
 ALTER TABLE `dm_supplier`
   ADD PRIMARY KEY (`supplier_id`);
+
+--
+-- Indexes for table `dm_toko`
+--
+ALTER TABLE `dm_toko`
+  ADD PRIMARY KEY (`id_toko`);
 
 --
 -- Indexes for table `sys_admin`
@@ -547,13 +593,13 @@ ALTER TABLE `dm_kurir`
 -- AUTO_INCREMENT for table `dm_pengguna`
 --
 ALTER TABLE `dm_pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `dm_po`
 --
 ALTER TABLE `dm_po`
-  MODIFY `id_po` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_po` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `dm_status_pemesanan`
@@ -566,6 +612,12 @@ ALTER TABLE `dm_status_pemesanan`
 --
 ALTER TABLE `dm_supplier`
   MODIFY `supplier_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `dm_toko`
+--
+ALTER TABLE `dm_toko`
+  MODIFY `id_toko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `sys_logs`
@@ -583,7 +635,7 @@ ALTER TABLE `sys_modules`
 -- AUTO_INCREMENT for table `sys_navbar`
 --
 ALTER TABLE `sys_navbar`
-  MODIFY `navbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
+  MODIFY `navbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
 
 --
 -- AUTO_INCREMENT for table `sys_rules`
@@ -595,13 +647,13 @@ ALTER TABLE `sys_rules`
 -- AUTO_INCREMENT for table `trans_pemesanan`
 --
 ALTER TABLE `trans_pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `trans_pemesanan_offline`
 --
 ALTER TABLE `trans_pemesanan_offline`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
