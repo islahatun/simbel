@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2022 at 04:32 AM
+-- Generation Time: Jul 03, 2022 at 05:57 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.23
 
@@ -24,43 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_agama`
---
-
-CREATE TABLE `dm_agama` (
-  `agama_id` int(11) NOT NULL,
-  `agama_nama` varchar(100) NOT NULL,
-  `status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `dm_agama`
---
-
-INSERT INTO `dm_agama` (`agama_id`, `agama_nama`, `status`) VALUES
-(1, 'Islam', 1),
-(2, 'Kristen', 1),
-(3, 'Hindu', 1),
-(4, 'Budha', 1),
-(5, 'Konghucu', 1),
-(6, 'Lainnya', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dm_kab`
---
-
-CREATE TABLE `dm_kab` (
-  `kab_id` varchar(4) NOT NULL,
-  `prov_id` varchar(2) NOT NULL,
-  `kab_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `dm_kategori`
 --
 
@@ -76,19 +39,6 @@ CREATE TABLE `dm_kategori` (
 INSERT INTO `dm_kategori` (`id_kategori`, `nama_kategori`) VALUES
 (3, 'Mobil Mobilan'),
 (4, 'Sepeda');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dm_kec`
---
-
-CREATE TABLE `dm_kec` (
-  `kec_id` varchar(7) NOT NULL,
-  `kab_id` varchar(4) NOT NULL,
-  `kec_name` varchar(255) NOT NULL,
-  `status` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -132,8 +82,8 @@ INSERT INTO `dm_pengguna` (`id`, `no_telp`, `nama`, `alamat`, `jenis_kelamin`, `
 (6, '085893324274', 'Humanika', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', 'iis@gmail.com', 'ac9b4e0b6a21758534db2a6324d34a54', 'C:\\fakepath\\f52afef93d06b5503b60a507e3377b80.jpg', '1'),
 (9, 'asas', 'sasa', 'asas', 'a', 'adminasaasa', '939a8398eca47b994c3206d3d9499b3b', NULL, '2'),
 (10, '085893324274', 'admin2', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', '', 'c7c9b5abc39fc757817e8a49a1e269ae', NULL, '2'),
-(11, '085893324274', 'saaa', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'saaa@gmail.com', '$2y$10$XQ5/k44y0Nf1uLFuEfXJKuCsClq5FVLk.Lvg1N/t9YSiCv2x6woey', NULL, '1'),
-(14, '085893324274', 'siska', 'Serang', 'P', NULL, '$2y$10$e9a9tj/e/kJt7NcSTJscqeZ/24D1C27DEYDmo.UH1wI0bXg/qtz5m', NULL, '1'),
+(11, '085893324274', 'saaa', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'saaa@gmail.com', '$2y$10$XQ5/k44y0Nf1uLFuEfXJKuCsClq5FVLk.Lvg1N/t9YSiCv2x6woey', NULL, '2'),
+(14, '085893324274', 'siska', 'Serang', 'P', NULL, '$2y$10$e9a9tj/e/kJt7NcSTJscqeZ/24D1C27DEYDmo.UH1wI0bXg/qtz5m', NULL, '2'),
 (15, '08676277622', 'udoh', 'serang', 'P', 'iahakhsaja', '$2y$10$bLkZ6TbhBprR7iP.h4HzAuTF1CDv3mZ2cOQZYX5B3/6VGU9OtFVwG', NULL, '1');
 
 -- --------------------------------------------------------
@@ -164,18 +114,6 @@ INSERT INTO `dm_po` (`id_po`, `id_kategori`, `nama_barang`, `satuan`, `stok`, `h
 (5, NULL, 'nama barang', 'asaas', 0, '26666.00', '29999.00', 'asasas', '2022-06-22', '8ac7a7f1235ac0876d2ef49a4d21a3c3.jpg'),
 (6, NULL, 'nama barang ahaa', 'asaas', 0, '26666.00', '29999.00', 'asasas', '2022-06-22', 'WhatsApp_Image_2022-04-25_at_15_14_22.jpeg'),
 (7, NULL, 'sasasa', 'asasa', 1, '26666.00', '40000.00', 'asasas', '2022-04-11', 'WhatsApp_Image_2022-04-25_at_15_15_53.jpeg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `dm_prov`
---
-
-CREATE TABLE `dm_prov` (
-  `prov_id` varchar(2) NOT NULL,
-  `prov_name` varchar(255) NOT NULL,
-  `status` tinyint(1) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -238,7 +176,7 @@ CREATE TABLE `dm_toko` (
 --
 
 INSERT INTO `dm_toko` (`id_toko`, `nama_toko`, `alamat`, `norekening`, `pemilik_rekening`, `nama_bank`) VALUES
-(2, NULL, 'namlask', 'naklasmlsa', 'amlksamlsa', 'BNI');
+(2, 'dsssssd', 'namlask', 'naklasmlsa', 'amlksamlsa', 'BNI');
 
 -- --------------------------------------------------------
 
@@ -413,10 +351,14 @@ INSERT INTO `trans_pemesanan` (`id_pemesanan`, `id_pelanggan`, `no_rekening`, `n
 (19, 11, NULL, 'saaa', 7, NULL, NULL, NULL, '7', '2022-06-26', NULL, NULL),
 (20, 11, NULL, 'saaa', 6, NULL, '29999.00', 1, '5', '2022-06-26', '29999.00', NULL),
 (21, 11, NULL, 'saaa', 5, NULL, '29999.00', 1, '5', '2022-06-26', '29999.00', NULL),
-(22, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
+(22, 15, 'asasa', 'udoh', 5, NULL, '29999.00', 1, '6', '2022-06-29', '29999.00', 'WhatsApp_Image_2021-09-16_at_11_20_55-removebg-preview.png'),
 (23, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
 (24, NULL, NULL, NULL, 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
-(25, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL);
+(25, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
+(26, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-07-02', '29999.00', NULL),
+(27, 15, NULL, 'udoh', 6, NULL, '29999.00', 1, '5', '2022-07-02', '29999.00', NULL),
+(28, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-07-02', '29999.00', NULL),
+(29, 15, NULL, 'udoh', 5, NULL, NULL, NULL, '7', '2022-07-02', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -451,30 +393,10 @@ INSERT INTO `trans_pemesanan_offline` (`id_pemesanan`, `id_pelanggan`, `id_po`, 
 --
 
 --
--- Indexes for table `dm_agama`
---
-ALTER TABLE `dm_agama`
-  ADD PRIMARY KEY (`agama_id`);
-
---
--- Indexes for table `dm_kab`
---
-ALTER TABLE `dm_kab`
-  ADD PRIMARY KEY (`kab_id`),
-  ADD KEY `dm_kab_FK` (`prov_id`);
-
---
 -- Indexes for table `dm_kategori`
 --
 ALTER TABLE `dm_kategori`
   ADD PRIMARY KEY (`id_kategori`);
-
---
--- Indexes for table `dm_kec`
---
-ALTER TABLE `dm_kec`
-  ADD PRIMARY KEY (`kec_id`),
-  ADD KEY `dm_kec_FK` (`kab_id`);
 
 --
 -- Indexes for table `dm_kurir`
@@ -493,12 +415,6 @@ ALTER TABLE `dm_pengguna`
 --
 ALTER TABLE `dm_po`
   ADD PRIMARY KEY (`id_po`);
-
---
--- Indexes for table `dm_prov`
---
-ALTER TABLE `dm_prov`
-  ADD PRIMARY KEY (`prov_id`);
 
 --
 -- Indexes for table `dm_status_pemesanan`
@@ -572,12 +488,6 @@ ALTER TABLE `trans_pemesanan_offline`
 --
 
 --
--- AUTO_INCREMENT for table `dm_agama`
---
-ALTER TABLE `dm_agama`
-  MODIFY `agama_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
 -- AUTO_INCREMENT for table `dm_kategori`
 --
 ALTER TABLE `dm_kategori`
@@ -617,7 +527,7 @@ ALTER TABLE `dm_supplier`
 -- AUTO_INCREMENT for table `dm_toko`
 --
 ALTER TABLE `dm_toko`
-  MODIFY `id_toko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_toko` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sys_logs`
@@ -647,7 +557,7 @@ ALTER TABLE `sys_rules`
 -- AUTO_INCREMENT for table `trans_pemesanan`
 --
 ALTER TABLE `trans_pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `trans_pemesanan_offline`
@@ -658,18 +568,6 @@ ALTER TABLE `trans_pemesanan_offline`
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `dm_kab`
---
-ALTER TABLE `dm_kab`
-  ADD CONSTRAINT `dm_kab_FK` FOREIGN KEY (`prov_id`) REFERENCES `dm_prov` (`prov_id`);
-
---
--- Constraints for table `dm_kec`
---
-ALTER TABLE `dm_kec`
-  ADD CONSTRAINT `dm_kec_FK` FOREIGN KEY (`kab_id`) REFERENCES `dm_kab` (`kab_id`);
 
 --
 -- Constraints for table `sys_rulesmodules`

@@ -41,7 +41,7 @@
                                     <input type="text" hidden class="form-control" id="id_toko" value="<?= $ao->id_toko; ?>">
                                     <label for="" class="col-sm-2 col-form-label-sm">Nama Toko</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="nama" placeholder="Nama Toko" value="<?= $ao->nama_toko; ?>">
+                                        <input type="text" class="form-control form-control-sm" id="nama_toko" placeholder="Nama Toko" value="<?= $ao->nama_toko; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">

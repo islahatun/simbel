@@ -101,11 +101,13 @@
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <!-- <div class="col-6">
-                                                <button class="btn btn-outline-secondary" type="button" id="Keranjang">Keranjang</button>
-                                            </div> -->
                                             <div class="col-6">
-                                                <button class="btn btn-outline-secondary" type="submit">Beli</button>
+                                                <button class="btn btn-sm btn-outline-secondary" type="submit">Beli</button>
+                                            </div>
+                                            <div class="col-6">
+                                                <button type='button' id='hapus' class='btn btn-sm btn-outline-danger'>
+                                                    <i class='fas fa-trash-alt'></i> Hapus
+                                                </button>
                                             </div>
                                         </div>
 
@@ -244,6 +246,47 @@
                 }
             });
         }
+
+        $(document).on("click", "#hapus", function() {
+            //debugger
+            var vid_pemesanan = $("#id_pemesanan").val();
+
+            if (!vid_pemesanan) {
+                toastr.error('Data gagal disimpan.');
+                return
+            }
+
+            var value = {
+                id_pemesanan: vid_pemesanan
+            };
+
+            Swal.fire({
+                title: 'Apakah anda yakin.?',
+                text: "Data yang dihapus tidak dapat dikembalikan!",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "POST",
+                        url: _url.concat('/delete'),
+                        data: value,
+                        cache: false,
+                        success: function(data, textStatus, jqXHR) {
+                            debugger
+                            var table = $('#po').DataTable();
+                            table.ajax.reload();
+                            toastr.success('Data berhasil disimpan.');
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            toastr.error('Data gagal disimpan.');
+                        }
+                    });
+                }
+            })
+        });
     </script>
 
 
