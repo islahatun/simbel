@@ -11,13 +11,13 @@
     <!-- jQuery -->
     <script src="<?= base_url('assets/plugins/jquery/jquery.min.js'); ?>"></script>
 
-    <title>Bengkel Mang Mamat</title>
+    <title><?= $info->nama_toko ?></title>
 </head>
 
 <body style="background-color: #dbdbdb;">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="<?= base_url('DaftarBarang') ?>">Bengkel Mang Mamat</a>
+            <a class="navbar-brand" href="<?= base_url('DaftarBarang') ?>"><?= $info->nama_toko ?></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -87,7 +87,7 @@
                                                     <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="1" name="jumlah_beli">
                                                 </div>
                                                 <input type="hidden" value="<?= $detail['id_po'] ?>" id="id_po" name="id_po">
-                                                <input type="hidden" value="<?= $detail['harga_jual'] ?>" id="id_po" name="harga_barang">
+                                                <input type="hidden" value="<?= $detail['harga_jual'] ?>" id="harga_jual" name="harga_barang">
                                             </div>
                                             <div>
                                                 <div class="form-group row mt-3 mb-3">
@@ -213,7 +213,7 @@
     <script>
         $('#count').on('keyup', function() {
             var input = $(this).val();
-            subtotal = input * $("#subtotal").val();
+            subtotal = input * $("#harga_jual").val();
             $("#subtotal").val(subtotal);
         });
 

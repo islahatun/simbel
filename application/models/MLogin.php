@@ -19,4 +19,14 @@ class MLogin extends CI_Model
 		$finalResponse =  $this->db->get_where()->row();
 		return $finalResponse;
 	}
+	public function infoToko()
+	{
+		$this->db->select('*');
+		$this->db->from("dm_toko");
+		// $this->db->where("nama", $nama);
+		// $this->db->order_by("nama_kurir", 'ASC');
+
+		$finalResponse =  $this->db->get()->row();
+		return $finalResponse;
+	}
 }

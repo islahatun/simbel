@@ -11,7 +11,7 @@
 <body class="">
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Bengkel Mang Mamat</a>
+      <a class="navbar-brand" href="#"><?= $info->nama_toko ?></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -223,7 +223,7 @@
       <p>
         <img src="<?= base_url('assets/images/logo.jpeg'); ?>" alt="IDI" class="brand-image img-circle elevation-3 w-25">
       </p>
-      <a href="<?= base_url(); ?>"><b>Bengkel Mang Mamat</b></a>
+      <a href="<?= base_url(); ?>"><b><?= $info->nama_toko ?></b></a>
     </div> -->
   <!-- /.login-logo -->
   <!-- <div class="card">

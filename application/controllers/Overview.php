@@ -9,12 +9,14 @@ class Overview extends CI_Controller
 		parent::__construct();
 		$this->load->model('MFunction');
 		$this->load->model('MDaftarBarang');
+		$this->load->model('MLogin');
 	}
 
 	public function index()
 	{
 
 		$data['barang'] = $this->MDaftarBarang->datalist();
+		$data['info'] = $this->MLogin->infoToko();
 		$data['title'] = 'Login';
 		$this->load->view('login', $data);
 		// if ($this->session->userdata('status') != "login") {

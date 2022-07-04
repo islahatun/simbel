@@ -17,7 +17,7 @@ class Login extends CI_Controller
 	{
 
 		$data['barang'] = $this->MDaftarBarang->datalist();
-
+		$data['info'] = $this->MLogin->infoToko();
 		$data['title'] = 'Login';
 		$data['template_page'] = $this->load->view('login', $data, true);
 		$this->load->view('overview', $data);

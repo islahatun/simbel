@@ -15,6 +15,7 @@ class DaftarBarang extends CI_Controller
 
 	public function index()
 	{
+		$data['info'] = $this->MLogin->infoToko();
 		$data['barang'] = $this->MDaftarBarang->datalist();
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
 		$this->load->view('daftarBarang', $data);
@@ -22,6 +23,7 @@ class DaftarBarang extends CI_Controller
 	public function detail($id)
 	{
 		$data['pengguna'] = $this->MLogin->session();
+		$data['info'] = $this->MLogin->infoToko();
 		$data['barang'] = $this->MDaftarBarang->konfirmasi();
 		$data['detail'] = $this->MDaftarBarang->getById($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
@@ -30,6 +32,7 @@ class DaftarBarang extends CI_Controller
 	public function detailNotLogin($id)
 	{
 		$data['pengguna'] = $this->MLogin->session();
+		$data['info'] = $this->MLogin->infoToko();
 		// $data['barang'] = $this->MDaftarBarang->konfirmasi();
 		$data['detail'] = $this->MDaftarBarang->getById($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
@@ -59,6 +62,7 @@ class DaftarBarang extends CI_Controller
 	{
 		$data['toko'] = $this->MDaftarBarang->Toko();
 		$data['pengguna'] = $this->MLogin->session();
+		$data['info'] = $this->MLogin->infoToko();
 		$data['barang'] = $this->MDaftarBarang->konfirmasi();
 		$data['detail'] = $this->MDaftarBarang->getById($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
@@ -102,6 +106,7 @@ class DaftarBarang extends CI_Controller
 	public function pesanan()
 	{
 		$data['pengguna'] = $this->MLogin->session();
+		$data['info'] = $this->MLogin->infoToko();
 		$data['barang'] = $this->MDaftarBarang->pesanan();
 		// $data['detail'] = $this->MDaftarBarang->getById($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
@@ -110,6 +115,7 @@ class DaftarBarang extends CI_Controller
 	public function Tracking()
 	{
 		$data['pengguna'] = $this->MLogin->session();
+		$data['info'] = $this->MLogin->infoToko();
 		$data['barang'] = $this->MDaftarBarang->Tracking();
 		// $data['detail'] = $this->MDaftarBarang->getById($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
@@ -118,6 +124,7 @@ class DaftarBarang extends CI_Controller
 	public function Profil()
 	{
 		$data['pengguna'] = $this->MLogin->session();
+		$data['info'] = $this->MLogin->infoToko();
 		$data['barang'] = $this->MDaftarBarang->Tracking();
 		// $data['detail'] = $this->MDaftarBarang->getById($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
