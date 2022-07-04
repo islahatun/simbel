@@ -100,18 +100,32 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <table>
+                                            <tr>
+                                                <td> <button class="btn btn-sm btn-outline-secondary" type="submit">Beli</button>
+                                    </form>
+                                    </td>
+                                    <td>
+                                        <form action="<?= base_url('DaftarBarang/hapus') ?>" method="post">
                                             <div class="col-6">
-                                                <button class="btn btn-sm btn-outline-secondary" type="submit">Beli</button>
-                                            </div>
-                                            <div class="col-6">
-                                                <button type='button' id='hapus' class='btn btn-sm btn-outline-danger'>
+                                                <input type="hidden" value="<?= $brg['id_pemesanan'] ?>" id="id_pemesanan" name="id_pemesanan">
+                                                <button type='submit' class='btn btn-sm btn-outline-danger'>
                                                     <i class='fas fa-trash-alt'></i> Hapus
                                                 </button>
                                             </div>
+                                        </form>
+                                    </td>
+                                    </tr>
+                                    </table>
+                                    <div class="row">
+                                        <div class="col-6">
+
                                         </div>
 
-                                    </form>
+
+                                    </div>
+
+
                                     <hr>
                                     <!-- <br>
                                 <label for="">Detail Pemesanan:</label>

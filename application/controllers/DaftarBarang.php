@@ -148,4 +148,13 @@ class DaftarBarang extends CI_Controller
 		$this->db->insert("trans_pemesanan", $data);
 		redirect('DaftarBarang/Pesanan');
 	}
+	public function hapus()
+	{
+
+		$this->db->where('id_pemesanan', $this->input->post('id_pemesanan'));
+
+		$this->db->delete('trans_pemesanan');
+
+		redirect('DaftarBarang/pesanan');
+	}
 }
