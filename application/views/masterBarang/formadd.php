@@ -41,7 +41,11 @@
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Kategori</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control form-control-sm" required id="jenis_kelamin" placeholder="Kategori" name="kategori">
+                                    <select class="form-control form-control-sm" required id="id_kategori" name="id_kategori">
+                                        <?php foreach ($kategori as $sp) : ?>
+                                            <option value="<?= $sp->id_kategori ?>"><?= $sp->nama_kategori ?> </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -133,6 +137,7 @@
             nama_barang: vnama_barang,
             deskripsi: vdeskripsi,
             stok: vstok,
+            id_kategori: vid_kategori,
             satuan: vsatuan,
             harga_beli: vharga_beli,
             harga_jual: vharga_jual,

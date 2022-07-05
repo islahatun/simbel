@@ -32,7 +32,7 @@ class masterBarang extends CI_Controller
                 'nomor'                 => $i,
                 'id_po'         => $po->id_po,
                 'nama_barang'       => $po->nama_barang,
-                'id_kategori'                 => $po->id_kategori,
+                'id_kategori'                 => $po->nama_kategori,
                 'satuan'      => $po->satuan,
                 'stok'      => $po->stok,
                 'deskripsi'                 => $po->deskripsi,
@@ -57,6 +57,7 @@ class masterBarang extends CI_Controller
     {
         $data['title'] = 'Master Barang';
         $data['subtitle'] = 'Tambah Master Barang';
+        $data['kategori'] = $this->MMasterBarang->kategori();
 
         $data['content_overview'] = $this->load->view('MasterBarang/formadd', $data, true);
         $this->load->view('overview', $data);
@@ -67,7 +68,7 @@ class masterBarang extends CI_Controller
         $data['title'] = 'Master Barang';
         $data['subtitle'] = 'Ubah Master Barang';
         $data["MasterBarang"] = $this->MMasterBarang->getById($id);
-
+        $data['kategori'] = $this->MMasterBarang->kategori();
         $data['content_overview'] = $this->load->view('MasterBarang/formupdate', $data, true);
         $this->load->view('overview', $data);
     }
@@ -116,8 +117,6 @@ class masterBarang extends CI_Controller
 
     public function updateSave()
     {
-
-
         $foto = $_FILES['foto']['name'];
         if ($foto) {
             $config['upload_path']          = './assets/img/barang/';
@@ -145,7 +144,7 @@ class masterBarang extends CI_Controller
 
                 $this->db->where('id_po', $this->input->post('id_po'));
                 $this->db->update("dm_po", $data);
-
+                echo "berhasil";
                 $this->session->set_flashdata('message', '
             <div class="alert alert-primary alert-dismissible fade show" role="alert">
             <strong>Data Barang berhasil di tambahkan</strong> 

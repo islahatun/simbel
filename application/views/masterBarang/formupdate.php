@@ -34,6 +34,7 @@
                         <div class="card-header">
                             <h3 class="card-title"><?= $subtitle; ?></h3>
                         </div>
+                        <?= $this->session->flashdata('message') ?>
                         <?= form_open_multipart('MasterBarang/updateSave'); ?>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -47,7 +48,12 @@
                             <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Kategori</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control form-control-sm" required id="id_kategori" placeholder="Kategori" value="<?= $MasterBarang->id_kategori ?>">
+                                    <select class="form-control form-control-sm" required id="id_kategori" name="id_kategori">
+                                        <option value="<?= $MasterBarang->id_kategori ?>"><?= $MasterBarang->nama_kategori ?> </option>
+                                        <?php foreach ($kategori as $sp) : ?>
+                                            <option value="<?= $sp->id_kategori ?>"><?= $sp->nama_kategori ?> </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
