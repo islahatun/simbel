@@ -125,7 +125,7 @@ class DaftarBarang extends CI_Controller
 	{
 		$data['pengguna'] = $this->MLogin->session();
 		$data['info'] = $this->MLogin->infoToko();
-		// $data['barang'] = $this->MDaftarBarang->Tracking();
+		$data['barang'] = $this->MDaftarBarang->Tracking();
 		// $data['detail'] = $this->MDaftarBarang->getById($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
 		$this->load->view('DaftarBarang/Profil', $data);

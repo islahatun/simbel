@@ -56,7 +56,7 @@
                     </a>
                 </form>
                 <form class="d-flex mr-3">
-                    <a href="<?= base_url('DaftarBarang/Profil') ?>" class="btn btn-outline-success" type="submit">Keluar</a>
+                    <a href="<?= base_url('Overview/logout') ?>" class="btn btn-outline-success" type="submit">Keluar</a>
                 </form>
             </div>
         </div>
