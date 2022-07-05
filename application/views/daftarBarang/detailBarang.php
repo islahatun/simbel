@@ -38,7 +38,7 @@
                     </li> -->
 
                 </ul>
-                <ul>
+                <!-- <ul>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             hai <?= $this->session->userdata('nama');  ?>
@@ -48,14 +48,21 @@
                             <li><a class="dropdown-item" href="<?= base_url('Overview/logout') ?>">Keluar</a></li>
                         </ul>
                     </li>
-                </ul>
+                </ul> -->
                 <form class="d-flex mr-3">
                     <a href="<?= base_url('DaftarBarang/Tracking') ?>" class="btn btn-outline-success" type="submit">Pesanan</a>
                 </form>
                 <form class="d-flex mr-3">
                     <a href="<?= base_url('DaftarBarang/Pesanan') ?>" class="btn btn-outline-success" type="submit">Keranjang</a>
                 </form>
-
+                <form class="d-flex mr-3">
+                    <a href="<?= base_url('DaftarBarang/Profil') ?>" class="btn btn-outline-success" type="submit">
+                        hai <?= $this->session->userdata('nama');  ?>
+                    </a>
+                </form>
+                <form class="d-flex mr-3">
+                    <a href="<?= base_url('DaftarBarang/Profil') ?>" class="btn btn-outline-success" type="submit">Keluar</a>
+                </form>
             </div>
         </div>
     </nav>

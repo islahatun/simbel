@@ -36,10 +36,10 @@
           </li> -->
 
         </ul>
-        <span>
+        <!-- <span>
           <ul>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="<?= base_url('DaftarBarang/Profil') ?>" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 hai <?= $this->session->userdata('nama');  ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -48,12 +48,20 @@
               </ul>
             </li>
           </ul>
-        </span>
+        </span> -->
         <form class="d-flex mr-3">
           <a href="<?= base_url('DaftarBarang/Tracking') ?>" class="btn btn-outline-success" type="submit"> <i class="far fa-boxes"></i>Pesanan</a>
         </form>
         <form class="d-flex mr-3">
           <a href="<?= base_url('DaftarBarang/Pesanan') ?>" class="btn btn-outline-success" type="submit">Keranjang</a>
+        </form>
+        <form class="d-flex mr-3">
+          <a href="<?= base_url('DaftarBarang/Profil') ?>" class="btn btn-outline-success" type="submit">
+            hai <?= $this->session->userdata('nama');  ?>
+          </a>
+        </form>
+        <form class="d-flex mr-3">
+          <a href="<?= base_url('DaftarBarang/Profil') ?>" class="btn btn-outline-success" type="submit">Keluar</a>
         </form>
         <span class="d-flex pl-3">
 
