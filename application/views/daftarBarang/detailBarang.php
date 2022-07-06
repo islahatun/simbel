@@ -49,20 +49,22 @@
                         </ul>
                     </li>
                 </ul> -->
-                <form class="d-flex mr-3">
-                    <a href="<?= base_url('DaftarBarang/Tracking') ?>" class="btn btn-outline-success" type="submit">Pesanan</a>
-                </form>
-                <form class="d-flex mr-3">
-                    <a href="<?= base_url('DaftarBarang/Pesanan') ?>" class="btn btn-outline-success" type="submit">Keranjang</a>
-                </form>
-                <form class="d-flex mr-3">
-                    <a href="<?= base_url('DaftarBarang/Profil') ?>" class="btn btn-outline-success" type="submit">
-                        hai <?= $this->session->userdata('nama');  ?>
-                    </a>
-                </form>
-                <form class="d-flex mr-3">
-                    <a href="<?= base_url('DaftarBarang/Profil') ?>" class="btn btn-outline-success" type="submit">Keluar</a>
-                </form>
+                <?php if ($this->session->userdata('id')) { ?>
+                    <form class="d-flex mr-3">
+                        <a href="<?= base_url('DaftarBarang/Tracking') ?>" class="btn btn-outline-success" type="submit">Pesanan</a>
+                    </form>
+                    <form class="d-flex mr-3">
+                        <a href="<?= base_url('DaftarBarang/Pesanan') ?>" class="btn btn-outline-success" type="submit">Keranjang</a>
+                    </form>
+                    <form class="d-flex mr-3">
+                        <a href="<?= base_url('DaftarBarang/Profil') ?>" class="btn btn-outline-success" type="submit">
+                            hai <?= $this->session->userdata('nama');  ?>
+                        </a>
+                    </form>
+                    <form class="d-flex mr-3">
+                        <a href="<?= base_url('DaftarBarang/Profil') ?>" class="btn btn-outline-success" type="submit">Keluar</a>
+                    </form>
+                <?php } ?>
             </div>
         </div>
     </nav>
@@ -106,9 +108,10 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <table>
-                                        <tr>
-                                            <td><button class="btn btn-outline-secondary" type="submit" id="">Beli</button>
+                                    <?php if ($this->session->userdata('id')) { ?>
+                                        <table>
+                                            <tr>
+                                                <td><button class="btn btn-outline-secondary" type="submit" id="">Beli</button>
                                 </form>
                                 </td>
                                 <td>
@@ -119,7 +122,11 @@
                                 </td>
                                 </tr>
                                 </table>
-
+                            <?php } else { ?>
+                                <center>
+                                    <p style="color:red ;">Silahkan login atau daftar terlebih dahulu</p>
+                                </center>
+                            <?php } ?>
 
 
                             </div>
