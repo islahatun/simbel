@@ -154,6 +154,8 @@ class masterBarang extends CI_Controller
             </div>');
                 redirect('MasterBarang');
             }
+        } else {
+            echo "error";
         }
     }
 
