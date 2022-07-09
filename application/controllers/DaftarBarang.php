@@ -40,8 +40,6 @@ class DaftarBarang extends CI_Controller
 	}
 	public function order()
 	{
-
-
 		$data = $this->session->userdata['id'];
 		$nama = $this->session->userdata['nama'];
 		$data = array(
@@ -64,7 +62,9 @@ class DaftarBarang extends CI_Controller
 		$data['pengguna'] = $this->MLogin->session();
 		$data['info'] = $this->MLogin->infoToko();
 		$data['barang'] = $this->MDaftarBarang->konfirmasi();
-		$data['detail'] = $this->MDaftarBarang->getById($id);
+		$data['detail'] = $this->MDaftarBarang->beli($id);
+
+		// var_dump($data);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
 		$this->load->view('daftarBarang/detailOrder', $data);
 	}

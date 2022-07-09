@@ -79,92 +79,93 @@
                             <div class="card-body">
 
                                 <label for="">Detail Pemesanan:</label>
-                                <?php if ($barang['status_pemesanan'] == 5) { ?>
-                                    <?= form_open_multipart('DaftarBarang/pembayaran'); ?>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group row">
-                                                <label for="" class="col-sm-4 col-form-label-sm">Nama Barang</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $detail['nama_barang'] ?>" name="nama_barang">
-                                                </div>
 
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="" class="col-sm-4 col-form-label-sm">Jumlah Pemebelian</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $barang['jumlah_beli'] ?>" name="jumlah_beli">
-                                                </div>
 
+                                <?= form_open_multipart('DaftarBarang/pembayaran'); ?>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Nama Barang</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $detail['nama_barang'] ?>" name="nama_barang">
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="" class="col-sm-4 col-form-label-sm">Harga Barang</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $barang['harga_barang'] ?>" name="harga_barang" readonly>
-                                                </div>
 
-                                            </div>
-                                            <div>
-                                                <div class="form-group row mt-3 mb-3">
-                                                    <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
-                                                    <div class="col-sm-8">
-                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $barang['total_pembelian'] ?>" name="total_pembelian">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr>
                                         </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Jumlah Pemebelian</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $barang['jumlah_beli'] ?>" name="jumlah_beli">
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Harga Barang</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $barang['harga_barang'] ?>" name="harga_barang" readonly>
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $barang['total_pembelian'] ?>" name="total_pembelian">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
                                     </div>
+                                </div>
 
-                                    Detail Pengiriman:
+                                Detail Pengiriman:
 
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="form-group row">
-                                                <label for="" class="col-sm-4 col-form-label-sm">Nama Pemesan</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $this->session->userdata['nama'] ?>" name="nama_barang">
-                                                </div>
-
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Nama Pemesan</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $this->session->userdata['nama'] ?>" name="nama_barang">
                                             </div>
-                                            <?php
-                                            $data = " select * from dm_pengguna where " ?>
-                                            <div class="form-group row">
-                                                <label for="" class="col-sm-4 col-form-label-sm">Alamat</label>
-                                                <div class="col-sm-8">
-                                                    <p><?= $pengguna->alamat ?></p>
-                                                </div>
 
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="" class="col-sm-4 col-form-label-sm">No Hp</label>
-                                                <div class="col-sm-8">
-                                                    <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $pengguna->no_telp ?>" name="total_pembelian">
-                                                </div>
-
-                                            </div>
-                                            <div>
-                                                <div class="form-group row mt-3 mb-3">
-                                                    <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
-                                                    <div class="col-sm-8">
-                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $barang['total_pembelian'] ?>" name="total_pembelian">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr>
                                         </div>
+                                        <?php
+                                        $data = " select * from dm_pengguna where " ?>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Alamat</label>
+                                            <div class="col-sm-8">
+                                                <p><?= $pengguna->alamat ?></p>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">No Hp</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $pengguna->no_telp ?>" name="total_pembelian">
+                                            </div>
+
+                                        </div>
+                                        <div>
+                                            <div class="form-group row mt-3 mb-3">
+                                                <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $barang['total_pembelian'] ?>" name="total_pembelian">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-6">
 
-                                        </div>
-                                        <div class="col-6">
-                                            <button class="btn btn-outline-secondary" type="button" id="beli">Lanjut Pembayaran</button>
-                                        </div>
                                     </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-outline-secondary" type="button" id="beli">Lanjut Pembayaran</button>
+                                    </div>
+                                </div>
 
 
-                                <?php } ?>
+
                             </div>
                         </div>
                     </div>
@@ -174,12 +175,12 @@
                                 <p style="color:red; font: size 15px;" id="demo"></p>
                             </center>
                             <div class="row">
-                                <input type="hide" value="<?= $barang['id_pemesanan'] ?>" name="id_pemesanan">
+                                <input type="hidden" value="<?= $barang['id_pemesanan'] ?>" name="id_pemesanan">
                                 <div class="col-12">
                                     <div class="form-group row">
                                         <label for="" class="col-sm-4 col-form-label-sm">Nomor Rekening Penjual</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $toko['norekening'] . ' / a.n ' . $toko['pemilik_rekening'] ?>" name="nama_barang">
+                                            <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $toko['norekening'] . ' / a.n ' . $toko['pemilik_rekening'] . '-' . $toko['nama_bank'] ?>" name="nama_barang">
                                         </div>
 
                                     </div>
@@ -195,7 +196,7 @@
                                     <div class="form-group row">
                                         <label for="" class="col-sm-4 col-form-label-sm">Bukti Pembayaran</label>
                                         <div class="col-sm-8">
-                                            <input type="file" name="foto">
+                                            <input type="file" name="foto" required>
                                         </div>
 
                                     </div>
@@ -207,11 +208,11 @@
                                 <div class="col-6">
                                     <button class="btn btn-outline-secondary" type="submit">Bayar</button>
                                 </div>
-                                <div class="col-6">
+                                <!-- <div class="col-6">
                                     <button type='button' id='hapus' class='btn btn-sm btn-outline-danger'>
                                         <i class='fas fa-trash-alt'></i> Hapus
                                     </button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
