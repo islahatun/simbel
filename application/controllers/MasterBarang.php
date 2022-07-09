@@ -39,7 +39,7 @@ class masterBarang extends CI_Controller
                 'harga_beli'                 => $this->MFunction->idr($po->harga_beli),
                 'harga_jual'                 => $this->MFunction->idr($po->harga_jual),
                 'tanggal_datang'                 => $po->tanggal_datang,
-                'gambar'                 => "<img src='" . base_url('assets/img/barang/' . $po->gambar) . " class='card-img-top' alt='...'>",
+                'gambar'                 => "<a href='" . base_url('assets/img/barang/' . $po->gambar) . "' class='btn btn-sm btn-outline-success' target='blank'> Lihat Gambar ",
                 'btn_action'            => "<a href='" . base_url('MasterBarang/update/' . $po->id_po) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
@@ -144,7 +144,6 @@ class masterBarang extends CI_Controller
 
                 $this->db->where('id_po', $this->input->post('id_po'));
                 $this->db->update("dm_po", $data);
-                echo "berhasil";
                 $this->session->set_flashdata('message', '
             <div class="alert alert-primary alert-dismissible fade show" role="alert">
             <strong>Data Barang berhasil di tambahkan</strong> 

@@ -39,7 +39,7 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="form-group row">
-                                <input type="hidden" class="form-control form-control-sm" required id="id_po" value="<?= $MasterBarang->id_po ?>">
+                                <input type="hidden" class="form-control form-control-sm" required id="id_po" value="<?= $MasterBarang->id_po ?>" name="id_po">
                                 <label for="" class="col-sm-2 col-form-label-sm">Nama Barang</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control form-control-sm" required id="nama_barang" name="nama_barang" placeholder="Nama Barang" value="<?= $MasterBarang->nama_barang ?>">
@@ -93,12 +93,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <div class="col-4"></div>
                                 <div class="col">
-                                    <img src="<?= base_url('assets/img/barang/') ?>" alt="" class="img-thumbnail">
+                                    <img src="<?= base_url('assets/img/barang/') . $MasterBarang->gambar; ?>" alt="" class="img-thumbnail" width="150" height="150">
                                 </div>
                                 <div class="col">
                                     <div class="custom-file ">
-                                        <input type="file" class="custom-file-input custom-file-input-sm" name="foto" id="foto">
+                                        <input type="file" class="custom-file-input custom-file-input-sm" name="foto" value="<?= $MasterBarang->gambar; ?>" id="customFile">
                                         <label class="custom-file-label custom-file-label-sm" for="foto">Pilih Foto</label>
                                     </div>
                                 </div>
