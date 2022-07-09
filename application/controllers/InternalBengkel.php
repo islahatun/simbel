@@ -11,10 +11,12 @@ class InternalBengkel extends CI_Controller
         parent::__construct();
         $this->load->model('MFunction');
         $this->load->model('MInternalBengkel');
+        $this->load->model('MListPesanan');
     }
 
     public function index()
     {
+        $this->MListPesanan->kadaluarsa();
         $data['title'] = 'Daftar Admin';
         $data['subtitle'] = 'Data Admin';
 

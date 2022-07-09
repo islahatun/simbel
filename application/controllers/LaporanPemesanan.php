@@ -17,6 +17,7 @@ class LaporanPemesanan extends CI_Controller
 
     public function index()
     {
+        $this->MListPesanan->kadaluarsa();
         $data['title'] = 'Laporan Pemesanan';
         $data['subtitle'] = 'Data Laporan Pemesanan';
 

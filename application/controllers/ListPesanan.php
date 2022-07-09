@@ -13,6 +13,7 @@ class ListPesanan extends CI_Controller
 
 	public function index()
 	{
+		$this->MListPesanan->kadaluarsa();
 		$data['title'] = 'Daftar Pesanan';
 		$data['subtitle'] = 'Data Daftar Pesanan';
 

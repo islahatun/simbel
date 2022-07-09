@@ -8,10 +8,12 @@ class Kategori extends CI_Controller
 		parent::__construct();
 		$this->load->model('MFunction');
 		$this->load->model('MKategori');
+		$this->load->model('MListPesanan');
 	}
 
 	public function index()
 	{
+		$this->MListPesanan->kadaluarsa();
 		$data['title'] = 'Kategori';
 		$data['subtitle'] = 'Data Kategori';
 

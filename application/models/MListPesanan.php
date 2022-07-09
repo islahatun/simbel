@@ -44,4 +44,10 @@ class MListPesanan extends CI_Model
         $finalResponse =  $this->db->get()->result();
         return $finalResponse;
     }
+    public function kadaluarsa()
+    {
+        $this->db->where('status_pemesanan', 5);
+        $this->db->where('tanggal_pemesanan <', date('Y-m-d'));
+        $this->db->delete('trans_pemesanan');
+    }
 }

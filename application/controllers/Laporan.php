@@ -7,11 +7,12 @@ class Laporan extends CI_Controller
     {
         parent::__construct();
         $this->load->model('MFunction');
-        //$this->load->model('MParameter');
+        $this->load->model('MListPesanan');
     }
 
     public function index()
     {
+        $this->MListPesanan->kadaluarsa();
         $data['title'] = 'Laporan';
         $data['subtitle'] = 'Data Parameter';
 
