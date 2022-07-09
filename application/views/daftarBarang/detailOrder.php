@@ -88,6 +88,8 @@
                                             <label for="" class="col-sm-4 col-form-label-sm">Nama Barang</label>
                                             <div class="col-sm-8">
                                                 <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $detail['nama_barang'] ?>" name="nama_barang">
+
+                                                <input type="hidden" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $detail['id_po'] ?>" name="id_po">
                                             </div>
 
                                         </div>

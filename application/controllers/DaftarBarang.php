@@ -70,6 +70,9 @@ class DaftarBarang extends CI_Controller
 	}
 	public function pembayaran()
 	{
+		$id = $this->input->post('id_po');
+
+
 		$foto = $_FILES['foto']['name'];
 		if ($foto) {
 			$config['upload_path']          = './assets/img/barang/';
@@ -90,18 +93,17 @@ class DaftarBarang extends CI_Controller
 				);
 				$this->db->where('id_pemesanan', $this->input->post('id_pemesanan'));
 				$this->db->update("trans_pemesanan", $data);
+
+				$detail = $this->MDaftarBarang->getById($id);
+				$databarang = array(
+					'stok' => ($detail['stok']) - 1
+				);
+
+				$this->db->where('id_po', $this->input->post('id_po'));
+				$this->db->update("dm_po", $databarang);
 				redirect('DaftarBarang');
 			}
 		}
-
-		// $data = array(
-		// 	'no_rekening' => $this->input->post('no_rekening'),
-		// 	'bukti_pembayaran' => $this->input->post('bukti_pembayaran'),
-		// 	'status_pemesanan' => 6,
-		// );
-		// $this->db->where('id_po');
-		// $this->db->update("trans_pemesanan", $data);
-		// redirect('DaftarBarang/DetailOrder/' . $this->input->post('id_po'));
 	}
 	public function pesanan()
 	{
