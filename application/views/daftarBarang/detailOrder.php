@@ -189,7 +189,7 @@
                                     <div class="form-group row">
                                         <label for="" class="col-sm-4 col-form-label-sm">Nomor Rekening</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control form-control-sm" id="count" placeholder="Masukkan Nomor Rekening" name="no_rekening">
+                                            <input type="text" class="form-control form-control-sm" id="count" placeholder="Masukkan Nomor Rekening" name="no_rekening" required>
                                         </div>
 
                                     </div>
