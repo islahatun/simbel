@@ -54,6 +54,7 @@
                     <th class="col-md-2 text-center">Total Pesanan</th>
                     <th class="col-md-2 text-center">Tanggal Pemesanan</th>
                     <th class="col-md-2 text-center">Status Pesanan</th>
+                    <th class="col-md-2 text-center">Bukti Pembayaran</th>
                     <th class="col-md-2 text-center">Aksi</th>
                   </tr>
                 </thead>
@@ -125,6 +126,10 @@
         },
         {
           "data": "status_pemesanan",
+          className: "align-middle small"
+        },
+        {
+          "data": "gambar",
           className: "align-middle small"
         },
         {

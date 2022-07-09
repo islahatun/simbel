@@ -39,6 +39,7 @@ class ListPesanan extends CI_Controller
 				'total_pembelian'         => $this->MFunction->idr($listPesanan->total_pembelian),
 				'tanggal_pemesanan'         => $listPesanan->tanggal_pemesanan,
 				'status_pemesanan'       => "<span class='badge badge-warning'> " . $listPesanan->status_pemesanan . " </span>",
+				'gambar'                 => "<a href='" . base_url('assets/img/barang/' . $listPesanan->bukti_pembayaran) . "' class='btn btn-sm btn-outline-success' target='blank'> Lihat Gambar ",
 				'btn_action'            => "<a href='" . base_url('ListPesanan/update/' . $listPesanan->id_pemesanan) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
 											</a>
