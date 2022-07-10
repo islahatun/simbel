@@ -61,6 +61,12 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label for="" class="col-sm-2 col-form-label-sm">Berat Barang</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control form-control-sm" required id="berat_barang" placeholder="Berat Barang dalam satuan Kg" name="berat_barang">
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="" class="col-sm-2 col-form-label-sm">Deskripsi</label>
                                 <div class="col-sm-10">
                                     <input type="text" class="form-control form-control-sm" required id="deskripsi" placeholder="Deskripsi" name="deskripsi">

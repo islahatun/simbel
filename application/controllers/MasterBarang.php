@@ -94,6 +94,7 @@ class masterBarang extends CI_Controller
                     'satuan' => $this->input->post('satuan'),
                     'stok' => $this->input->post('stok'),
                     'deskripsi' => $this->input->post('deskripsi'),
+                    'berat_barang' => $this->input->post('berat_barang'),
                     'harga_beli' => $this->input->post('harga_beli'),
                     'harga_jual' => $this->input->post('harga_jual'),
                     'tanggal_datang' => $this->input->post('tanggal_datang'),
@@ -136,6 +137,7 @@ class masterBarang extends CI_Controller
                     'satuan' => $this->input->post('satuan'),
                     'stok' => $this->input->post('stok'),
                     'deskripsi' => $this->input->post('deskripsi'),
+                    'berat_barang' => $this->input->post('berat_barang'),
                     'harga_beli' => $this->input->post('harga_beli'),
                     'harga_jual' => $this->input->post('harga_jual'),
                     'tanggal_datang' => $this->input->post('tanggal_datang'),
@@ -160,6 +162,7 @@ class masterBarang extends CI_Controller
                 'satuan' => $this->input->post('satuan'),
                 'stok' => $this->input->post('stok'),
                 'deskripsi' => $this->input->post('deskripsi'),
+                'berat_barang' => $this->input->post('berat_barang'),
                 'harga_beli' => $this->input->post('harga_beli'),
                 'harga_jual' => $this->input->post('harga_jual'),
                 'tanggal_datang' => $this->input->post('tanggal_datang')
