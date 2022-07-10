@@ -51,6 +51,7 @@ class DaftarBarang extends CI_Controller
 			'harga_barang' => $this->input->post('harga_barang'),
 			'status_pemesanan' => 5,
 			'tanggal_pemesanan' => date('Y-m-d'),
+			'ongkir' => $this->input->post('ongkir'),
 		);
 
 		$this->db->insert("trans_pemesanan", $data);

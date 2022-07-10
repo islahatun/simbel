@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2022 at 05:57 AM
+-- Generation Time: Jul 10, 2022 at 10:09 AM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.23
+-- PHP Version: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -102,18 +102,19 @@ CREATE TABLE `dm_po` (
   `harga_jual` decimal(12,2) DEFAULT NULL,
   `deskripsi` text DEFAULT NULL,
   `tanggal_datang` date DEFAULT NULL,
-  `gambar` varchar(255) DEFAULT NULL
+  `gambar` varchar(255) DEFAULT NULL,
+  `berat_barang` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dm_po`
 --
 
-INSERT INTO `dm_po` (`id_po`, `id_kategori`, `nama_barang`, `satuan`, `stok`, `harga_beli`, `harga_jual`, `deskripsi`, `tanggal_datang`, `gambar`) VALUES
-(4, NULL, 'Oli', 'liter', 500, '50000.00', '60000.00', 'oli super', '2022-06-23', 'f52afef93d06b5503b60a507e3377b80.jpg'),
-(5, NULL, 'nama barang', 'asaas', 0, '26666.00', '29999.00', 'asasas', '2022-06-22', '8ac7a7f1235ac0876d2ef49a4d21a3c3.jpg'),
-(6, NULL, 'nama barang ahaa', 'asaas', 0, '26666.00', '29999.00', 'asasas', '2022-06-22', 'WhatsApp_Image_2022-04-25_at_15_14_22.jpeg'),
-(7, NULL, 'sasasa', 'asasa', 1, '26666.00', '40000.00', 'asasas', '2022-04-11', 'WhatsApp_Image_2022-04-25_at_15_15_53.jpeg');
+INSERT INTO `dm_po` (`id_po`, `id_kategori`, `nama_barang`, `satuan`, `stok`, `harga_beli`, `harga_jual`, `deskripsi`, `tanggal_datang`, `gambar`, `berat_barang`) VALUES
+(4, NULL, 'Oli', 'liter', 500, '50000.00', '60000.00', 'oli super', '2022-06-23', 'f52afef93d06b5503b60a507e3377b80.jpg', 1),
+(5, NULL, 'nama barang', 'asaas', -1, '30000.00', '30000.00', 'asasas', '2022-06-22', '8ac7a7f1235ac0876d2ef49a4d21a3c3.jpg', 3),
+(6, NULL, 'nama barang ahaa', 'asaas', 0, '26666.00', '29999.00', 'asasas', '2022-06-22', 'WhatsApp_Image_2022-04-25_at_15_14_22.jpeg', 4),
+(7, NULL, 'sasasa', 'asasa', 1, '26666.00', '40000.00', 'asasas', '2022-04-11', 'WhatsApp_Image_2022-04-25_at_15_15_53.jpeg', 2);
 
 -- --------------------------------------------------------
 
@@ -137,7 +138,9 @@ INSERT INTO `dm_status_pemesanan` (`id_status`, `status_pemesanan`) VALUES
 (4, 'Sudah dibayar Ditempt'),
 (5, 'Pengajuan Pembelian'),
 (6, 'Sudah Diabayar'),
-(7, 'Barang Masuk Keranjang');
+(7, 'Barang Masuk Keranjang'),
+(8, 'Sedang Diantar Kurir JNT'),
+(9, 'Pesanan Sampai');
 
 -- --------------------------------------------------------
 
@@ -278,7 +281,8 @@ INSERT INTO `sys_navbar` (`navbar_id`, `parent_id`, `session_id`, `navbar_icon`,
 (19, 16, '3', NULL, 'Laporan Pemesanan', 'LaporanPemesanan', 0, 'Y'),
 (20, 10, '2', NULL, 'Laporan Pemesanan Offline', 'LaporanPemesananOffline', 0, 'Y'),
 (21, 16, '3', NULL, 'Laporan Pemesanan Offline', 'LaporanPemesananOffline', 0, 'Y'),
-(76, 0, '2', '<i class=\"fas fa-store\"></i>', 'Info Toko', 'InfoToko', 8, 'Y');
+(76, 0, '2', '<i class=\"fas fa-store\"></i>', 'Info Toko', 'InfoToko', 9, 'Y'),
+(77, 0, '2', '<i class=\"fas fa-dolly\"></i>', 'Lacak Pengiriman', 'InfoBarang', 8, 'Y');
 
 -- --------------------------------------------------------
 
@@ -334,31 +338,19 @@ CREATE TABLE `trans_pemesanan` (
   `status_pemesanan` varchar(50) DEFAULT NULL,
   `tanggal_pemesanan` date DEFAULT NULL,
   `total_pembelian` decimal(12,2) DEFAULT NULL,
-  `bukti_pembayaran` varchar(255) DEFAULT NULL
+  `bukti_pembayaran` varchar(255) DEFAULT NULL,
+  `nomor_resi` varchar(50) DEFAULT NULL,
+  `ongkir` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `trans_pemesanan`
 --
 
-INSERT INTO `trans_pemesanan` (`id_pemesanan`, `id_pelanggan`, `no_rekening`, `nama_pelanggan`, `id_po`, `nama_barang`, `harga_barang`, `jumlah_beli`, `status_pemesanan`, `tanggal_pemesanan`, `total_pembelian`, `bukti_pembayaran`) VALUES
-(1, 2, NULL, NULL, 1, 'apaa jaa', '60000.00', 2, '1', '2022-06-15', '500000.00', NULL),
-(2, 11, 'sasaasa', 'saaa', 5, NULL, '29999.00', 1, '6', '2022-06-25', '29999.00', 'f52afef93d06b5503b60a507e3377b801.jpg'),
-(15, 11, NULL, 'saaa', 6, NULL, NULL, NULL, '5', '2022-06-26', NULL, NULL),
-(16, 11, NULL, 'saaa', 6, NULL, NULL, NULL, '7', '2022-06-26', NULL, NULL),
-(17, 11, NULL, 'saaa', 7, NULL, '40000.00', 1, '5', '2022-06-26', '40000.00', NULL),
-(18, 11, NULL, 'saaa', 7, NULL, '40000.00', 1, '5', '2022-06-26', '40000.00', NULL),
-(19, 11, NULL, 'saaa', 7, NULL, NULL, NULL, '7', '2022-06-26', NULL, NULL),
-(20, 11, NULL, 'saaa', 6, NULL, '29999.00', 1, '5', '2022-06-26', '29999.00', NULL),
-(21, 11, NULL, 'saaa', 5, NULL, '29999.00', 1, '5', '2022-06-26', '29999.00', NULL),
-(22, 15, 'asasa', 'udoh', 5, NULL, '29999.00', 1, '6', '2022-06-29', '29999.00', 'WhatsApp_Image_2021-09-16_at_11_20_55-removebg-preview.png'),
-(23, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
-(24, NULL, NULL, NULL, 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
-(25, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-06-29', '29999.00', NULL),
-(26, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-07-02', '29999.00', NULL),
-(27, 15, NULL, 'udoh', 6, NULL, '29999.00', 1, '5', '2022-07-02', '29999.00', NULL),
-(28, 15, NULL, 'udoh', 5, NULL, '29999.00', 1, '5', '2022-07-02', '29999.00', NULL),
-(29, 15, NULL, 'udoh', 5, NULL, NULL, NULL, '7', '2022-07-02', NULL, NULL);
+INSERT INTO `trans_pemesanan` (`id_pemesanan`, `id_pelanggan`, `no_rekening`, `nama_pelanggan`, `id_po`, `nama_barang`, `harga_barang`, `jumlah_beli`, `status_pemesanan`, `tanggal_pemesanan`, `total_pembelian`, `bukti_pembayaran`, `nomor_resi`, `ongkir`) VALUES
+(30, 15, NULL, 'udoh', 5, NULL, '29999.00', 2, '5', '2022-07-10', '59998.00', NULL, NULL, NULL),
+(31, 15, NULL, 'udoh', 5, NULL, '30000.00', 1, '5', '2022-07-10', '69500.00', NULL, NULL, NULL),
+(32, 15, 'dsss', 'udoh', 5, NULL, '30000.00', 1, '8', '2022-07-10', '69500.00', 'f52afef93d06b5503b60a507e3377b802.jpg', '8989898', 39500);
 
 -- --------------------------------------------------------
 
@@ -515,7 +507,7 @@ ALTER TABLE `dm_po`
 -- AUTO_INCREMENT for table `dm_status_pemesanan`
 --
 ALTER TABLE `dm_status_pemesanan`
-  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_status` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `dm_supplier`
@@ -545,7 +537,7 @@ ALTER TABLE `sys_modules`
 -- AUTO_INCREMENT for table `sys_navbar`
 --
 ALTER TABLE `sys_navbar`
-  MODIFY `navbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `navbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `sys_rules`
@@ -557,7 +549,7 @@ ALTER TABLE `sys_rules`
 -- AUTO_INCREMENT for table `trans_pemesanan`
 --
 ALTER TABLE `trans_pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `trans_pemesanan_offline`

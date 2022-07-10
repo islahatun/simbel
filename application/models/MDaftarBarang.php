@@ -73,12 +73,15 @@ class MDaftarBarang extends CI_Model
 	public function Tracking()
 	{
 		$id = $this->session->userdata['id'];
-		$this->db->select('*,gambar,dm_po.nama_barang, dm_status_pemesanan.status_pemesanan');
+		$this->db->select('*,gambar,dm_po.nama_barang, dm_status_pemesanan.status_pemesanan, dm_status_pemesanan.id_status');
 		$this->db->from("trans_pemesanan");
 		$this->db->join('dm_po', 'dm_po.id_po = trans_pemesanan.id_po');
 		$this->db->join('dm_status_pemesanan', 'dm_status_pemesanan.id_status = trans_pemesanan.status_pemesanan');
 		$this->db->where("id_pelanggan", $id);
 		$this->db->where("trans_pemesanan.status_pemesanan", 6);
+		$this->db->or_where("trans_pemesanan.status_pemesanan", 2);
+		$this->db->or_where("trans_pemesanan.status_pemesanan", 8);
+		$this->db->or_where("trans_pemesanan.status_pemesanan", 9);
 
 
 		$finalResponse =  $this->db->get_where()->result_array();

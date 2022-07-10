@@ -107,6 +107,13 @@
                                             </div>
 
                                         </div>
+                                        <div class="form-group row">
+                                            <label for="" class="col-sm-4 col-form-label-sm">Ongkir</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="count" placeholder="Jumlah Beli" value="<?= $barang['ongkir'] ?>" name="ongkir" readonly>
+                                            </div>
+
+                                        </div>
                                         <div>
                                             <div class="form-group row mt-3 mb-3">
                                                 <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>

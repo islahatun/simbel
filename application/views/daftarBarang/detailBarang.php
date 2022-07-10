@@ -100,6 +100,13 @@
                                             </div>
                                             <div>
                                                 <div class="form-group row mt-3 mb-3">
+                                                    <label for="" class="col-sm-4 col-form-label-sm">Ongkir</label>
+                                                    <div class="col-sm-8">
+                                                        <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="ongkir" name="ongkir">
+                                                        <input type="hidden" class="form-control-plaintext form-control-plaintext-sm" value="<?= $detail['berat_barang'] ?>" id="berat_barang" name="berat_barang">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row mt-3 mb-3">
                                                     <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $detail['harga_jual'] ?>" name="total_pembelian">
@@ -143,9 +150,19 @@
 
 
     <script>
+        $(document).ready(function() {
+            var berat = $("#berat_barang").val() + 9500;
+            var ongkir = $("#ongkir").val(berat);
+            var sub_total = (parseInt($("#harga_jual").val()) + parseInt(berat));
+            console.log(sub_total);
+            $("#subtotal").val(sub_total);
+        });
+
+
+
         $('#count').on('keyup', function() {
-            var input = $(this).val();
-            subtotal = input * $("#harga_jual").val();
+            var input = parseInt($(this).val());
+            subtotal = (input * $("#harga_jual").val()) + parseInt(($("#berat_barang").val() + 9500));
             $("#subtotal").val(subtotal);
         });
 

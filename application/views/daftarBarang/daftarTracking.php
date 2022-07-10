@@ -73,11 +73,23 @@
                 <div class="row mt-2 ml-2 mr-2">
                     <?php foreach ($barang as $brg) : ?>
                         <div class="col-3">
-                            <img src="<?= base_url('assets/img/barang/' . $brg['gambar']) ?>" class="card-img-top" alt="...">
+                            <img src="<?= base_url('assets/img/barang/' . $brg['gambar']) ?>" class="card-img-top" alt="..." height="300">
                         </div>
                         <div class="col-4">
                             <h4><?= $brg['nama_barang'] ?></h4>
-                            <p>Rp.<?= $brg['harga_jual'] ?></p>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p>Harga Barang Rp.<?= $brg['harga_jual'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p>Ongkir Rp.<?= $brg['ongkir'] ?></p>
+                                    </td>
+                                    <td>
+                                        <p>Total Pembelian Rp.<?= $brg['total_pembelian'] ?></p>
+                                    </td>
+                                </tr>
+                            </table>
                             <h5>Detail</h5>
                             <p><?= $brg['deskripsi'] ?></p>
                         </div>
@@ -97,6 +109,19 @@
                                                     <input type="hidden" value="<?= $brg['id_po'] ?>" id="id_po" name="id_po">
                                                     <input type="hidden" value="<?= $brg['harga_jual'] ?>" id="id_po" name="harga_barang">
                                                 </div>
+                                                <?php if ($brg['id_status'] == 8) { ?>
+                                                    <div class="form-group row">
+                                                        <label for="" class="col-sm-6 col-form-label-sm">Nomor Resi</label>
+                                                        <div class="col-sm-8">
+                                                            <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="<?= $brg['nomor_resi'] ?>" name="nomor_resi" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row mt-2">
+                                                        <a href="https://jet.co.id/track" class="btn btn-sm btn-info">
+                                                            <i class="fas fa-dolly"></i> Lacak Barang
+                                                        </a>
+                                                    </div>
+                                                <?php } ?>
                                                 <!-- <div>
                                                     <div class="form-group row mt-3 mb-3">
                                                         <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
