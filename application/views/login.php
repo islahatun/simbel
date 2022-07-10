@@ -8,7 +8,7 @@
   ?>
 </head>
 
-<body class="">
+<body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="#"><?= $info->nama_toko ?></a>
@@ -20,32 +20,16 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#">Home</a>
           </li>
-
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Kategori
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-            </ul>
-          </li> -->
-
-        </ul>
-        <form class="d-flex mr-3">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
-        <span class="d-flex pl-3">
-          <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#login">
-            Masuk
-          </button>
-        </span>
-        <span class="d-flex pl-3">
-          <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#regis">
-            Daftar
-          </button>
-        </span>
+          <span class="d-flex pl-3">
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#login">
+              Masuk
+            </button>
+          </span>
+          <span class="d-flex pl-3">
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#regis">
+              Daftar
+            </button>
+          </span>
       </div>
     </div>
   </nav>
@@ -87,7 +71,7 @@
             <div class="card-body text-center">
               <h5 class="card-title"><?= $brg['nama_barang'] ?></h5>
               <p class="card-text"><?= $this->MFunction->idr($brg['harga_jual']) ?></p>
-              <a href="<?= base_url('DaftarBarang/detailNotLogin/' . $brg['id_po']) ?>" class="btn btn-primary">Go somewhere</a>
+              <a href="<?= base_url('DaftarBarang/detailNotLogin/' . $brg['id_po']) ?>" class="btn btn-primary">Detail Barang</a>
             </div>
           </div>
         </div>
