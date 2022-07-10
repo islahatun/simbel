@@ -100,7 +100,7 @@
                                             </div>
                                             <div>
                                                 <div class="form-group row mt-3 mb-3">
-                                                    <label for="" class="col-sm-4 col-form-label-sm">Ongkir</label>
+                                                    <label for="" class="col-sm-4 col-form-label-sm">Ongkir (JNT)</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="ongkir" name="ongkir">
                                                         <input type="hidden" class="form-control-plaintext form-control-plaintext-sm" value="<?= $detail['berat_barang'] ?>" id="berat_barang" name="berat_barang">

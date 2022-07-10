@@ -68,6 +68,7 @@ class ListPesanan extends CI_Controller
 	{
 		$data = array(
 			'status_pemesanan' => $this->input->post('status_pemesanan'),
+			'nomor_resi' => $this->input->post('nomor_resi'),
 		);
 
 		$this->db->where('id_pemesanan', $this->input->post('id_pemesanan'));

@@ -109,7 +109,7 @@
             <div class="card-body text-center">
               <h5 class="card-title"><?= $brg['nama_barang'] ?></h5>
               <p class="card-text"><?= $brg['harga_jual'] ?></p>
-              <a href="<?= base_url('DaftarBarang/detail/' . $brg['id_po']) ?>" class="btn btn-primary">Go somewhere</a>
+              <a href="<?= base_url('DaftarBarang/detail/' . $brg['id_po']) ?>" class="btn btn-primary">Detail Barang</a>
             </div>
           </div>
         </div>

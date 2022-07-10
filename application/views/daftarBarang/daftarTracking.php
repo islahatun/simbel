@@ -83,7 +83,7 @@
                                         <p>Harga Barang Rp.<?= $brg['harga_jual'] ?></p>
                                     </td>
                                     <td>
-                                        <p>Ongkir Rp.<?= $brg['ongkir'] ?></p>
+                                        <p>Ongkir (JNT) Rp.<?= $brg['ongkir'] ?></p>
                                     </td>
                                     <td>
                                         <p>Total Pembelian Rp.<?= $brg['total_pembelian'] ?></p>

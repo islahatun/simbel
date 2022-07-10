@@ -40,13 +40,28 @@
                 <div class="form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Id Pelanggan</label>
                   <div class="col-sm-10">
-                    <input type="text" class="form-control form-control-sm" required id="id_pemesanan" placeholder="Status Pemesanan" value="<?= $ao->id_pemesanan; ?>">
+                    <input type="text" class="form-control form-control-sm" required id="id_pemesanan" placeholder="Status Pemesanan" value="<?= $ao['id_pemesanan']; ?>">
                   </div>
                 </div>
+                <div class="form-group row">
+                  <label for="" class="col-sm-2 col-form-label-sm">Nama Pelanggan</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control form-control-sm" required id="nama" placeholder="Status Pemesanan" value="<?= $ao['nama']; ?>">
+                  </div>
+                </div>
+                <?php if ($ao['id_status'] == 2) { ?>
+                  <div class="form-group row">
+                    <label for="" class="col-sm-2 col-form-label-sm">Nomor Resi</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control form-control-sm" required id="nomor_resi" placeholder="Nomor Resi" value="<?= $ao['nomor_resi']; ?>">
+                    </div>
+                  </div>
+                <?php } ?>
                 <div class="form-group row">
                   <label for="" class="col-sm-2 col-form-label-sm">Status Pemesanan</label>
                   <div class="col-sm-10">
                     <select class="form-control form-control-sm" required id="status_pemesanan">
+                      <option value="<?= $ao['id_status'] ?>"><?= $ao['status_pemesanan'] ?> </option>
                       <?php foreach ($status_pemesanan as $sp) : ?>
                         <option value="<?= $sp->id_status ?>"><?= $sp->status_pemesanan ?> </option>
                       <?php endforeach; ?>
@@ -82,10 +97,12 @@
 
     var vid_pemesanan = $("#id_pemesanan").val();
     var vstatus_pemesanan = $("#status_pemesanan").val();
+    var vnomor_resi = $("#nomor_resi").val();
 
     var value = {
       id_pemesanan: vid_pemesanan,
       status_pemesanan: vstatus_pemesanan,
+      nomor_resi: vnomor_resi,
     };
 
     $.ajax({
