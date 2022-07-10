@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2022 at 10:09 AM
+-- Generation Time: Jul 10, 2022 at 10:38 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -83,8 +83,9 @@ INSERT INTO `dm_pengguna` (`id`, `no_telp`, `nama`, `alamat`, `jenis_kelamin`, `
 (9, 'asas', 'sasa', 'asas', 'a', 'adminasaasa', '939a8398eca47b994c3206d3d9499b3b', NULL, '2'),
 (10, '085893324274', 'admin2', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', '', 'c7c9b5abc39fc757817e8a49a1e269ae', NULL, '2'),
 (11, '085893324274', 'saaa', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'saaa@gmail.com', '$2y$10$XQ5/k44y0Nf1uLFuEfXJKuCsClq5FVLk.Lvg1N/t9YSiCv2x6woey', NULL, '2'),
-(14, '085893324274', 'siska', 'Serang', 'P', NULL, '$2y$10$e9a9tj/e/kJt7NcSTJscqeZ/24D1C27DEYDmo.UH1wI0bXg/qtz5m', NULL, '2'),
-(15, '08676277622', 'udoh', 'serang', 'P', 'iahakhsaja', '$2y$10$bLkZ6TbhBprR7iP.h4HzAuTF1CDv3mZ2cOQZYX5B3/6VGU9OtFVwG', NULL, '1');
+(14, '085893324274', 'siska', 'Serang', 'P', NULL, '$2y$10$XQ5/k44y0Nf1uLFuEfXJKuCsClq5FVLk.Lvg1N/t9YSiCv2x6woey', NULL, '2'),
+(15, '08676277622', 'udoh', 'serang', 'P', 'iahakhsaja', '$2y$10$bLkZ6TbhBprR7iP.h4HzAuTF1CDv3mZ2cOQZYX5B3/6VGU9OtFVwG', NULL, '1'),
+(16, '08676277622', 'Pemilik', 'serang', 'P', 'iahakhsaja', '$2y$10$bLkZ6TbhBprR7iP.h4HzAuTF1CDv3mZ2cOQZYX5B3/6VGU9OtFVwG', NULL, '3');
 
 -- --------------------------------------------------------
 
@@ -282,7 +283,8 @@ INSERT INTO `sys_navbar` (`navbar_id`, `parent_id`, `session_id`, `navbar_icon`,
 (20, 10, '2', NULL, 'Laporan Pemesanan Offline', 'LaporanPemesananOffline', 0, 'Y'),
 (21, 16, '3', NULL, 'Laporan Pemesanan Offline', 'LaporanPemesananOffline', 0, 'Y'),
 (76, 0, '2', '<i class=\"fas fa-store\"></i>', 'Info Toko', 'InfoToko', 9, 'Y'),
-(77, 0, '2', '<i class=\"fas fa-dolly\"></i>', 'Lacak Pengiriman', 'InfoBarang', 8, 'Y');
+(77, 0, '2', '<i class=\"fas fa-dolly\"></i>', 'Lacak Pengiriman', 'InfoBarang', 8, 'Y'),
+(78, 0, '3', '<i class=\"fas fa-user\"></i>', 'Profil', 'InternalBengkel/Pemilik', 1, 'Y');
 
 -- --------------------------------------------------------
 
@@ -537,7 +539,7 @@ ALTER TABLE `sys_modules`
 -- AUTO_INCREMENT for table `sys_navbar`
 --
 ALTER TABLE `sys_navbar`
-  MODIFY `navbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `navbar_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `sys_rules`

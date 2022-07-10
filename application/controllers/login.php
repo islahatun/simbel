@@ -63,7 +63,7 @@ class Login extends CI_Controller
 						redirect(base_url('login'));
 						break;
 					default:
-						redirect('laporan');
+						redirect('Dashboard');
 						break;
 				}
 			} else {

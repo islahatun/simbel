@@ -92,6 +92,17 @@ class InternalBengkel extends CI_Controller
         redirect('InternalBengkel');
     }
 
+    public function Pemilik()
+    {
+        $data['title'] = 'Data Pemilik';
+        $data['subtitle'] = 'Data Pemilik';
+        $data["ao"] = $this->MInternalBengkel->Pemilik();
+
+        $data['content_overview'] = $this->load->view('internalBengkel/formupdate', $data, true);
+        $this->load->view('overview', $data);
+    }
+
+
     function updateSave()
     {
         $data = array(
@@ -101,7 +112,7 @@ class InternalBengkel extends CI_Controller
             'alamat' => $this->input->post('alamat'),
             'email' => $this->input->post('email'),
             // 'sandi' =>  MD5($this->input->post('sandi')),
-            'status_login' => 2,
+            // 'status_login' => 2,
         );
 
         $this->db->where('id', $this->input->post('id'));

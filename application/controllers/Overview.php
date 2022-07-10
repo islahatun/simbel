@@ -66,7 +66,7 @@ class Overview extends CI_Controller
 						redirect('Dashboard');
 						break;
 					default:
-						redirect('laporan');
+						redirect('Dashboard');
 						break;
 				}
 			} else {
