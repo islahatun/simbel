@@ -57,6 +57,26 @@ class DaftarBarang extends CI_Controller
 		$this->db->insert("trans_pemesanan", $data);
 		redirect('DaftarBarang/DetailOrder/' . $this->input->post('id_po'));
 	}
+	public function orderKeranjang()
+	{
+		$data = $this->session->userdata['id'];
+		$nama = $this->session->userdata['nama'];
+		$data = array(
+			'id_pelanggan' => $data,
+			'nama_pelanggan' => $nama,
+			'id_po' => $this->input->post('id_po'),
+			'jumlah_beli' => $this->input->post('jumlah_beli'),
+			'total_pembelian' => $this->input->post('total_pembelian'),
+			'harga_barang' => $this->input->post('harga_barang'),
+			'status_pemesanan' => 5,
+			'tanggal_pemesanan' => date('Y-m-d'),
+			'ongkir' => $this->input->post('ongkir'),
+		);
+		$this->db->where('id_pemesanan', $this->input->post('id_pemesanan'));
+		$this->db->update("trans_pemesanan", $data);
+		// $this->db->insert("trans_pemesanan", $data);
+		redirect('DaftarBarang/DetailOrder/' . $this->input->post('id_po'));
+	}
 	public function detailOrder($id)
 	{
 		$data['toko'] = $this->MDaftarBarang->Toko();
