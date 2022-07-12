@@ -55,7 +55,7 @@
                                         <th class="col-md-1 text-center">Harga Beli</th>
                                         <th class="col-md-1 text-center">Harga Jual</th>
                                         <th class="col-md-1 text-center">Tanggal Datang</th>
-                                        <th class="col-md-1 text-center">Gambar</th>
+                                        <!-- <th class="col-md-1 text-center">Gambar</th> -->
                                         <!-- <th class="col-md-2 text-center">Aksi</th> -->
                                     </tr>
                                 </thead>
@@ -129,10 +129,10 @@
                     "data": "tanggal_datang",
                     className: "align-middle text-center small"
                 },
-                {
-                    "data": "gambar",
-                    className: "align-middle text-center small"
-                },
+                // {
+                //     "data": "gambar",
+                //     className: "align-middle text-center small"
+                // },
                 // {
                 //     "data": "btn_action",
                 //     className: "align-middle text-center small"
