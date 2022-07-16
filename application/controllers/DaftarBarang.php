@@ -133,6 +133,7 @@ class DaftarBarang extends CI_Controller
 		$data['barang'] = $this->MDaftarBarang->pesanan();
 		// $data['detail'] = $this->MDaftarBarang->getById($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
+
 		$this->load->view('DaftarBarang/daftarOrder', $data);
 	}
 	public function Tracking()
