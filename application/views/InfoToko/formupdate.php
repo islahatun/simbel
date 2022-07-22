@@ -68,6 +68,12 @@
                                         <input type="text" class="form-control form-control-sm" id="pemilik_rekening" placeholder="Pemilik Rekening" value="<?= $ao->pemilik_rekening; ?>">
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">No Hp</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" class="form-control form-control-sm" id="no_hp" placeholder="No Hp" value="<?= $ao->no_hp; ?>">
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
@@ -100,6 +106,7 @@
         var vnorekening = $("#norekening").val();
         var vpemilik_rekening = $("#pemilik_rekening").val();
         var vnama_bank = $("#nama_bank").val();
+        var vno_hp = $("#no_hp").val();
 
         var value = {
             id_toko: vid_toko,
@@ -108,6 +115,7 @@
             norekening: vnorekening,
             pemilik_rekening: vpemilik_rekening,
             nama_bank: vnama_bank,
+            no_hp: vno_hp,
         };
 
         $.ajax({

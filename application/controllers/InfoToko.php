@@ -34,7 +34,7 @@ class InfoToko extends CI_Controller
                 'norekening'    => $ao->norekening,
                 'nama_bank'    => $ao->nama_bank,
                 'pemilik_rekening'    => $ao->pemilik_rekening,
-
+                'no_hp'    => $ao->no_hp,
                 // 'status'              => "<span class='badge badge-warning'> " . $this->MFunction->php_status($ao->status) . " </span>",
                 'btn_action'         => "<a href='" . base_url('InfoToko/update/' . $ao->id_toko) . "' class='btn btn-sm btn-outline-success'> 
 												<i class='fas fa-edit'></i>
@@ -76,7 +76,7 @@ class InfoToko extends CI_Controller
             'norekening' => $this->input->post('norekening'),
             'nama_bank' => $this->input->post('nama_bank'),
             'pemilik_rekening' => $this->input->post('pemilik_rekening'),
-
+            'no_hp' => $this->input->post('no_hp'),
         );
 
         $this->db->insert("dm_toko", $data);
@@ -90,6 +90,7 @@ class InfoToko extends CI_Controller
             'norekening' => $this->input->post('norekening'),
             'nama_bank' => $this->input->post('nama_bank'),
             'pemilik_rekening' => $this->input->post('pemilik_rekening'),
+            'no_hp' => $this->input->post('no_hp'),
         );
 
         $this->db->where('id_toko', $this->input->post('id_toko'));

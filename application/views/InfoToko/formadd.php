@@ -58,7 +58,13 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Pemilik Rekening</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="pemilik_rekening" placeholder="Pemilik Rekening">
+                                        <input type="number" class="form-control form-control-sm" id="pemilik_rekening" placeholder="Pemilik Rekening">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="" class="col-sm-2 col-form-label-sm">No Hp</label>
+                                    <div class="col-sm-10">
+                                        <input type="number" class="form-control form-control-sm" id="no_hp" placeholder="No Hp">
                                     </div>
                                 </div>
                             </div>
@@ -93,13 +99,15 @@
         var vnama_bank = $("#nama_bank").val();
         var vpemilik_rekening = $("#pemilik_rekening").val();
         var valamat = $("#alamat").val();
+        var vno_hp = $("#no_hp").val();
 
         var value = {
             nama_toko: vnama_toko,
             norekening: vnorekening,
             nama_bank: vnama_bank,
             pemilik_rekening: vpemilik_rekening,
-            alamat: valamat
+            alamat: valamat,
+            no_hp: vno_hp
         };
 
         $.ajax({

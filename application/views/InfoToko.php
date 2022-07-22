@@ -47,12 +47,12 @@
                                     <tr>
                                         <th class="col-md-1">No</th>
                                         <th>Nama Toko</th>
-                                        <th class="col-md-1 text-center">Alamt Toko</th>
+                                        <th class="col-md-2 text-center">Alamt Toko</th>
                                         <th class="col-md-1 text-center">No Rekening</th>
-                                        <th class="col-md-2 text-center">Nama Bank</th>
+                                        <th class="col-md-1 text-center">Nama Bank</th>
                                         <th class="col-md-2 text-center">Pemilik Rekening</th>
-                                        <!-- <th class="col-md-1 text-center">Foto</th> -->
-                                        <th class="col-md-2 text-center">Aksi</th>
+                                        <th class="col-md-1 text-center">No Hp</th>
+                                        <th class="col-md-1 text-center">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -113,10 +113,10 @@
                     "data": "pemilik_rekening",
                     className: "align-middle text-center small"
                 },
-                // {
-                //     "data": "foto",
-                //     className: "align-middle text-center small"
-                // },
+                {
+                    "data": "no_hp",
+                    className: "align-middle text-center small"
+                },
                 {
                     "data": "btn_action",
                     className: "align-middle text-center small"
