@@ -102,14 +102,14 @@
   <!-- conten -->
   <div class="container-fluid">
     <div class="row mt-3"><?php foreach ($barang as $brg) : ?>
-        <div class="col-sm-3">
+        <div class="col-sm-3 mt-3 ">
 
           <div class="card" style="width: 16rem;">
             <img src="<?= base_url('assets/img/barang/' . $brg['gambar']) ?>" class="card-img-top" alt="..." height="300">
             <div class="card-body text-center">
               <h5 class="card-title"><?= $brg['nama_barang'] ?></h5>
-              <p class="card-text"><?= $brg['harga_jual'] ?></p>
-              <a href="<?= base_url('DaftarBarang/detail/' . $brg['id_po']) ?>" class="btn btn-primary">Detail Barang</a>
+              <p class="card-text"><?= $this->MFunction->idr($brg['harga_jual']) ?></p>
+              <a href="<?= base_url('DaftarBarang/detailNotLogin/' . $brg['id_po']) ?>" class="btn btn-primary">Detail Barang</a>
             </div>
           </div>
         </div>

@@ -47,7 +47,8 @@
                   <tr>
                     <th class="col-md-1">No</th>
                     <th class="col-md-3">Id Pemesanan</th>
-                    <th class="col-md-2 text-center">Id Pelanggan</th>
+                    <!-- <th class="col-md-2 text-center">Id Pelanggan</th> -->
+                    <th class="col-md-2 text-center">Nama Pelanggan</th>
                     <th class="col-md-2 text-center">Nama Barang</th>
                     <th class="col-md-2 text-center">Harga Barang</th>
                     <th class="col-md-2 text-center">Jumlah Pesanan</th>
@@ -74,6 +75,60 @@
       <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="card-title"><?= $subtitleKeranjang; ?></h3>
+                </div>
+                <!-- <div class="col-md-6 text-right">
+                  <a href="<?= base_url('StatusPemesanan/add'); ?>" class="btn btn-sm btn-info">
+                    <i class="fas fa-plus"></i> Tambah
+                  </a>
+                </div> -->
+              </div>
+            </div>
+
+
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table id="keranjang" class="table w-100 table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th class="col-md-1">No</th>
+                    <th class="col-md-3">Id Pemesanan</th>
+                    <!-- <th class="col-md-2 text-center">Id Pelanggan</th> -->
+                    <th class="col-md-2 text-center">Nama Pelanggan</th>
+                    <th class="col-md-2 text-center">Nama Barang</th>
+                    <th class="col-md-2 text-center">Harga Barang</th>
+                    <th class="col-md-2 text-center">Jumlah Pesanan</th>
+                    <th class="col-md-2 text-center">Total Pesanan</th>
+                    <th class="col-md-2 text-center">Tanggal Pemesanan</th>
+                    <th class="col-md-2 text-center">Status Pesanan</th>
+                    <!-- <th class="col-md-2 text-center">Bukti Pembayaran</th>
+                    <th class="col-md-2 text-center">Aksi</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
   </section>
   <!-- /.content -->
 </div>
@@ -100,8 +155,12 @@
           "data": "id_pemesanan",
           className: "align-middle small"
         },
+        // {
+        //   "data": "id_pelanggan",
+        //   className: "align-middle small"
+        // },
         {
-          "data": "id_pelanggan",
+          "data": "nama",
           className: "align-middle small"
         },
         {
@@ -136,6 +195,67 @@
           "data": "btn_action",
           className: "align-middle text-center small"
         }
+      ]
+    });
+
+    PatchURL = _url.concat('/datalistKeranjang');
+    $('#keranjang').DataTable({
+      //"order": [2, "asc", 1, "asc"], //Initial no order.
+      "destroy": true,
+
+      ajax: {
+        type: "GET",
+        url: PatchURL,
+        dataSrc: ""
+      },
+      "columns": [{
+          "data": "nomor",
+          className: "align-middle text-center small"
+        },
+        {
+          "data": "id_pemesanan",
+          className: "align-middle small"
+        },
+        // {
+        //   "data": "id_pelanggan",
+        //   className: "align-middle small"
+        // },
+        {
+          "data": "nama",
+          className: "align-middle small"
+        },
+        {
+          "data": "nama_barang",
+          className: "align-middle small"
+        },
+        {
+          "data": "harga_barang",
+          className: "align-middle small"
+        },
+        {
+          "data": "jumlah_beli",
+          className: "align-middle small"
+        },
+        {
+          "data": "total_pembelian",
+          className: "align-middle small"
+        },
+        {
+          "data": "tanggal_pemesanan",
+          className: "align-middle small"
+        },
+        {
+          "data": "status_pemesanan",
+          className: "align-middle small"
+        },
+        // {
+        //   "data": "gambar",
+        //   className: "align-middle small"
+        // },
+        // {
+        //   "data": "btn_action",
+        //   className: "align-middle text-center small"
+        // }
       ]
     });
   });

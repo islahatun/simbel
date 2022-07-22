@@ -16,12 +16,31 @@ class MListPesanan extends CI_Model
         $this->db->join("dm_pengguna", "dm_pengguna.id = trans_pemesanan.id_pelanggan");
         $this->db->join("dm_po", "dm_po.id_po = trans_pemesanan.id_po");
         $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan.status_pemesanan");
+        $this->db->where("dm_status_pemesanan.id_status<>", 7);
 
         $this->db->order_by("id_pemesanan", 'ASC');
 
         $finalResponse =  $this->db->get()->result();
         return $finalResponse;
     }
+
+    public function datalistKeranjang()
+    {
+        date_default_timezone_set('Asia/Jakarta');
+
+        $this->db->select('*,dm_pengguna.nama,dm_status_pemesanan.status_pemesanan,dm_po.nama_barang');
+        $this->db->from("trans_pemesanan");
+        $this->db->join("dm_pengguna", "dm_pengguna.id = trans_pemesanan.id_pelanggan");
+        $this->db->join("dm_po", "dm_po.id_po = trans_pemesanan.id_po");
+        $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan.status_pemesanan");
+        $this->db->where("dm_status_pemesanan.id_status", 7);
+
+        $this->db->order_by("id_pemesanan", 'ASC');
+
+        $finalResponse =  $this->db->get()->result();
+        return $finalResponse;
+    }
+
 
     public function datalistLaporan()
     {
@@ -32,7 +51,7 @@ class MListPesanan extends CI_Model
         $this->db->join("dm_pengguna", "dm_pengguna.id = trans_pemesanan.id_pelanggan");
         $this->db->join("dm_po", "dm_po.id_po = trans_pemesanan.id_po");
         $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan.status_pemesanan");
-        $this->db->where('status_pemesanan', 9);
+        $this->db->where('trans_pemesanan.status_pemesanan', 9);
         $this->db->order_by("id_pemesanan", 'ASC');
 
         $finalResponse =  $this->db->get()->result();

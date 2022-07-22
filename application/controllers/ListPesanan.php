@@ -16,6 +16,7 @@ class ListPesanan extends CI_Controller
 		$this->MListPesanan->kadaluarsa();
 		$data['title'] = 'Daftar Pesanan';
 		$data['subtitle'] = 'Data Daftar Pesanan';
+		$data['subtitleKeranjang'] = 'Data Daftar Pesanan Masuk Keranjang';
 
 		$data['content_overview'] = $this->load->view('listPesanan', $data, true);
 		$this->load->view('overview', $data);
@@ -34,6 +35,39 @@ class ListPesanan extends CI_Controller
 				'nomor'         		=> $i,
 				'id_pemesanan'         => $listPesanan->id_pemesanan,
 				'id_pelanggan'         => $listPesanan->id_pelanggan,
+				'nama'         => $listPesanan->nama,
+				'nama_barang'         => $listPesanan->nama_barang,
+				'harga_barang'         => $this->MFunction->idr($listPesanan->harga_barang),
+				'jumlah_beli'         => $listPesanan->jumlah_beli,
+				'total_pembelian'         => $this->MFunction->idr($listPesanan->total_pembelian),
+				'tanggal_pemesanan'         => $listPesanan->tanggal_pemesanan,
+				'status_pemesanan'       => "<span class='badge badge-warning'> " . $listPesanan->status_pemesanan . " </span>",
+				'gambar'                 => "<a href='" . base_url('assets/img/barang/' . $listPesanan->bukti_pembayaran) . "' class='btn btn-sm btn-outline-success' target='blank'> Lihat Gambar ",
+				'btn_action'            => "<a href='" . base_url('ListPesanan/update/' . $listPesanan->id_pemesanan) . "' class='btn btn-sm btn-outline-success'> 
+												<i class='fas fa-edit'></i>
+											</a>
+											"
+			);
+			$i++;
+		}
+
+		echo json_encode($rtn);
+	}
+
+	public function datalistKeranjang()
+	{
+		$list = $this->MListPesanan->datalistKeranjang();
+
+		$rtn = array();
+		$i = 1;
+
+		foreach ($list as $listPesanan) {
+
+			$rtn[] = array(
+				'nomor'         		=> $i,
+				'id_pemesanan'         => $listPesanan->id_pemesanan,
+				'id_pelanggan'         => $listPesanan->id_pelanggan,
+				'nama'         => $listPesanan->nama,
 				'nama_barang'         => $listPesanan->nama_barang,
 				'harga_barang'         => $this->MFunction->idr($listPesanan->harga_barang),
 				'jumlah_beli'         => $listPesanan->jumlah_beli,

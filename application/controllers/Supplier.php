@@ -55,7 +55,7 @@ class Supplier extends CI_Controller
 		$data['title'] = 'Supplier';
 		$data['subtitle'] = 'Tambah Data Supplier';
 
-		$data['prov'] = $this->MFunction->prov();
+		//$data['prov'] = $this->MFunction->prov();
 
 		$data['content_overview'] = $this->load->view('supplier/formadd', $data, true);
 		$this->load->view('overview', $data);

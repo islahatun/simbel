@@ -67,9 +67,11 @@
                         </div>
                         <div class="col-4">
                             <h4><?= $brg['nama_barang'] ?></h4>
-                            <p>Rp.<?= $brg['harga_jual'] ?></p>
+                            <p>Rp.<?= $this->MFunction->idr($brg['harga_jual']) ?></p>
                             <h5>Detail</h5>
                             <p><?= $brg['deskripsi'] ?></p>
+                            <h5>Berat Barang</h5>
+                            <p><?= $brg['berat_barang'] ?>Kg</p>
                         </div>
                         <div class="col-4">
                             <div class="card">
@@ -85,7 +87,7 @@
                                                         <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="1" name="jumlah_beli">
                                                     </div>
                                                     <input type="hidden" value="<?= $brg['id_po'] ?>" id="id_po" name="id_po">
-                                                    <input type="hidden" value="<?= $brg['harga_jual'] ?>" id="harga_jual" name="harga_barang">
+                                                    <input type="hidden" value="<?= $this->MFunction->idr($brg['harga_jual']) ?>" id="harga_jual" name="harga_barang">
                                                     <input type="hidden" value="<?= $brg['id_pemesanan'] ?>" id="id_pemesanan" name="id_pemesanan">
                                                 </div>
                                                 <div class="form-group row mt-3 mb-3">
@@ -99,7 +101,7 @@
                                                     <div class="form-group row mt-3 mb-3">
                                                         <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $brg['harga_jual'] ?>" name="total_pembelian">
+                                                            <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?=     $this->MFunction->idr( $brg['harga_jual']) ?>" name="total_pembelian">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -151,7 +153,7 @@
         // });
 
         $(document).ready(function() {
-            var berat = $("#berat_barang").val() + 9500;
+            var berat = parseInt($("#berat_barang").val()) * 9500;
             var ongkir = $("#ongkir").val(berat);
             var sub_total = (parseInt($("#harga_jual").val()) + parseInt(berat));
             console.log(sub_total);

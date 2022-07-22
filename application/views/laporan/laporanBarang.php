@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    
+
     <h3 style="text-align: center;">DAFTAR BARANG</h3>
     <table border="1" CELLSPACING="0" paddingspacing="10">
         <tr>
@@ -22,7 +22,7 @@
             <td>HARGA BELI</td>
             <td>HARGA JUAL</td>
             <td>DESKRIPSI</td>
-            <td>GAMBAR</td>
+            <!-- <td>GAMBAR</td> -->
         </tr>
         <?php
         $i = 1;
@@ -35,17 +35,18 @@
                 <td><?= $l->id_kategori ?></td>
                 <td><?= $l->satuan ?></td>
                 <td><?= $l->stok ?></td>
-                <td><?= $l->harga_beli ?></td>
-                <td><?= $l->harga_jual ?></td>
+                <td>Rp.<?=$this->MFunction->idr($l->harga_beli) ?></td>
+                <td>Rp.<?=$this->MFunction->idr( $l->harga_jual) ?></td>
                 <td><?= $l->deskripsi ?></td>
-                <td><?= $l->gambar ?></td>
+                <!-- <td><?= $l->gambar ?></td> -->
             </tr>
         <?php
             $i++;
         endforeach ?>
     </table>
-
 </body>
+
+
 <script>
     window.print();
 </script>

@@ -78,9 +78,11 @@
                     </div>
                     <div class="col-4">
                         <h4><?= $detail['nama_barang'] ?></h4>
-                        <p>Rp.<?= $detail['harga_jual'] ?></p>
+                        <p>Rp.<?=$this->MFunction->idr($detail['harga_jual']) ?></p>
                         <h5>Detail</h5>
                         <p><?= $detail['deskripsi'] ?></p>
+                        <h5>Berat Barang</h5>
+                        <p><?= $detail['berat_barang'] ?> Kg</p>
                     </div>
                     <div class="col-4">
                         <div class="card">
@@ -151,18 +153,17 @@
 
     <script>
         $(document).ready(function() {
-            var berat = $("#berat_barang").val() + 9500;
+            var berat = parseInt($("#berat_barang").val()) * 9500;
             var ongkir = $("#ongkir").val(berat);
             var sub_total = (parseInt($("#harga_jual").val()) + parseInt(berat));
-            console.log(sub_total);
-            $("#subtotal").val(sub_total);
+            $("#subtotal").val(format_number(sub_total));
         });
 
 
 
         $('#count').on('keyup', function() {
             var input = parseInt($(this).val());
-            subtotal = (input * $("#harga_jual").val()) + parseInt(($("#berat_barang").val() + 9500));
+            subtotal = (input * $("#harga_jual").val()) + parseInt(($("#berat_barang").val() * 9500));
             $("#subtotal").val(subtotal);
         });
 
