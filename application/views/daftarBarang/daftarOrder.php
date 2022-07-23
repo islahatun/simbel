@@ -101,7 +101,7 @@
                                                     <div class="form-group row mt-3 mb-3">
                                                         <label for="" class="col-sm-4 col-form-label-sm">Sub total</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?=     $this->MFunction->idr( $brg['harga_jual']) ?>" name="total_pembelian">
+                                                            <input type="text" class="form-control-plaintext form-control-plaintext-sm" id="subtotal" value="<?= $this->MFunction->idr($brg['harga_jual']) ?>" name="total_pembelian">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -260,5 +260,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
 </body>
+<footer>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#"> Jika Terjadi kesalahan atau ada masalah silahkan Hubungi : <?= $info->no_hp ?> </a>
+    </li>
+</footer>
+
 
 </html>

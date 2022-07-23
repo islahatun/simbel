@@ -80,13 +80,13 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <p>Harga Barang Rp.<?=$this->MFunction->idr($brg['harga_jual']) ?></p>
+                                        <p>Harga Barang Rp.<?= $this->MFunction->idr($brg['harga_jual']) ?></p>
                                     </td>
                                     <td>
                                         <p>Ongkir (JNT) Rp.<?= $this->MFunction->idr($brg['ongkir']) ?></p>
                                     </td>
                                     <td>
-                                        <p>Total Pembelian Rp.<?= $this->MFunction->idr($brg['total_pembelian'])?></p>
+                                        <p>Total Pembelian Rp.<?= $this->MFunction->idr($brg['total_pembelian']) ?></p>
                                     </td>
                                 </tr>
                             </table>
@@ -123,24 +123,24 @@
                                                             <i class="fas fa-dolly"></i> Lacak Barang
                                                         </a>
                                                     </div>
-                                                <?php } else if($brg['id_status'] == 5){?>
+                                                <?php } else if ($brg['id_status'] == 5) { ?>
                                                     <form action="">
-<br>
-                                                    <a href="<?=base_url("DaftarBarang/detailOrder/").$brg['id_po']?>" class="btn btn-sm btn-info">
-                                                             Lanjut Pembelian
+                                                        <br>
+                                                        <a href="<?= base_url("DaftarBarang/detailOrder/") . $brg['id_po'] ?>" class="btn btn-sm btn-info">
+                                                            Lanjut Pembelian
                                                         </a>
 
-                                                    <?php }?>
-                                                
+                                                    <?php } ?>
+
                                             </div>
                                         </div>
                                         <div class="row">
-                                            
+
                                         </div>
 
                                     </form>
                                     <hr>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -209,5 +209,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
 </body>
+<footer>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#"> Jika Terjadi kesalahan atau ada masalah silahkan Hubungi : <?= $info->no_hp ?> </a>
+    </li>
+</footer>
 
 </html>

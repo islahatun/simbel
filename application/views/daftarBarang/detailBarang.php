@@ -78,7 +78,7 @@
                     </div>
                     <div class="col-4">
                         <h4><?= $detail['nama_barang'] ?></h4>
-                        <p>Rp.<?=$this->MFunction->idr($detail['harga_jual']) ?></p>
+                        <p>Rp.<?= $this->MFunction->idr($detail['harga_jual']) ?></p>
                         <h5>Detail</h5>
                         <p><?= $detail['deskripsi'] ?></p>
                         <h5>Berat Barang</h5>
@@ -218,5 +218,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
 </body>
+<footer>
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#"> Jika Terjadi kesalahan atau ada masalah silahkan Hubungi : <?= $info->no_hp ?> </a>
+    </li>
+</footer>
 
 </html>
