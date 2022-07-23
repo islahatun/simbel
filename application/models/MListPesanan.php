@@ -18,7 +18,7 @@ class MListPesanan extends CI_Model
         $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan.status_pemesanan");
         $this->db->where("dm_status_pemesanan.id_status<>", 7);
 
-        $this->db->order_by("id_pemesanan", 'ASC');
+        $this->db->order_by("id_pemesanan", 'DESC');
 
         $finalResponse =  $this->db->get()->result();
         return $finalResponse;
@@ -35,7 +35,7 @@ class MListPesanan extends CI_Model
         $this->db->join("dm_status_pemesanan", "dm_status_pemesanan.id_status = trans_pemesanan.status_pemesanan");
         $this->db->where("dm_status_pemesanan.id_status", 7);
 
-        $this->db->order_by("id_pemesanan", 'ASC');
+        $this->db->order_by("id_pemesanan", 'DESC');
 
         $finalResponse =  $this->db->get()->result();
         return $finalResponse;

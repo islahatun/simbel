@@ -62,6 +62,13 @@
             <div class="card-body">
                 <div class="row mt-2 ml-2 mr-2">
                     <?php foreach ($barang as $brg) : ?>
+
+                        <?php if ($brg['tanggal_pemesanan'] <= date('Y-M-D') && $brg['stok'] > 0) { ?>
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                <strong>Hai <?= $this->session->userdata('nama');  ?> !</strong> Ayo Segara Checkout sebelum barang habis.
+                                </button>
+                            </div>
+                        <?php } ?>
                         <div class="col-3">
                             <img src="<?= base_url('assets/img/barang/' . $brg['gambar']) ?>" class="card-img-top" alt="...">
                         </div>
@@ -115,7 +122,9 @@
                                     <td>
                                         <form action="<?= base_url('DaftarBarang/hapus') ?>" method="post">
                                             <div class="col-6">
-                                                <input type="hidden" value="<?= $brg['id_pemesanan'] ?>" id="id_pemesanan" name="id_pemesanan">
+                                                <?php if ($brg['stok'] > 0) { ?>
+                                                    <input type="hidden" value="<?= $brg['id_pemesanan'] ?>" id="id_pemesanan" name="id_pemesanan">
+                                                <?php } ?>
                                                 <button type='submit' class='btn btn-sm btn-outline-danger'>
                                                     <i class='fas fa-trash-alt'></i> Hapus
                                                 </button>

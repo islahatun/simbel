@@ -46,7 +46,7 @@ class MDaftarBarang extends CI_Model
 	public function pesanan()
 	{
 		$id = $this->session->userdata['id'];
-		$this->db->select('*,gambar,dm_po.nama_barang');
+		$this->db->select('*,gambar,dm_po.nama_barang,dm_po.stok');
 		$this->db->from("trans_pemesanan");
 		$this->db->join('dm_po', 'dm_po.id_po = trans_pemesanan.id_po');
 		$this->db->where("id_pelanggan", $id);
