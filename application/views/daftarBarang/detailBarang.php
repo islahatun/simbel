@@ -83,6 +83,17 @@
                         <p><?= $detail['deskripsi'] ?></p>
                         <h5>Berat Barang</h5>
                         <p><?= $detail['berat_barang'] ?> Kg</p>
+
+                        <!-- Button trigger modal -->
+                        <h3>ulasan</h3>
+                        <div id="ulasan">
+                            <?php foreach ($ulasan as $u) : ?>
+                                <a href="<?= base_url('assets/img/barang/' . $u['foto_konfirmasi']) ?>" target='blank'>
+                                    <img width="50" height="50" src="<?= base_url('assets/img/barang/' . $u['foto_konfirmasi']) ?>" alt="">
+                                </a>
+                                <p><?= $u['konfirmasi'] ?></p>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                     <div class="col-4">
                         <div class="card">
@@ -159,7 +170,9 @@
             $("#subtotal").val(format_number(sub_total));
         });
 
-
+        function Klik() {
+            $('#ulasan').show()
+        }
 
         $('#count').on('keyup', function() {
             var input = parseInt($(this).val());

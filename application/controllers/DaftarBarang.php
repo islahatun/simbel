@@ -26,6 +26,7 @@ class DaftarBarang extends CI_Controller
 		$data['info'] = $this->MLogin->infoToko();
 		$data['barang'] = $this->MDaftarBarang->konfirmasi();
 		$data['detail'] = $this->MDaftarBarang->getById($id);
+		$data['ulasan'] = $this->MDaftarBarang->ulasan($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
 		$this->load->view('daftarBarang/detailBarang', $data);
 	}
@@ -33,7 +34,7 @@ class DaftarBarang extends CI_Controller
 	{
 		$data['pengguna'] = $this->MLogin->session();
 		$data['info'] = $this->MLogin->infoToko();
-		// $data['barang'] = $this->MDaftarBarang->konfirmasi();
+		$data['ulasan'] = $this->MDaftarBarang->ulasan($id);
 		$data['detail'] = $this->MDaftarBarang->getById($id);
 		// $data['template_page'] = $this->load->view('daftarBarang', $data, true);
 		$this->load->view('daftarBarang/detailBarang', $data);
