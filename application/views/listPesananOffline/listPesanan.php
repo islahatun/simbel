@@ -10,7 +10,7 @@
 
 <body>
 
-  <h3 style="text-align: center;">KWITANSI BENGKEL MANG MAMAD</h3>
+  <h3 style="text-align: center;">KWITANSI <?= $info->nama_toko ?></h3>
   <table>
     <?php foreach ($barang as $brg) ?>
     <tr>

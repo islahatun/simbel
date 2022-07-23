@@ -10,6 +10,7 @@ class LaporanPemesananOffline extends CI_Controller
 		$this->load->model('MListPesananOffline');
 		$this->load->model('MStatusPemesanan');
 		$this->load->model('MMasterBarang');
+		$this->load->model('MLogin');
 	}
 
 	public function index()
@@ -59,6 +60,7 @@ class LaporanPemesananOffline extends CI_Controller
 	public function listPesananOffline($id)
 	{
 		$data['list'] = $this->MListPesananOffline->datalistGroupDetail($id);
+		$data['pemesan'] = $this->MListPesananOffline->getById($id);
 		// $this->pdf->setPaper('A4', 'landscape');
 		// $this->pdf->filename = "Laporan-Daftar-Pemesanan.pdf";
 		$this->load->view('laporan/LaporanPemesananOffline', $data);
@@ -141,6 +143,7 @@ class LaporanPemesananOffline extends CI_Controller
 	{
 		$data['barang'] = $this->MListPesananOffline->datalistRow();
 		$data['list'] = $this->MListPesananOffline->datalist();
+		$data['info'] = $this->MLogin->infoToko();
 		// $this->pdf->setPaper('A4', 'landscape');
 		// $this->pdf->filename = "Laporan-Daftar-Pemesanan.pdf";
 		$this->load->view('listPesananOffline/listpesanan', $data);

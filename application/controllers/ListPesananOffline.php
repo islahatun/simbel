@@ -7,6 +7,7 @@ class ListPesananOffline extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('MFunction');
+		$this->load->model('MLogin');
 		$this->load->model('MListPesananOffline');
 		$this->load->model('MStatusPemesanan');
 		$this->load->model('MMasterBarang');
@@ -119,6 +120,7 @@ class ListPesananOffline extends CI_Controller
 	{
 		$data['barang'] = $this->MListPesananOffline->datalistRow();
 		$data['list'] = $this->MListPesananOffline->datalist();
+		$data['info'] = $this->MLogin->infoToko();
 		// $this->pdf->setPaper('A4', 'landscape');
 		// $this->pdf->filename = "Laporan-Daftar-Pemesanan.pdf";
 		$this->load->view('listPesananOffline/listpesanan', $data);
