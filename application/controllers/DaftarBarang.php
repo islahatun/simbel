@@ -181,4 +181,39 @@ class DaftarBarang extends CI_Controller
 
 		redirect('DaftarBarang/pesanan');
 	}
+
+	public function ulasan()
+	{
+		$data = $this->session->userdata['id'];
+		$foto = $this->input->post('id_pemesanan');
+		var_dump($foto);
+		$foto = $_FILES['foto']['name'];
+		if ($foto) {
+			$config['upload_path']          = './assets/img/barang/';
+			$config['allowed_types']        = 'jpg|png|jpeg';
+			$config['max_size']             = 2048;
+			$this->load->library('upload', $config);
+			if (!$this->upload->do_upload('foto')) {
+				$error = array('error' => $this->upload->display_errors());
+
+				$this->load->view('upload_form', $error);
+			} else {
+
+				$new_foto = $this->upload->data('file_name');
+				$data = array(
+					'konfirmasi' => $this->input->post('konfirmasi'),
+					'foto_konfirmasi' => $new_foto
+				);
+				$this->db->where('id_pemesanan', $this->input->post('id_pemesanan'));
+				$this->db->update("trans_pemesanan", $data);
+			}
+		} else {
+			$data = array(
+				'konfirmasi' => $this->input->post('konfirmasi'),
+			);
+			$this->db->where('id_pemesanan', $this->input->post('id_pemesanan'));
+			$this->db->update("trans_pemesanan", $data);
+		}
+		redirect('DaftarBarang/Tracking');
+	}
 }

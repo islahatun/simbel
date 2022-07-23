@@ -134,11 +134,28 @@
 
                                             </div>
                                         </div>
-                                        <div class="row">
-
-                                        </div>
-
                                     </form>
+                                    <?php if ($brg['konfirmasi'] == null) { ?>
+                                        <?php if ($brg['id_status'] == 9) { ?>
+
+                                            <?= form_open_multipart('DaftarBarang/ulasan'); ?>
+                                            <div class="form-group row">
+                                                <input type="hidden" name="id_pemesanan" value="<?= $brg['id_pemesanan'] ?>">
+                                                <label for="" class="col-sm-6 col-form-label-sm">Silahkan Masukan Ulasan</label>
+                                                <div class="col-sm-8">
+                                                    <textarea type="text" class="form-control form-control-sm" row="3" name="konfirmasi">
+                                                                </textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row mt-2">
+                                                <input type="file" name="foto">
+                                            </div>
+                                            <div class="form-group row mt-2">
+                                                <button type="submit" class="btn btn-sm btn-info">Kirim</button>
+                                            </div>
+
+                                        <?php } ?>
+                                    <?php } ?>
                                     <hr>
 
                                 </div>
