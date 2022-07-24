@@ -109,7 +109,14 @@
             <div class="card-body text-center">
               <h5 class="card-title"><?= $brg['nama_barang'] ?></h5>
               <p class="card-text"><?= $this->MFunction->idr($brg['harga_jual']) ?></p>
-              <a href="<?= base_url('DaftarBarang/detailNotLogin/' . $brg['id_po']) ?>" class="btn btn-primary">Detail Barang</a>
+              <p class="card-text">Stok Barang : <?php if ($brg['stok'] <= 0) {
+                                                    echo 0;
+                                                  } else {
+                                                    echo $brg['stok'];
+                                                  } ?></p>
+              <?php if ($brg['stok'] > 0) { ?>
+                <a href="<?= base_url('DaftarBarang/detail/' . $brg['id_po']) ?>" class="btn btn-primary">Detail Barang</a>
+              <?php } ?>
             </div>
           </div>
         </div>
