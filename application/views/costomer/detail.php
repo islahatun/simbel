@@ -42,17 +42,15 @@
 
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <input type="hidden" name="" id="id_pelanggan" value="<?= $ao->id ?>">
                             <table id="ao" class="table w-100 table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-md-1">No</th>
-                                        <th class="col-md-2 text-center">Nama Pelanggan</th>
-                                        <th class="col-md-1 text-center">Jenis Kelamin</th>
-                                        <th class="col-md-1 text-center">Nomor Hp</th>
-                                        <th class="col-md-2 text-center">Alamat</th>
-                                        <th class="col-md-2 text-center">Email</th>
-                                        <!-- <th class="col-md-1 text-center">Foto</th> -->
-                                        <th class="col-md-1 text-center">Aksi</th>
+                                        <th class="col-md-2 text-center">Nama Barang</th>
+                                        <th class="col-md-1 text-center">Jumlah Pembelian</th>
+                                        <th class="col-md-1 text-center">Tanggal Pembelian</th>
+                                        <th class="col-md-2 text-center">Status Pembelian</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -79,8 +77,8 @@
 <script>
     $(document).ready(function() {
         //debugger
-
-        PatchURL = _url.concat('/datalist');
+        var id_pelanggan = $("#id_pelanggan").val();
+        PatchURL = _baseurl.concat('/Costomer/datalistDetail/', id_pelanggan);
         $('#ao').DataTable({
             //"order": [2, "asc", 1, "asc"], //Initial no order.
             "destroy": true,
@@ -95,33 +93,21 @@
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "nama",
+                    "data": "nama_barang",
                     className: "align-middle text-center small"
                 },
                 {
-                    "data": "jenis_kelamin",
+                    "data": "jumlah_beli",
                     className: "align-middle small"
                 },
                 {
-                    "data": "no_telp",
+                    "data": "tanggal_pemesanan",
                     className: "align-middle small"
                 },
                 {
-                    "data": "alamat",
+                    "data": "status_pemesanan",
                     className: "align-middle text-center small"
                 },
-                {
-                    "data": "email",
-                    className: "align-middle text-center small"
-                },
-                // {
-                //     "data": "foto",
-                //     className: "align-middle text-center small"
-                // },
-                {
-                    "data": "btn_action",
-                    className: "align-middle text-center small"
-                }
             ]
         });
     });

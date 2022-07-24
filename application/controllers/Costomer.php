@@ -29,7 +29,8 @@ class Costomer extends CI_Controller
 
             $rtn[] = array(
                 'nomor'               => $i,
-                'nama'         => $ao->nama,
+                'nama'         => "<a href='" . base_url('Costomer/detail/' . $ao->id) . "'> 
+                " . $ao->nama . "</i>",
                 'jenis_kelamin'    => $ao->jenis_kelamin,
                 'no_telp'    => $ao->no_telp,
                 'alamat'    => $ao->alamat,
@@ -56,6 +57,39 @@ class Costomer extends CI_Controller
 
         $data['content_overview'] = $this->load->view('Costomer/formadd', $data, true);
         $this->load->view('overview', $data);
+    }
+
+    public function detail($id)
+    {
+        $data['title'] = 'Histori Pembelian';
+        $data['subtitle'] = 'Histori Pembelian';
+
+        $data["ao"] = $this->MCostomer->getById($id);
+
+        $data['content_overview'] = $this->load->view('Costomer/detail', $data, true);
+        $this->load->view('overview', $data);
+    }
+
+    public function datalistDetail($id)
+    {
+        $list = $this->MCostomer->datalistDetail($id);
+
+        $rtn = array();
+        $i = 1;
+
+        foreach ($list as $ao) {
+
+            $rtn[] = array(
+                'nomor'               => $i,
+                'nama_barang'    => $ao->nama_barang,
+                'jumlah_beli'    => $ao->jumlah_beli,
+                'status_pemesanan'    => $ao->status_pemesanan,
+                'tanggal_pemesanan'    => $ao->tanggal_pemesanan,
+            );
+            $i++;
+        }
+
+        echo json_encode($rtn);
     }
 
     public function update($id)
