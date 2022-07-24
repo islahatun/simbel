@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2022 at 10:38 AM
+-- Generation Time: Jul 24, 2022 at 05:59 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -38,7 +38,7 @@ CREATE TABLE `dm_kategori` (
 
 INSERT INTO `dm_kategori` (`id_kategori`, `nama_kategori`) VALUES
 (3, 'Mobil Mobilan'),
-(4, 'Sepeda');
+(4, 'Motor');
 
 -- --------------------------------------------------------
 
@@ -77,7 +77,7 @@ CREATE TABLE `dm_pengguna` (
 --
 
 INSERT INTO `dm_pengguna` (`id`, `no_telp`, `nama`, `alamat`, `jenis_kelamin`, `email`, `sandi`, `foto`, `status_login`) VALUES
-(2, '085893324274', 'Siska', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', 'admin@gmail.com', NULL, NULL, '1'),
+(2, '085893324274', 'Siska', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'admin@gmail.com', NULL, NULL, '1'),
 (3, '085893324274', 'Siapa aja ', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'islahatunnufusi07@gmail.com', NULL, NULL, '1'),
 (6, '085893324274', 'Humanika', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'P', 'iis@gmail.com', 'ac9b4e0b6a21758534db2a6324d34a54', 'C:\\fakepath\\f52afef93d06b5503b60a507e3377b80.jpg', '1'),
 (9, 'asas', 'sasa', 'asas', 'a', 'adminasaasa', '939a8398eca47b994c3206d3d9499b3b', NULL, '2'),
@@ -85,7 +85,11 @@ INSERT INTO `dm_pengguna` (`id`, `no_telp`, `nama`, `alamat`, `jenis_kelamin`, `
 (11, '085893324274', 'saaa', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'L', 'saaa@gmail.com', '$2y$10$XQ5/k44y0Nf1uLFuEfXJKuCsClq5FVLk.Lvg1N/t9YSiCv2x6woey', NULL, '2'),
 (14, '085893324274', 'siska', 'Serang', 'P', NULL, '$2y$10$XQ5/k44y0Nf1uLFuEfXJKuCsClq5FVLk.Lvg1N/t9YSiCv2x6woey', NULL, '2'),
 (15, '08676277622', 'udoh', 'serang', 'P', 'iahakhsaja', '$2y$10$bLkZ6TbhBprR7iP.h4HzAuTF1CDv3mZ2cOQZYX5B3/6VGU9OtFVwG', NULL, '1'),
-(16, '08676277622', 'Pemilik', 'serang', 'P', 'iahakhsaja', '$2y$10$bLkZ6TbhBprR7iP.h4HzAuTF1CDv3mZ2cOQZYX5B3/6VGU9OtFVwG', NULL, '3');
+(16, '08676277622', 'Pemilik', 'serang', 'P', 'iahakhsaja', '$2y$10$bLkZ6TbhBprR7iP.h4HzAuTF1CDv3mZ2cOQZYX5B3/6VGU9OtFVwG', NULL, '3'),
+(43, '085893324274', 'pelanggan', 'Serang', 'P', NULL, '$2y$10$QnMdb5LPWl8Ueg3iYbDcDOIdV12eoBhAChPsKkmZWQy1JMKuceG6i', NULL, '1'),
+(44, '085893324274', 'Pembeli', 'SERANG', 'P', NULL, '$2y$10$gAkodFoU8yaC.6zbYf6GEuFBHPwE.PEc2ec1fGDwfnjasiZRKD4H.', NULL, '1'),
+(45, '085893324274', 'Siapa Aja', 'Serang', 'P', NULL, '$2y$10$5ZrG/bjmTxOOaHso11VmU.WEBt2uJoaLumAOTls1WYf2pBZQxwNqG', NULL, '1'),
+(46, '09878', 'Coba', 'Serang', 'L', NULL, '$2y$10$z.dW/Bb7qH7KXKsEezb0TeieMf5dEbLcQ5LcFo4eso5vtzuBDc2w.', NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -112,10 +116,11 @@ CREATE TABLE `dm_po` (
 --
 
 INSERT INTO `dm_po` (`id_po`, `id_kategori`, `nama_barang`, `satuan`, `stok`, `harga_beli`, `harga_jual`, `deskripsi`, `tanggal_datang`, `gambar`, `berat_barang`) VALUES
-(4, NULL, 'Oli', 'liter', 500, '50000.00', '60000.00', 'oli super', '2022-06-23', 'f52afef93d06b5503b60a507e3377b80.jpg', 1),
-(5, NULL, 'nama barang', 'asaas', -1, '30000.00', '30000.00', 'asasas', '2022-06-22', '8ac7a7f1235ac0876d2ef49a4d21a3c3.jpg', 3),
-(6, NULL, 'nama barang ahaa', 'asaas', 0, '26666.00', '29999.00', 'asasas', '2022-06-22', 'WhatsApp_Image_2022-04-25_at_15_14_22.jpeg', 4),
-(7, NULL, 'sasasa', 'asasa', 1, '26666.00', '40000.00', 'asasas', '2022-04-11', 'WhatsApp_Image_2022-04-25_at_15_15_53.jpeg', 2);
+(4, NULL, 'Oli', 'liter', 499, '50000.00', '60000.00', 'oli super', '2022-06-23', 'f52afef93d06b5503b60a507e3377b80.jpg', 1),
+(5, NULL, 'nama barang', 'asaas', -5, '30000.00', '30000.00', 'asasas', '2022-06-22', '8ac7a7f1235ac0876d2ef49a4d21a3c3.jpg', 3),
+(6, NULL, 'nama barang ahaa', 'asaas', -1, '26666.00', '29999.00', 'asasas', '2022-06-22', 'WhatsApp_Image_2022-04-25_at_15_14_22.jpeg', 4),
+(7, NULL, 'sasasa', 'asasa', 1, '26666.00', '40000.00', 'asasas', '2022-04-11', 'WhatsApp_Image_2022-04-25_at_15_15_53.jpeg', 2),
+(8, '3', 'apa aja', '1', 11, '3000.00', '100000.00', 'KLKLKLKLKLKLHAJKHALKJS;lkasanjwhsa  uqwhoiqwpui wgahws banwqua siqwoksal kwhsuwyewqgwhsalwjsapwio', '2022-07-12', 'f52afef93d06b5503b60a507e3377b803.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -172,15 +177,16 @@ CREATE TABLE `dm_toko` (
   `alamat` varchar(255) DEFAULT NULL,
   `norekening` varchar(20) DEFAULT NULL,
   `pemilik_rekening` varchar(50) DEFAULT NULL,
-  `nama_bank` varchar(50) DEFAULT NULL
+  `nama_bank` varchar(50) DEFAULT NULL,
+  `no_hp` varchar(13) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `dm_toko`
 --
 
-INSERT INTO `dm_toko` (`id_toko`, `nama_toko`, `alamat`, `norekening`, `pemilik_rekening`, `nama_bank`) VALUES
-(2, 'dsssssd', 'namlask', 'naklasmlsa', 'amlksamlsa', 'BNI');
+INSERT INTO `dm_toko` (`id_toko`, `nama_toko`, `alamat`, `norekening`, `pemilik_rekening`, `nama_bank`, `no_hp`) VALUES
+(2, 'dsssssd', 'kalapa lima, Rt:rw:01/02,  desa: sukamanah, kecamatan: Baros, Kabupaten: serang, Provinsi: serang', 'naklasmlsa', 'amlksamlsa', 'BNI', '085893324274');
 
 -- --------------------------------------------------------
 
@@ -342,17 +348,24 @@ CREATE TABLE `trans_pemesanan` (
   `total_pembelian` decimal(12,2) DEFAULT NULL,
   `bukti_pembayaran` varchar(255) DEFAULT NULL,
   `nomor_resi` varchar(50) DEFAULT NULL,
-  `ongkir` int(11) DEFAULT NULL
+  `ongkir` int(11) DEFAULT NULL,
+  `konfirmasi` text DEFAULT NULL,
+  `foto_konfirmasi` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `trans_pemesanan`
 --
 
-INSERT INTO `trans_pemesanan` (`id_pemesanan`, `id_pelanggan`, `no_rekening`, `nama_pelanggan`, `id_po`, `nama_barang`, `harga_barang`, `jumlah_beli`, `status_pemesanan`, `tanggal_pemesanan`, `total_pembelian`, `bukti_pembayaran`, `nomor_resi`, `ongkir`) VALUES
-(30, 15, NULL, 'udoh', 5, NULL, '29999.00', 2, '5', '2022-07-10', '59998.00', NULL, NULL, NULL),
-(31, 15, NULL, 'udoh', 5, NULL, '30000.00', 1, '5', '2022-07-10', '69500.00', NULL, NULL, NULL),
-(32, 15, 'dsss', 'udoh', 5, NULL, '30000.00', 1, '8', '2022-07-10', '69500.00', 'f52afef93d06b5503b60a507e3377b802.jpg', '8989898', 39500);
+INSERT INTO `trans_pemesanan` (`id_pemesanan`, `id_pelanggan`, `no_rekening`, `nama_pelanggan`, `id_po`, `nama_barang`, `harga_barang`, `jumlah_beli`, `status_pemesanan`, `tanggal_pemesanan`, `total_pembelian`, `bukti_pembayaran`, `nomor_resi`, `ongkir`, `konfirmasi`, `foto_konfirmasi`) VALUES
+(33, 15, '1111', 'udoh', 7, NULL, '40000.00', 1, '7', '2022-07-10', '69500.00', 'f52afef93d06b5503b60a507e3377b804.jpg', NULL, 29500, 'aaaaaaaaaaa', 'Islahatun_Nufusi15.jpg'),
+(34, 15, '1111', 'udoh', 5, NULL, '30000.00', 1, '9', '2022-07-10', '69500.00', 'coba_lagi.png', NULL, 39500, 'aaaaaaaaaaa', 'Islahatun_Nufusi15.jpg'),
+(35, 43, '1111', 'pelanggan', 8, NULL, '100000.00', 1, '6', '2022-07-10', '119500.00', 'f52afef93d06b5503b60a507e3377b805.jpg', NULL, 19500, 'aaaaaaaaaaa', 'Islahatun_Nufusi15.jpg'),
+(45, 43, '123456', 'pelanggan', 8, NULL, '100000.00', 1, '6', '2022-07-10', '119500.00', 'f52afef93d06b5503b60a507e3377b809.jpg', NULL, 19500, 'aaaaaaaaaaa', 'Islahatun_Nufusi15.jpg'),
+(47, 43, 'ssdsdsdsddsd', 'pelanggan', 7, NULL, '40000.00', 1, '6', '2022-07-10', '69500.00', '159a6e29a59f4ce1491765867518.jpg', NULL, 29500, 'aaaaaaaaaaa', 'Islahatun_Nufusi15.jpg'),
+(48, 43, '1111', 'pelanggan', 6, NULL, '29999.00', 1, '6', '2022-07-10', '79499.00', '159a6e29a59f4ce14917658675181.jpg', NULL, 49500, 'aaaaaaaaaaa', 'Islahatun_Nufusi15.jpg'),
+(50, 46, '1111', 'Coba', 4, NULL, '60000.00', 1, '6', '2022-07-16', '79500.00', 'Islahatun_Nufusi7.jpg', NULL, 19500, 'aaaaaaaaaaa', 'Islahatun_Nufusi15.jpg'),
+(61, 15, NULL, 'udoh', 8, NULL, '100000.00', 1, '5', '2022-07-24', '100000.00', NULL, NULL, 9500, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -497,13 +510,13 @@ ALTER TABLE `dm_kurir`
 -- AUTO_INCREMENT for table `dm_pengguna`
 --
 ALTER TABLE `dm_pengguna`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `dm_po`
 --
 ALTER TABLE `dm_po`
-  MODIFY `id_po` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_po` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `dm_status_pemesanan`
@@ -551,7 +564,7 @@ ALTER TABLE `sys_rules`
 -- AUTO_INCREMENT for table `trans_pemesanan`
 --
 ALTER TABLE `trans_pemesanan`
-  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_pemesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `trans_pemesanan_offline`
