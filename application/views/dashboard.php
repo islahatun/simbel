@@ -45,7 +45,7 @@
                 <span class="info-box-number">
                   <?php
 
-                  $hitung = "SELECT * FROM trans_pemesanan WHERE status_pemesanan=1";
+                  $hitung = "SELECT * FROM trans_pemesanan WHERE status_pemesanan<>7";
                   $h = $this->db->query($hitung)->num_rows();
                   echo $h;
                   ?>
