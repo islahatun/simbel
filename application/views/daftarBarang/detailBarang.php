@@ -109,14 +109,14 @@
                                                     <input type="text" class="form-control form-control-sm count" id="count" placeholder="Jumlah Beli" value="1" name="jumlah_beli">
                                                 </div>
                                                 <input type="hidden" value="<?= $detail['id_po'] ?>" id="id_po" name="id_po" class="id_po">
-                                                <input type="hidden" value="<?= $detail['harga_jual'] ?>" id="harga_jual" name="harga_barang">
+                                                <input type="hidden" class="harga_jual" value="<?= $detail['harga_jual'] ?>" id="harga_jual" name="harga_barang">
                                             </div>
                                             <div>
                                                 <div class="form-group row mt-3 mb-3">
                                                     <label for="" class="col-sm-4 col-form-label-sm">Ongkir (JNT)</label>
                                                     <div class="col-sm-8">
                                                         <input type="text" class="form-control-plaintext form-control-plaintext-sm ongkir" id="ongkir" name="ongkir">
-                                                        <input type="hidden" class="form-control-plaintext form-control-plaintext-sm berat_barang" value="<?= $detail['berat_barang'] ?>" id="berat_barang" name="berat_barang">
+                                                        <input type="hidden" class=" berat_barang" value="<?= $detail['berat_barang'] ?>" id="berat_barang" name="berat_barang">
                                                     </div>
                                                 </div>
                                                 <div class="form-group row mt-3 mb-3">
@@ -138,8 +138,8 @@
                                     <form action="<?= base_url('DaftarBarang/keranjang') ?>" method="post">
                                         <input type="hidden" value="<?= $detail['id_po'] ?>" id="id_po" name="id_po">
                                         <input type="hidden" value="<?= $detail['harga_jual'] ?>" id="harga_barang" name="harga_barang">
-                                        <input type="hidden" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="1" name="jumlah_beli">
-                                        <input type="hidden" class="form-control-plaintext form-control-plaintext-sm ongkir" id="ongkir" name="ongkir">
+                                        <input type="hidden" class="form-control form-control-sm count" id="count" placeholder="Jumlah Beli" value="1" name="jumlah_beli">
+                                        <input type="hidden" class="form-control-plaintext form-control-plaintext-sm ongkir" value="9500" name="ongkir">
                                         <input type="hidden" class="form-control-plaintext form-control-plaintext-sm berat_barang" value="<?= $detail['berat_barang'] ?>" id="berat_barang" name="berat_barang">
                                         <input type="hidden" class="form-control-plaintext form-control-plaintext-sm subtotal" id="subtotal" value="<?= $detail['harga_jual'] ?>" name="total_pembelian">
                                         <button class="btn btn-outline-secondary" type="submit">keranjang</button>
@@ -172,7 +172,7 @@
             var berat = parseInt($(".berat_barang").val()) * 9500;
             var ongkir = $(".ongkir").val(berat);
             var sub_total = (parseInt($(".harga_jual").val()) + parseInt(berat));
-            $(".subtotal").val(format_number(sub_total));
+            $(".subtotal").val(sub_total);
         });
 
         function Klik() {

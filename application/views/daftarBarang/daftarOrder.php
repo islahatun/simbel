@@ -91,10 +91,10 @@
                                                 <div class="form-group row">
                                                     <label for="" class="col-sm-4 col-form-label-sm">Jumlah Beli</label>
                                                     <div class="col-sm-8">
-                                                        <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="1" name="jumlah_beli">
+                                                        <input type="text" class="form-control form-control-sm" id="count" placeholder="Jumlah Beli" value="1" name="jumlah_beli" name="count">
                                                     </div>
                                                     <input type="hidden" value="<?= $brg['id_po'] ?>" id="id_po" name="id_po">
-                                                    <input type="hidden" value="<?= $this->MFunction->idr($brg['harga_jual']) ?>" id="harga_jual" name="harga_barang">
+                                                    <input type="hidden" value="<?= $brg['harga_jual'] ?>" id="harga_jual" name="harga_barang" class="harga_jual">
                                                     <input type="hidden" value="<?= $brg['id_pemesanan'] ?>" id="id_pemesanan" name="id_pemesanan">
                                                 </div>
                                                 <div class="form-group row mt-3 mb-3">

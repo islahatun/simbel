@@ -163,6 +163,7 @@ class DaftarBarang extends CI_Controller
 			'id_pelanggan' => $data,
 			'nama_pelanggan' => $nama,
 			'id_po' => $this->input->post('id_po'),
+			'ongkir' => $this->input->post('ongkir'),
 			'jumlah_beli' => $this->input->post('jumlah_beli'),
 			'total_pembelian' => $this->input->post('total_pembelian'),
 			'harga_barang' => $this->input->post('harga_barang'),
