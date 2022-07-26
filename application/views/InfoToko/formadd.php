@@ -46,7 +46,7 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">No Rekening</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="norekening" placeholder="No Rekening">
+                                        <input type="number" class="form-control form-control-sm" id="norekening" placeholder="No Rekening">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -58,7 +58,7 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">Pemilik Rekening</label>
                                     <div class="col-sm-10">
-                                        <input type="number" class="form-control form-control-sm" id="pemilik_rekening" placeholder="Pemilik Rekening">
+                                        <input type="text" class="form-control form-control-sm" id="pemilik_rekening" placeholder="Pemilik Rekening">
                                     </div>
                                 </div>
                                 <div class="form-group row">

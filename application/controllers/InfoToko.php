@@ -51,8 +51,8 @@ class InfoToko extends CI_Controller
 
     public function add()
     {
-        $data['title'] = 'Daftar Pelanggan';
-        $data['subtitle'] = 'Data Pelanggan';
+        $data['title'] = 'Info Toko';
+        $data['subtitle'] = 'Info Toko';
 
         $data['content_overview'] = $this->load->view('InfoToko/formadd', $data, true);
         $this->load->view('overview', $data);
@@ -60,8 +60,8 @@ class InfoToko extends CI_Controller
 
     public function update($id)
     {
-        $data['title'] = 'Daftar Pelanggan';
-        $data['subtitle'] = 'Data Pelanggan';
+        $data['title'] = 'Info Toko';
+        $data['subtitle'] = 'Info Toko';
         $data["ao"] = $this->MInfoToko->getById($id);
 
         $data['content_overview'] = $this->load->view('InfoToko/formupdate', $data, true);

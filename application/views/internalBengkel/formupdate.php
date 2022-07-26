@@ -72,7 +72,9 @@
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('InternalBengkel'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <?php if ($ao->status_login !== '3') { ?>
+                                    <a href="<?= base_url('InternalBengkel'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <?php } ?>
                                 <button type="button" class="btn btn-primary" onclick="updateSaveAO()">Save</button>
                             </div>
                         </form>
@@ -92,11 +94,12 @@
                                         <input type="password" class="form-control form-control-sm" required id="sandi" placeholder="sandi">
                                     </div>
                                 </div>
-
                             </div>
                             <!-- /.card-body -->
                             <div class="card-footer text-right">
-                                <a href="<?= base_url('InternalBengkel'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <?php if ($ao->status_login !== '3') { ?>
+                                    <a href="<?= base_url('InternalBengkel'); ?>" type="button" class="btn btn-secondary">Kembali</a>
+                                <?php } ?>
                                 <button type="button" class="btn btn-primary" onclick="updateSandi()">Save</button>
                             </div>
                         </form>

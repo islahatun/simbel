@@ -53,7 +53,7 @@
                                 <div class="form-group row">
                                     <label for="" class="col-sm-2 col-form-label-sm">No Rekening</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control form-control-sm" id="norekening" placeholder="No Rekening" value="<?= $ao->norekening; ?>">
+                                        <input type="number" class="form-control form-control-sm" id="norekening" placeholder="No Rekening" value="<?= $ao->norekening; ?>">
                                     </div>
                                 </div>
                                 <div class="form-group row">

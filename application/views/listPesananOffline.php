@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css'); ?>">
 <link rel="stylesheet" href="<?= base_url('assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css'); ?>">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <div class="content-wrapper" style="min-height: 1302.12px;">
   <!-- Content Header (Page header) -->
@@ -302,6 +303,23 @@
       error: function(jqXHR, textStatus, errorThrown) {
         toastr.error('Data gagal disimpan.');
       }
+    });
+  }
+
+  function isi_otomatis() {
+    var nim = $("#nim").val();
+    $.ajax({
+      url: 'ajax.php',
+      data: "nim=" + nim,
+    }).success(function(data) {
+      var json = data,
+        obj = JSON.parse(json);
+      $('#nama').val(obj.nama);
+      $('#jeniskelamin').val(obj.jeniskelamin);
+      $('#jurusan').val(obj.jurusan);
+      $('#notelp').val(obj.notelp);
+      $('#email').val(obj.email);
+      $('#alamat').val(obj.alamat);
     });
   }
 
